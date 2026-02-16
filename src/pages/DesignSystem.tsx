@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout";
 import DiamondDivider from "@/components/DiamondDivider";
 import { Button } from "@/components/ui/button";
-import { HandHeart, ArrowRight, Heart, MapPin, Users } from "lucide-react";
+import { HandHeart, ArrowRight, Heart, MapPin, Users, Image } from "lucide-react";
 
 const colors = [
   { name: "Czerwień Podlaska", hex: "#C41A2C", token: "--primary", label: "Kolor główny · CTA · Logo", className: "bg-primary" },
@@ -178,12 +178,12 @@ const DesignSystem = () => {
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: Heart, emoji: "🐾", title: "Dla Psiaków", text: "Pomagamy bezdomnym zwierzętom na Podlasiu. Organizujemy zbiórki, spacery i adopcje." },
-              { icon: MapPin, emoji: "💪", title: "Moc Podlasia", text: "Rozwijamy lokalne społeczności i wspieramy oddolne inicjatywy w regionie." },
-              { icon: Users, emoji: "🤝", title: "Kobiety Razem", text: "Mentoring i wsparcie między kobietami. Razem jesteśmy silniejsze." },
+              { Icon: Heart, title: "Dla Psiaków", text: "Pomagamy bezdomnym zwierzętom na Podlasiu. Organizujemy zbiórki, spacery i adopcje." },
+              { Icon: MapPin, title: "Moc Podlasia", text: "Rozwijamy lokalne społeczności i wspieramy oddolne inicjatywy w regionie." },
+              { Icon: Users, title: "Kobiety Razem", text: "Mentoring i wsparcie między kobietami. Razem jesteśmy silniejsze." },
             ].map((card) => (
               <div key={card.title} className="card-initiative p-6 md:p-7">
-                <div className="text-3xl mb-3">{card.emoji}</div>
+                <card.Icon className="text-primary mb-3" size={32} />
                 <h4 className="font-heading text-brand-h4 font-semibold text-foreground mb-2">{card.title}</h4>
                 <p className="text-brand-small text-muted-foreground leading-relaxed">{card.text}</p>
                 <a href="#" className="inline-block mt-4 text-sm font-semibold uppercase tracking-[0.5px] text-primary hover:text-primary-dark transition-colors">
@@ -210,8 +210,8 @@ const DesignSystem = () => {
               { tag: "Warsztaty", date: "5 lutego 2026", title: "Warsztaty krzyżykowe — Moc Podlasia", text: "Zapraszamy na warsztaty haftu krzyżykowego inspirowanego tradycyjnymi wzorami..." },
             ].map((post) => (
               <div key={post.title} className="bg-card rounded-sm shadow-brand-sm overflow-hidden hover:shadow-brand-md hover:-translate-y-0.5 transition-all">
-                <div className="h-44 bg-gradient-to-br from-secondary to-primary-light/30 flex items-center justify-center text-4xl opacity-50">
-                  📷
+                <div className="h-44 bg-gradient-to-br from-secondary to-primary-light/30 flex items-center justify-center">
+                  <Image className="text-primary/50" size={40} />
                 </div>
                 <div className="p-5">
                   <span className="inline-block text-[11px] uppercase tracking-[1.5px] text-primary font-semibold mb-1">{post.tag}</span>

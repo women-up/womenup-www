@@ -57,28 +57,45 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        brand: {
+          red: "#C41A2C",
+          "red-dark": "#9E1523",
+          "red-light": "#E8344A",
+          cream: "#F5F0E8",
+          "cream-dark": "#EDE7DB",
+          brown: "#2D2016",
+          "brown-light": "#6B5E52",
+          border: "#D4CBBC",
+        },
+      },
+      fontFamily: {
+        heading: ["Cormorant Garamond", "Georgia", "serif"],
+        body: ["Inter", "system-ui", "sans-serif"],
+      },
+      letterSpacing: {
+        "brand-wide": "0.1em",
+        "brand-subtle": "0.02em",
+      },
+      fontSize: {
+        "brand-h1": ["3.5rem", { lineHeight: "1.1", letterSpacing: "0.02em" }],
+        "brand-h2": ["2.5rem", { lineHeight: "1.2" }],
+        "brand-h3": ["1.75rem", { lineHeight: "1.3" }],
+        "brand-h4": ["1.375rem", { lineHeight: "1.4" }],
+        "brand-caption": ["0.75rem", { lineHeight: "1.5" }],
       },
       borderRadius: {
         lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        md: "calc(var(--radius) - 1px)",
+        sm: "calc(var(--radius) - 1px)",
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       animation: {

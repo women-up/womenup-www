@@ -9,6 +9,7 @@ import Inicjatywy from "./pages/Inicjatywy";
 import Aktualnosci from "./pages/Aktualnosci";
 import Kontakt from "./pages/Kontakt";
 import Dolacz from "./pages/Dolacz";
+import DesignSystem from "./pages/DesignSystem";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/aktualnosci" element={<Aktualnosci />} />
           <Route path="/kontakt" element={<Kontakt />} />
           <Route path="/dolacz" element={<Dolacz />} />
+          <Route path="/design-system" element={<DesignSystem />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

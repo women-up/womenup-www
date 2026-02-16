@@ -22,6 +22,8 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          dark: "hsl(var(--primary-dark))",
+          light: "hsl(var(--primary-light))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -57,15 +59,19 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        gold: "hsl(var(--gold))",
+        success: "hsl(var(--success))",
         brand: {
           red: "#C41A2C",
-          "red-dark": "#9E1523",
-          "red-light": "#E8344A",
+          "red-dark": "#8B1A2C",
+          "red-light": "#E8505B",
           cream: "#F5F0E8",
-          "cream-dark": "#EDE7DB",
-          brown: "#2D2016",
-          "brown-light": "#6B5E52",
-          border: "#D4CBBC",
+          "cream-dark": "#E8DFD0",
+          brown: "#2D2926",
+          "brown-light": "#8B8178",
+          border: "#D1C9BE",
+          gold: "#C9972A",
+          green: "#4A7C59",
         },
       },
       fontFamily: {
@@ -77,16 +83,23 @@ export default {
         "brand-subtle": "0.02em",
       },
       fontSize: {
-        "brand-h1": ["3.5rem", { lineHeight: "1.1", letterSpacing: "0.02em" }],
+        "brand-h1": ["3.5rem", { lineHeight: "1.14", letterSpacing: "0.02em" }],
         "brand-h2": ["2.5rem", { lineHeight: "1.2" }],
-        "brand-h3": ["1.75rem", { lineHeight: "1.3" }],
+        "brand-h3": ["1.75rem", { lineHeight: "1.29" }],
         "brand-h4": ["1.375rem", { lineHeight: "1.4" }],
+        "brand-body": ["1rem", { lineHeight: "1.625" }],
+        "brand-small": ["0.875rem", { lineHeight: "1.57" }],
         "brand-caption": ["0.75rem", { lineHeight: "1.5" }],
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 1px)",
-        sm: "calc(var(--radius) - 1px)",
+        sm: "var(--radius)",
+      },
+      boxShadow: {
+        "brand-sm": "0 2px 12px rgba(45, 41, 38, 0.08)",
+        "brand-md": "0 8px 24px rgba(45, 41, 38, 0.12)",
+        "brand-primary": "0 4px 12px rgba(196, 26, 44, 0.3)",
       },
       keyframes: {
         "accordion-down": {

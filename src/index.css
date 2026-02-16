@@ -4,65 +4,84 @@
 
 @layer base {
   :root {
+    /* Brand: Kremowe Płótno background */
     --background: 36 33% 94%;
-    --foreground: 24 30% 13%;
+    /* Brand: Antracyt text */
+    --foreground: 18 6% 16%;
 
+    /* Surface white */
     --card: 0 0% 100%;
-    --card-foreground: 24 30% 13%;
+    --card-foreground: 18 6% 16%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 24 30% 13%;
+    --popover-foreground: 18 6% 16%;
 
+    /* Brand: Czerwień Podlaska */
     --primary: 354 76% 44%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 36 25% 90%;
-    --secondary-foreground: 24 30% 13%;
+    /* Brand: Ciepły Beż (alt bg) */
+    --secondary: 30 28% 86%;
+    --secondary-foreground: 18 6% 16%;
 
-    --muted: 36 25% 90%;
-    --muted-foreground: 24 12% 37%;
+    /* Muted: warm grey */
+    --muted: 30 28% 86%;
+    --muted-foreground: 22 8% 50%;
 
+    /* Accent = primary for brand consistency */
     --accent: 354 76% 44%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 33 18% 78%;
-    --input: 33 18% 78%;
+    /* Brand: warm border #D1C9BE */
+    --border: 30 14% 78%;
+    --input: 30 14% 78%;
     --ring: 354 76% 44%;
 
     --radius: 2px;
 
-    --sidebar-background: 24 30% 13%;
+    /* Brand: Złoto Podlasia */
+    --gold: 40 66% 48%;
+    /* Brand: Zieleń Łąk */
+    --success: 147 27% 39%;
+
+    /* Brand: Czerwień Ciemna (hover/gradient) */
+    --primary-dark: 348 68% 33%;
+    /* Brand: Czerwień Jasna (links/accents) */
+    --primary-light: 354 76% 62%;
+
+    /* Footer / sidebar: Antracyt */
+    --sidebar-background: 18 6% 16%;
     --sidebar-foreground: 36 33% 94%;
     --sidebar-primary: 354 76% 44%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 24 12% 37%;
+    --sidebar-accent: 22 8% 50%;
     --sidebar-accent-foreground: 36 33% 94%;
-    --sidebar-border: 33 18% 78%;
+    --sidebar-border: 30 14% 78%;
     --sidebar-ring: 354 76% 44%;
   }
 
   .dark {
-    --background: 24 30% 13%;
+    --background: 18 6% 16%;
     --foreground: 36 33% 94%;
-    --card: 24 25% 18%;
+    --card: 18 8% 20%;
     --card-foreground: 36 33% 94%;
-    --popover: 24 25% 18%;
+    --popover: 18 8% 20%;
     --popover-foreground: 36 33% 94%;
     --primary: 354 76% 44%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 24 12% 37%;
+    --secondary: 22 8% 50%;
     --secondary-foreground: 36 33% 94%;
-    --muted: 24 12% 37%;
-    --muted-foreground: 33 18% 78%;
+    --muted: 22 8% 50%;
+    --muted-foreground: 30 14% 78%;
     --accent: 354 76% 44%;
     --accent-foreground: 0 0% 100%;
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 63% 31%;
     --destructive-foreground: 0 0% 100%;
-    --border: 24 12% 37%;
-    --input: 24 12% 37%;
+    --border: 22 8% 30%;
+    --input: 22 8% 30%;
     --ring: 354 76% 44%;
   }
 }
@@ -83,4 +102,35 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Cormorant Garamond', Georgia, serif;
   }
+}
+
+/* Cross-stitch SVG background patterns */
+.pattern-cross-stitch {
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='2' y='2' width='7' height='7' fill='%23C41A2C' opacity='0.07'/%3E%3Crect x='11' y='11' width='7' height='7' fill='%23C41A2C' opacity='0.07'/%3E%3C/svg%3E");
+}
+
+.pattern-diamond {
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='17' y='2' width='6' height='6' fill='%23C41A2C' opacity='0.06' transform='rotate(45 20 5)'/%3E%3Crect x='2' y='17' width='6' height='6' fill='%23C41A2C' opacity='0.06' transform='rotate(45 5 20)'/%3E%3Crect x='32' y='17' width='6' height='6' fill='%23C41A2C' opacity='0.06' transform='rotate(45 35 20)'/%3E%3Crect x='17' y='32' width='6' height='6' fill='%23C41A2C' opacity='0.06' transform='rotate(45 20 35)'/%3E%3C/svg%3E");
+}
+
+/* Cross-stitch top border pattern */
+.pattern-stitch-border {
+  background: repeating-linear-gradient(
+    90deg,
+    hsl(354 76% 44%) 0px,
+    hsl(354 76% 44%) 8px,
+    transparent 8px,
+    transparent 12px
+  );
+}
+
+/* Initiative card with left border accent */
+.card-initiative {
+  @apply bg-card border border-border rounded-sm transition-all;
+  border-left: 4px solid hsl(var(--primary));
+}
+
+.card-initiative:hover {
+  @apply shadow-md;
+  transform: translateY(-2px);
 }

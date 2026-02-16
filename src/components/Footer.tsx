@@ -4,7 +4,7 @@ import CrossStitchBorder from "./CrossStitchBorder";
 
 const Footer = () => {
   return (
-    <footer className="bg-brand-brown text-brand-cream">
+    <footer className="bg-brand-brown text-brand-cream" style={{ background: '#2D2926' }}>
       <CrossStitchBorder />
       <div className="container mx-auto px-4 py-12 md:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">

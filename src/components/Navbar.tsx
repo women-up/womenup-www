@@ -5,11 +5,11 @@ import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.svg";
 
 const navLinks = [
-  { to: "/o-nas", label: "O nas" },
-  { to: "/inicjatywy", label: "Inicjatywy" },
-  { to: "/aktualnosci", label: "Aktualności" },
-  { to: "/kontakt", label: "Kontakt" },
-];
+{ to: "/o-nas", label: "O nas" },
+{ to: "/inicjatywy", label: "Inicjatywy" },
+{ to: "/aktualnosci", label: "Aktualności" },
+{ to: "/kontakt", label: "Kontakt" }];
+
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -25,25 +25,25 @@ const Navbar = () => {
             <span className="font-heading text-xl md:text-2xl font-bold text-primary tracking-brand-wide leading-none">
               WOMEN UP!
             </span>
-            <span className="text-[10px] uppercase tracking-brand-wide text-muted-foreground leading-none mt-0.5">
-              Inicjatywa Społeczna
-            </span>
+            
+
+
           </div>
         </Link>
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.to}
-              to={link.to}
-              className={`text-sm font-medium transition-colors hover:text-primary ${
-                location.pathname === link.to ? "text-primary" : "text-foreground"
-              }`}
-            >
+          {navLinks.map((link) =>
+          <Link
+            key={link.to}
+            to={link.to}
+            className={`text-sm font-medium transition-colors hover:text-primary ${
+            location.pathname === link.to ? "text-primary" : "text-foreground"}`
+            }>
+
               {link.label}
             </Link>
-          ))}
+          )}
         </nav>
 
         {/* Desktop CTA */}
@@ -57,28 +57,28 @@ const Navbar = () => {
         <button
           onClick={() => setOpen(!open)}
           className="md:hidden p-2 text-foreground"
-          aria-label="Menu"
-        >
+          aria-label="Menu">
+
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {/* Mobile menu */}
-      {open && (
-        <div className="md:hidden bg-background border-t border-border">
+      {open &&
+      <div className="md:hidden bg-background border-t border-border">
           <nav className="flex flex-col p-4 gap-3">
-            {navLinks.map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                onClick={() => setOpen(false)}
-                className={`text-base font-medium py-2 transition-colors hover:text-primary ${
-                  location.pathname === link.to ? "text-primary" : "text-foreground"
-                }`}
-              >
+            {navLinks.map((link) =>
+          <Link
+            key={link.to}
+            to={link.to}
+            onClick={() => setOpen(false)}
+            className={`text-base font-medium py-2 transition-colors hover:text-primary ${
+            location.pathname === link.to ? "text-primary" : "text-foreground"}`
+            }>
+
                 {link.label}
               </Link>
-            ))}
+          )}
             <Link to="/dolacz" onClick={() => setOpen(false)}>
               <Button className="w-full uppercase tracking-brand-wide text-xs font-semibold mt-2">
                 Dołącz do nas
@@ -86,9 +86,9 @@ const Navbar = () => {
             </Link>
           </nav>
         </div>
-      )}
-    </header>
-  );
+      }
+    </header>);
+
 };
 
 export default Navbar;

@@ -43,7 +43,7 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative py-12 md:py-32 overflow-hidden">
+      <section className="relative py-16 md:py-40 overflow-hidden">
         {/* Diamond pattern background */}
         <div className="absolute inset-0 pattern-diamond" />
         <div

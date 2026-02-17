@@ -61,7 +61,7 @@ const Index = () => {
           <motion.img
             src={logo}
             alt="Women Up! logo"
-            className="md:hidden h-16 w-auto mx-auto mb-4"
+            className="md:hidden h-20 w-auto mx-auto mb-4"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}

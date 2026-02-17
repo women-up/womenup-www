@@ -64,29 +64,31 @@ const Navbar = () => {
       </div>
 
       {/* Mobile menu */}
-      {open && (
-        <div className="md:hidden bg-background border-t border-border">
-          <nav className="flex flex-col p-4 gap-3">
-            {navLinks.map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                onClick={() => setOpen(false)}
-                className={`text-base font-medium py-2 transition-colors hover:text-primary ${
-                  location.pathname === link.to ? "text-primary" : "text-foreground"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Link to="/dolacz" onClick={() => setOpen(false)}>
-              <Button className="w-full uppercase tracking-brand-wide text-xs font-semibold mt-2">
-                Dołącz do nas
-              </Button>
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+          open ? "max-h-80 border-t border-border" : "max-h-0"
+        }`}
+      >
+        <nav className="flex flex-col p-4 gap-3 bg-background">
+          {navLinks.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              onClick={() => setOpen(false)}
+              className={`text-base font-medium py-2 transition-colors hover:text-primary ${
+                location.pathname === link.to ? "text-primary" : "text-foreground"
+              }`}
+            >
+              {link.label}
             </Link>
-          </nav>
-        </div>
-      )}
+          ))}
+          <Link to="/dolacz" onClick={() => setOpen(false)}>
+            <Button className="w-full uppercase tracking-brand-wide text-xs font-semibold mt-2">
+              Dołącz do nas
+            </Button>
+          </Link>
+        </nav>
+      </div>
     </header>
   );
 };

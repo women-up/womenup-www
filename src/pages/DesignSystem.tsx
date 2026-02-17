@@ -400,7 +400,7 @@ const DesignSystem = () => {
           <h2 className="font-heading text-brand-h2 font-semibold text-primary text-center mb-10">
             Hero CTA
           </h2>
-          <div className="relative rounded-sm overflow-hidden bg-gradient-to-br from-primary to-primary-dark p-10 md:p-16 text-center">
+          <div className="relative rounded-sm overflow-hidden bg-gradient-to-br from-primary via-primary-dark to-[hsl(348,68%,26%)] p-10 md:p-16 text-center">
             <div
               className="absolute inset-0 opacity-[0.06]"
               style={{

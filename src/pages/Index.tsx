@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import DiamondDivider from "@/components/DiamondDivider";
 import Layout from "@/components/Layout";
+import AnimatedSection from "@/components/AnimatedSection";
 import logo from "@/assets/logo.svg";
 
 const values = [
@@ -106,7 +107,7 @@ const Index = () => {
       </section>
 
       {/* Kim Jesteśmy */}
-      <section className="py-16 md:py-24 bg-card">
+      <AnimatedSection className="py-16 md:py-24 bg-card">
         <div className="container mx-auto px-4">
           <h2 className="font-heading text-brand-h2 md:text-[2.5rem] text-[2rem] font-bold text-primary text-center mb-12">
             Kim Jesteśmy
@@ -131,10 +132,10 @@ const Index = () => {
             </div>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Nasze Inicjatywy */}
-      <section className="py-16 md:py-24">
+      <AnimatedSection className="py-16 md:py-24">
         <div className="container mx-auto px-4">
           <h2 className="font-heading text-brand-h2 md:text-[2.5rem] text-[2rem] font-bold text-primary text-center mb-4">
             Nasze Inicjatywy
@@ -168,10 +169,10 @@ const Index = () => {
             </Link>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Aktualności */}
-      <section className="py-16 md:py-24 bg-card">
+      <AnimatedSection className="py-16 md:py-24 bg-card">
         <div className="container mx-auto px-4">
           <h2 className="font-heading text-brand-h2 md:text-[2.5rem] text-[2rem] font-bold text-primary text-center mb-12">
             Aktualności
@@ -201,10 +202,10 @@ const Index = () => {
             </Link>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Social Media */}
-      <section className="py-16 md:py-24">
+      <AnimatedSection className="py-16 md:py-24">
         <div className="container mx-auto px-4">
           <h2 className="font-heading text-brand-h2 md:text-[2.5rem] text-[2rem] font-bold text-primary text-center mb-12">
             Bądź na bieżąco
@@ -240,10 +241,10 @@ const Index = () => {
             </div>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Dołącz CTA */}
-      <section className="py-16 md:py-20 bg-primary text-primary-foreground">
+      <AnimatedSection className="py-16 md:py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <h2 className="font-heading text-brand-h2 md:text-[2.5rem] text-[2rem] font-bold mb-4">
             Dołącz do Women Up!
@@ -257,7 +258,7 @@ const Index = () => {
             </Button>
           </Link>
         </div>
-      </section>
+      </AnimatedSection>
     </Layout>
   );
 };

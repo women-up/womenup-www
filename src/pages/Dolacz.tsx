@@ -2,6 +2,7 @@ import { MessageCircle, Search, Rocket, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import DiamondDivider from "@/components/DiamondDivider";
 import Layout from "@/components/Layout";
+import AnimatedSection from "@/components/AnimatedSection";
 import { Link } from "react-router-dom";
 
 const steps = [
@@ -13,7 +14,7 @@ const steps = [
 const Dolacz = () => {
   return (
     <Layout>
-      <section className="py-16 md:py-24">
+      <AnimatedSection className="py-16 md:py-24">
         <div className="container mx-auto px-4 text-center">
           <h1 className="font-heading text-brand-h1 md:text-[3.5rem] text-[2.25rem] font-bold text-primary tracking-brand-subtle mb-4">
             Dołącz do Women Up!
@@ -23,10 +24,10 @@ const Dolacz = () => {
           </p>
           <DiamondDivider className="max-w-xs mx-auto" />
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* 3 Steps */}
-      <section className="pb-16 md:pb-24">
+      <AnimatedSection className="pb-16 md:pb-24">
         <div className="container mx-auto px-4">
           <h2 className="font-heading text-brand-h2 font-bold text-primary text-center mb-12">Jak to działa?</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -42,10 +43,10 @@ const Dolacz = () => {
             ))}
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Rozpocznij inicjatywę */}
-      <section className="py-16 md:py-24 bg-card">
+      <AnimatedSection className="py-16 md:py-24 bg-card">
         <div className="container mx-auto px-4 max-w-3xl">
           <h2 className="font-heading text-brand-h2 font-bold text-primary mb-6">Rozpocznij własną inicjatywę</h2>
           <div className="space-y-4 text-foreground leading-relaxed">
@@ -54,10 +55,10 @@ const Dolacz = () => {
             <p>Skontaktuj się z nami, opowiedz o swoim pomyśle, a my pomożemy Ci go zrealizować!</p>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* CTA */}
-      <section className="py-16 md:py-20 bg-primary text-primary-foreground">
+      <AnimatedSection className="py-16 md:py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <h2 className="font-heading text-brand-h2 md:text-[2.5rem] text-[2rem] font-bold mb-4">
             Gotowa, by działać?
@@ -71,7 +72,7 @@ const Dolacz = () => {
             </Button>
           </Link>
         </div>
-      </section>
+      </AnimatedSection>
     </Layout>
   );
 };

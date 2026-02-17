@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import DiamondDivider from "@/components/DiamondDivider";
 import Layout from "@/components/Layout";
+import AnimatedSection from "@/components/AnimatedSection";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -23,7 +24,7 @@ const Kontakt = () => {
 
   return (
     <Layout>
-      <section className="py-16 md:py-24">
+      <AnimatedSection className="py-16 md:py-24">
         <div className="container mx-auto px-4 text-center">
           <h1 className="font-heading text-brand-h1 md:text-[3.5rem] text-[2.25rem] font-bold text-primary tracking-brand-subtle mb-4">
             Kontakt
@@ -33,9 +34,9 @@ const Kontakt = () => {
           </p>
           <DiamondDivider className="max-w-xs mx-auto" />
         </div>
-      </section>
+      </AnimatedSection>
 
-      <section className="pb-16 md:pb-24">
+      <AnimatedSection className="pb-16 md:pb-24">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Form */}
@@ -119,7 +120,7 @@ const Kontakt = () => {
             </div>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
     </Layout>
   );
 };

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { HandHeart, Flame, Sprout, Users, DoorOpen, Scale, Heart, MapPin, ArrowRight, Facebook, Instagram } from "lucide-react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import DiamondDivider from "@/components/DiamondDivider";
 import Layout from "@/components/Layout";
@@ -53,16 +54,40 @@ const Index = () => {
           }}
         />
         <div className="container mx-auto px-4 text-center relative z-10">
-          <DiamondDivider className="max-w-xs mx-auto" />
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
+            <DiamondDivider className="max-w-xs mx-auto" />
+          </motion.div>
           {/* Mobile logo */}
-          <img src={logo} alt="Women Up! logo" className="md:hidden h-16 w-auto mx-auto mb-4" />
-          <h1 className="font-heading text-[1.75rem] md:text-[3.5rem] font-bold text-primary tracking-brand-subtle mb-4 md:mb-6 leading-tight">
+          <motion.img
+            src={logo}
+            alt="Women Up! logo"
+            className="md:hidden h-16 w-auto mx-auto mb-4"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          />
+          <motion.h1
+            className="font-heading text-[1.75rem] md:text-[3.5rem] font-bold text-primary tracking-brand-subtle mb-4 md:mb-6 leading-tight"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
             Waleczne · Sprawcze · Niezależne
-          </h1>
-          <p className="text-sm md:text-lg text-muted-foreground max-w-2xl mx-auto mb-6 md:mb-8 leading-relaxed px-2">
+          </motion.h1>
+          <motion.p
+            className="text-sm md:text-lg text-muted-foreground max-w-2xl mx-auto mb-6 md:mb-8 leading-relaxed px-2"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
             Stowarzyszenie Women Up! to oddolna inicjatywa społeczna z Podlasia. Łączymy kobiety różnych statusów społecznych — bo razem możemy więcej.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center px-4 sm:px-0">
+          </motion.p>
+          <motion.div
+            className="flex flex-col sm:flex-row gap-3 justify-center px-4 sm:px-0"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+          >
             <Link to="/o-nas">
               <Button className="w-full sm:w-auto uppercase tracking-brand-wide text-xs font-semibold px-8 py-3 h-auto">
                 Poznaj nas
@@ -73,8 +98,10 @@ const Index = () => {
                 Nasze inicjatywy
               </Button>
             </Link>
-          </div>
-          <DiamondDivider className="max-w-xs mx-auto" />
+          </motion.div>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.9 }}>
+            <DiamondDivider className="max-w-xs mx-auto" />
+          </motion.div>
         </div>
       </section>
 

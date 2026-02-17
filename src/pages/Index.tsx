@@ -75,7 +75,7 @@ const Index = () => {
             Waleczne · Sprawcze · Niezależne
           </motion.h1>
           <motion.p
-            className="text-sm md:text-lg text-muted-foreground max-w-2xl mx-auto mb-6 md:mb-8 leading-relaxed px-2"
+            className="text-sm md:text-lg text-foreground/70 max-w-2xl mx-auto mb-6 md:mb-8 leading-relaxed px-2"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}

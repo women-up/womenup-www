@@ -83,7 +83,7 @@ const Index = () => {
             Stowarzyszenie Women Up! to oddolna inicjatywa społeczna z Podlasia. Łączymy kobiety różnych statusów społecznych — bo razem możemy więcej.
           </motion.p>
           <motion.div
-            className="flex flex-col sm:flex-row gap-3 justify-center px-4 sm:px-0"
+            className="flex flex-col sm:flex-row gap-3 justify-center px-4 sm:px-0 mt-2"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}

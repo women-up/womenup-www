@@ -2,6 +2,7 @@ import { ArrowRight, Facebook, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import DiamondDivider from "@/components/DiamondDivider";
 import Layout from "@/components/Layout";
+import AnimatedSection from "@/components/AnimatedSection";
 import { Link } from "react-router-dom";
 
 const posts = [
@@ -18,7 +19,7 @@ const categories = ["Wszystkie", "Wydarzenie", "Inicjatywa", "Warsztaty", "Ogło
 const Aktualnosci = () => {
   return (
     <Layout>
-      <section className="py-16 md:py-24">
+      <AnimatedSection className="py-16 md:py-24">
         <div className="container mx-auto px-4 text-center">
           <h1 className="font-heading text-brand-h1 md:text-[3.5rem] text-[2.25rem] font-bold text-primary tracking-brand-subtle mb-4">
             Aktualności
@@ -28,9 +29,9 @@ const Aktualnosci = () => {
           </p>
           <DiamondDivider className="max-w-xs mx-auto" />
         </div>
-      </section>
+      </AnimatedSection>
 
-      <section className="pb-16 md:pb-24">
+      <AnimatedSection className="pb-16 md:pb-24">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Posts */}
@@ -90,7 +91,7 @@ const Aktualnosci = () => {
             </aside>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
     </Layout>
   );
 };

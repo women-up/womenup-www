@@ -2,6 +2,7 @@ import { HandHeart, Flame, Sprout, Users, DoorOpen, Scale, FileDown } from "luci
 import { Button } from "@/components/ui/button";
 import DiamondDivider from "@/components/DiamondDivider";
 import Layout from "@/components/Layout";
+import AnimatedSection from "@/components/AnimatedSection";
 
 const team = [
   { name: "Anna Kowalska", role: "Prezeska", bio: "Inicjatorka Women Up!, działaczka społeczna z Podlasia." },
@@ -23,7 +24,7 @@ const ONas = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="py-16 md:py-24">
+      <AnimatedSection className="py-16 md:py-24">
         <div className="container mx-auto px-4 text-center">
           <h1 className="font-heading text-brand-h1 md:text-[3.5rem] text-[2.25rem] font-bold text-primary tracking-brand-subtle mb-4">
             O nas
@@ -33,10 +34,10 @@ const ONas = () => {
           </p>
           <DiamondDivider className="max-w-xs mx-auto" />
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Historia */}
-      <section className="py-16 md:py-24 bg-card">
+      <AnimatedSection className="py-16 md:py-24 bg-card">
         <div className="container mx-auto px-4 max-w-3xl">
           <h2 className="font-heading text-brand-h2 font-bold text-primary mb-8">Nasza Historia</h2>
           <div className="space-y-4 text-foreground leading-relaxed">
@@ -45,10 +46,10 @@ const ONas = () => {
             <p>Wierzymy, że oddolne działanie ma moc zmieniania rzeczywistości — krok po kroku, inicjatywa po inicjatywie.</p>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Misja i Wartości */}
-      <section className="py-16 md:py-24">
+      <AnimatedSection className="py-16 md:py-24">
         <div className="container mx-auto px-4">
           <h2 className="font-heading text-brand-h2 font-bold text-primary text-center mb-12">Misja i Wartości</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -61,10 +62,10 @@ const ONas = () => {
             ))}
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Zespół */}
-      <section className="py-16 md:py-24 bg-card">
+      <AnimatedSection className="py-16 md:py-24 bg-card">
         <div className="container mx-auto px-4">
           <h2 className="font-heading text-brand-h2 font-bold text-primary text-center mb-12">Nasz Zespół</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -80,10 +81,10 @@ const ONas = () => {
             ))}
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Statut */}
-      <section className="py-16 md:py-24">
+      <AnimatedSection className="py-16 md:py-24">
         <div className="container mx-auto px-4 text-center">
           <h2 className="font-heading text-brand-h2 font-bold text-primary mb-4">Statut Stowarzyszenia</h2>
           <p className="text-muted-foreground mb-6">Pobierz statut naszego stowarzyszenia w formacie PDF.</p>
@@ -91,7 +92,7 @@ const ONas = () => {
             <FileDown size={16} /> Pobierz statut
           </Button>
         </div>
-      </section>
+      </AnimatedSection>
     </Layout>
   );
 };

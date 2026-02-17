@@ -3,6 +3,7 @@ import { Heart, MapPin, Users, Lightbulb, Palette, BookOpen, ArrowRight } from "
 import { Button } from "@/components/ui/button";
 import DiamondDivider from "@/components/DiamondDivider";
 import Layout from "@/components/Layout";
+import AnimatedSection from "@/components/AnimatedSection";
 import { Link } from "react-router-dom";
 
 const allInitiatives = [
@@ -22,7 +23,7 @@ const Inicjatywy = () => {
 
   return (
     <Layout>
-      <section className="py-16 md:py-24">
+      <AnimatedSection className="py-16 md:py-24">
         <div className="container mx-auto px-4 text-center">
           <h1 className="font-heading text-brand-h1 md:text-[3.5rem] text-[2.25rem] font-bold text-primary tracking-brand-subtle mb-4">
             Nasze Inicjatywy
@@ -32,9 +33,9 @@ const Inicjatywy = () => {
           </p>
           <DiamondDivider className="max-w-xs mx-auto" />
         </div>
-      </section>
+      </AnimatedSection>
 
-      <section className="pb-16 md:pb-24">
+      <AnimatedSection className="pb-16 md:pb-24">
         <div className="container mx-auto px-4">
           {/* Filter tabs */}
           <div className="flex gap-2 justify-center mb-10 flex-wrap">
@@ -91,7 +92,7 @@ const Inicjatywy = () => {
             </Link>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
     </Layout>
   );
 };

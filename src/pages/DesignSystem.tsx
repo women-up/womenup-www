@@ -1,9 +1,11 @@
 import Layout from "@/components/Layout";
 import DiamondDivider from "@/components/DiamondDivider";
 import { Button } from "@/components/ui/button";
-import { HandHeart, ArrowRight, Heart, MapPin, Users, Image } from "lucide-react";
+import { Heart, MapPin, Users, Image } from "lucide-react";
 import businessCardFront from "@/assets/Bcard_landscape.png";
 import businessCardBack from "@/assets/BcardPort.png";
+import logo from "@/assets/logo.svg";
+import logoWhite from "@/assets/logo-white.svg";
 
 const colors = [
   { name: "Czerwień Podlaska", hex: "#C41A2C", token: "--primary", label: "Kolor główny · CTA · Logo", className: "bg-primary" },
@@ -37,6 +39,90 @@ const DesignSystem = () => {
           </p>
         </div>
       </section>
+
+      {/* Logo & Warianty */}
+      <section className="py-14 md:py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="font-heading text-brand-h2 font-semibold text-primary text-center mb-10">
+            Logo & Warianty
+          </h2>
+
+          {/* Main logo showcase */}
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <div className="bg-card border border-border rounded-sm p-8 flex flex-col items-center">
+              <p className="text-[11px] uppercase tracking-[2px] text-muted-foreground mb-4">Logo główne · na jasnym tle</p>
+              <img src={logo} alt="Women Up! logo" className="h-24 w-auto mb-4" />
+              <p className="text-xs font-mono text-muted-foreground">logo.svg · 249×249 · #C41A2C</p>
+            </div>
+            <div className="rounded-sm p-8 flex flex-col items-center" style={{ background: '#2D2926' }}>
+              <p className="text-[11px] uppercase tracking-[2px] text-white/50 mb-4">Logo białe · na ciemnym tle</p>
+              <img src={logoWhite} alt="Women Up! logo white" className="h-24 w-auto mb-4" />
+              <p className="text-xs font-mono text-white/50">logo-white.svg · 249×249 · #FFFFFF</p>
+            </div>
+          </div>
+
+          {/* Size variations */}
+          <div className="bg-card border border-border rounded-sm p-6 mb-8">
+            <p className="text-[11px] uppercase tracking-[2px] text-muted-foreground mb-6">Rozmiary · skalowalność</p>
+            <div className="flex items-end gap-8 flex-wrap">
+              {[
+                { size: "h-6", label: "24px · Favicon" },
+                { size: "h-8", label: "32px · Footer" },
+                { size: "h-10", label: "40px · Navbar mobile" },
+                { size: "h-12", label: "48px · Navbar desktop" },
+                { size: "h-20", label: "80px · Hero mobile" },
+                { size: "h-28", label: "112px · Hero desktop" },
+              ].map((v) => (
+                <div key={v.label} className="flex flex-col items-center gap-2">
+                  <img src={logo} alt="" className={`${v.size} w-auto`} />
+                  <p className="text-[10px] text-muted-foreground text-center whitespace-nowrap">{v.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Logo + Text lockup */}
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <div className="bg-card border border-border rounded-sm p-6">
+              <p className="text-[11px] uppercase tracking-[2px] text-muted-foreground mb-4">Lockup · Navbar</p>
+              <div className="flex items-center gap-3">
+                <img src={logo} alt="" className="h-10 w-auto" />
+                <span className="font-heading text-xl font-bold text-primary tracking-brand-wide leading-none">WOMEN UP!</span>
+              </div>
+            </div>
+            <div className="rounded-sm p-6" style={{ background: '#2D2926' }}>
+              <p className="text-[11px] uppercase tracking-[2px] text-white/50 mb-4">Lockup · Footer</p>
+              <div className="flex items-center gap-3">
+                <img src={logoWhite} alt="" className="h-8 w-auto" />
+                <span className="font-heading text-xl font-bold text-primary tracking-brand-wide leading-none">WOMEN UP!</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Icon assets grid */}
+          <div className="bg-card border border-border rounded-sm p-6">
+            <p className="text-[11px] uppercase tracking-[2px] text-muted-foreground mb-4">Zasoby ikonowe · /public</p>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              {[
+                { file: "favicon.ico", desc: "Favicon · 256×256", bg: "bg-background" },
+                { file: "logo.svg", desc: "SVG Favicon · wektorowy", bg: "bg-background" },
+                { file: "apple-touch-icon.png", desc: "Apple Touch · 180×180", bg: "bg-background" },
+                { file: "logo-192.png", desc: "PWA Icon · 192×192", bg: "bg-background" },
+              ].map((asset) => (
+                <div key={asset.file} className={`${asset.bg} border border-border rounded-sm p-4 flex flex-col items-center`}>
+                  <div className="h-12 w-12 flex items-center justify-center mb-2">
+                    <img src={logo} alt="" className="h-10 w-auto" />
+                  </div>
+                  <p className="text-xs font-mono text-foreground text-center">{asset.file}</p>
+                  <p className="text-[10px] text-muted-foreground text-center">{asset.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <DiamondDivider className="max-w-[240px] mx-auto" />
 
       {/* Paleta Kolorów */}
       <section className="py-14 md:py-20">
@@ -239,7 +325,10 @@ const DesignSystem = () => {
             Nawigacja
           </h2>
           <div className="bg-background border border-border rounded-sm p-4 flex items-center justify-between">
-            <span className="font-heading text-2xl font-bold text-primary tracking-[3px]">WOMEN UP!</span>
+            <div className="flex items-center gap-3">
+              <img src={logo} alt="Women Up! logo" className="h-10 w-auto" />
+              <span className="font-heading text-2xl font-bold text-primary tracking-[3px]">WOMEN UP!</span>
+            </div>
             <div className="hidden md:flex gap-7">
               {["Strona Główna", "O Nas", "Inicjatywy", "Blog", "Kontakt"].map((link, i) => (
                 <span
@@ -270,7 +359,10 @@ const DesignSystem = () => {
             <div className="p-8 md:p-10">
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div>
-                  <h4 className="font-heading text-lg font-semibold text-white mb-3">WOMEN UP!</h4>
+                  <div className="flex items-center gap-2 mb-3">
+                    <img src={logoWhite} alt="" className="h-6 w-auto" />
+                    <h4 className="font-heading text-lg font-semibold text-white">WOMEN UP!</h4>
+                  </div>
                   <p className="text-sm text-white/60">Oddolna inicjatywa społeczna z Podlasia.</p>
                 </div>
                 <div>
@@ -364,6 +456,261 @@ const DesignSystem = () => {
           </div>
         </div>
       </section>
+
+      <DiamondDivider className="max-w-[240px] mx-auto" />
+
+      {/* OG Tags & Meta */}
+      <section className="py-14 md:py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="font-heading text-brand-h2 font-semibold text-primary text-center mb-3">
+            Open Graph & Meta
+          </h2>
+          <p className="text-center text-muted-foreground text-sm mb-10">
+            Tagi meta dla wyszukiwarek i udostępniania w mediach społecznościowych
+          </p>
+
+          {/* OG Image Preview */}
+          <div className="max-w-2xl mx-auto mb-8">
+            <p className="text-[11px] uppercase tracking-[2px] text-muted-foreground mb-3">OG Image · 1200×640</p>
+            <div className="bg-card border border-border rounded-sm overflow-hidden shadow-brand-sm">
+              <img src="/og-image.png" alt="OG Image preview" className="w-full h-auto" />
+              <div className="p-4 border-t border-border">
+                <p className="text-xs font-mono text-muted-foreground">og-image.png · 1200×640px · JPEG</p>
+                <p className="text-xs text-muted-foreground mt-1">Używany w: og:image, twitter:image</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Meta Tags Table */}
+          <div className="max-w-3xl mx-auto mb-8">
+            <p className="text-[11px] uppercase tracking-[2px] text-muted-foreground mb-3">Meta tagi · index.html</p>
+            <div className="bg-card border border-border rounded-sm overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-border bg-secondary/50">
+                      <th className="text-left p-3 text-xs uppercase tracking-wider text-muted-foreground font-semibold">Tag</th>
+                      <th className="text-left p-3 text-xs uppercase tracking-wider text-muted-foreground font-semibold">Wartość</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-border">
+                    {[
+                      { tag: "og:title", value: "Women Up! — Waleczne · Sprawcze · Niezależne" },
+                      { tag: "og:description", value: "Oddolna inicjatywa społeczna z Podlasia. Łączymy kobiety różnych statusów społecznych." },
+                      { tag: "og:image", value: "https://womenup.com/og-image.png" },
+                      { tag: "og:image:width", value: "1200" },
+                      { tag: "og:image:height", value: "640" },
+                      { tag: "og:locale", value: "pl_PL" },
+                      { tag: "og:type", value: "website" },
+                      { tag: "twitter:card", value: "summary_large_image" },
+                      { tag: "theme-color", value: "#C41A2C" },
+                    ].map((meta) => (
+                      <tr key={meta.tag}>
+                        <td className="p-3 font-mono text-xs text-primary whitespace-nowrap">{meta.tag}</td>
+                        <td className="p-3 text-xs text-foreground break-all">{meta.value}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          {/* Favicon & Icons */}
+          <div className="max-w-3xl mx-auto">
+            <p className="text-[11px] uppercase tracking-[2px] text-muted-foreground mb-3">Favicon & Ikony</p>
+            <div className="bg-card border border-border rounded-sm overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-border bg-secondary/50">
+                      <th className="text-left p-3 text-xs uppercase tracking-wider text-muted-foreground font-semibold">Link tag</th>
+                      <th className="text-left p-3 text-xs uppercase tracking-wider text-muted-foreground font-semibold">Plik</th>
+                      <th className="text-left p-3 text-xs uppercase tracking-wider text-muted-foreground font-semibold">Opis</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-border">
+                    {[
+                      { rel: 'rel="icon" sizes="any"', file: "/favicon.ico", desc: "Fallback favicon · 256×256" },
+                      { rel: 'rel="icon" type="image/svg+xml"', file: "/logo.svg", desc: "SVG favicon · wektorowy, skalowalny" },
+                      { rel: 'rel="apple-touch-icon"', file: "/apple-touch-icon.png", desc: "iOS home screen · 180×180 · kremowe tło" },
+                    ].map((link) => (
+                      <tr key={link.file}>
+                        <td className="p-3 font-mono text-xs text-primary whitespace-nowrap">{link.rel}</td>
+                        <td className="p-3 font-mono text-xs text-foreground">{link.file}</td>
+                        <td className="p-3 text-xs text-muted-foreground">{link.desc}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <DiamondDivider className="max-w-[240px] mx-auto" />
+
+      {/* Social Media Posts */}
+      <section className="py-14 md:py-20 bg-secondary">
+        <div className="container mx-auto px-4">
+          <h2 className="font-heading text-brand-h2 font-semibold text-primary text-center mb-3">
+            Social Media
+          </h2>
+          <p className="text-center text-muted-foreground text-sm mb-10">
+            Przykłady postów i udostępnień na platformach społecznościowych
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Facebook Share Preview */}
+            <div>
+              <p className="text-[11px] uppercase tracking-[2px] text-muted-foreground mb-3">Facebook · Udostępnienie linku</p>
+              <div className="bg-white rounded-lg shadow-brand-sm overflow-hidden border border-gray-200">
+                {/* FB header */}
+                <div className="p-3 flex items-center gap-2">
+                  <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+                    <img src={logo} alt="" className="h-6 w-auto brightness-0 invert" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-gray-900">Women Up!</p>
+                    <p className="text-xs text-gray-500">Właśnie · 🌍</p>
+                  </div>
+                </div>
+                <p className="px-3 pb-2 text-sm text-gray-800">
+                  Dołącz do nas! 💪 Razem zmieniamy Podlasie — jedna inicjatywa na raz. #WomenUp #Podlasie #KobietyRazem
+                </p>
+                {/* Link preview card */}
+                <div className="border-t border-gray-200">
+                  <img src="/og-image.png" alt="" className="w-full h-auto" />
+                  <div className="p-3 bg-gray-50">
+                    <p className="text-[11px] uppercase text-gray-500">womenup.com</p>
+                    <p className="text-sm font-semibold text-gray-900 mt-0.5">Women Up! — Waleczne · Sprawcze · Niezależne</p>
+                    <p className="text-xs text-gray-500 mt-0.5">Oddolna inicjatywa społeczna z Podlasia. Łączymy kobiety różnych statusów społecznych.</p>
+                  </div>
+                </div>
+                {/* FB actions */}
+                <div className="px-3 py-2 border-t border-gray-200 flex gap-6">
+                  <span className="text-xs text-gray-500 font-semibold">👍 Lubię to!</span>
+                  <span className="text-xs text-gray-500 font-semibold">💬 Komentarz</span>
+                  <span className="text-xs text-gray-500 font-semibold">↗ Udostępnij</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Instagram Post Preview */}
+            <div>
+              <p className="text-[11px] uppercase tracking-[2px] text-muted-foreground mb-3">Instagram · Post</p>
+              <div className="bg-white rounded-lg shadow-brand-sm overflow-hidden border border-gray-200">
+                {/* IG header */}
+                <div className="p-3 flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                    <img src={logo} alt="" className="h-5 w-auto brightness-0 invert" />
+                  </div>
+                  <p className="text-sm font-semibold text-gray-900">womenup_podlasie</p>
+                </div>
+                {/* IG image — brand styled */}
+                <div className="aspect-square bg-primary relative overflow-hidden flex items-center justify-center">
+                  <div
+                    className="absolute inset-0 opacity-[0.06]"
+                    style={{
+                      backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='2' y='2' width='7' height='7' fill='white' opacity='0.5'/%3E%3Crect x='11' y='11' width='7' height='7' fill='white' opacity='0.5'/%3E%3C/svg%3E")`,
+                    }}
+                  />
+                  <div className="relative z-10 text-center px-8">
+                    <img src={logo} alt="" className="h-16 w-auto mx-auto mb-4 brightness-0 invert" />
+                    <p className="font-heading text-2xl font-bold text-white tracking-brand-wide mb-2">KOBIETY RAZEM</p>
+                    <div className="w-12 h-px bg-white/40 mx-auto mb-2" />
+                    <p className="text-sm text-white/80">Spotkanie integracyjne</p>
+                    <p className="text-xs text-white/60 mt-1">22 lutego · Białystok</p>
+                  </div>
+                </div>
+                {/* IG actions + caption */}
+                <div className="p-3">
+                  <div className="flex gap-3 mb-2">
+                    <span className="text-lg">♡</span>
+                    <span className="text-lg">💬</span>
+                    <span className="text-lg">↗</span>
+                  </div>
+                  <p className="text-sm text-gray-900">
+                    <span className="font-semibold">womenup_podlasie</span>{" "}
+                    Zapraszamy na spotkanie integracyjne Kobiety Razem! 🤝 Dołącz do nas i poznaj inne kobiety z Podlasia.
+                  </p>
+                  <p className="text-xs text-gray-400 mt-1">#WomenUp #KobietyRazem #Podlasie #Białystok</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Twitter / X Share Preview */}
+            <div>
+              <p className="text-[11px] uppercase tracking-[2px] text-muted-foreground mb-3">X (Twitter) · Udostępnienie</p>
+              <div className="bg-white rounded-lg shadow-brand-sm overflow-hidden border border-gray-200">
+                <div className="p-3 flex gap-2">
+                  <div className="w-10 h-10 rounded-full bg-primary flex-shrink-0 flex items-center justify-center">
+                    <img src={logo} alt="" className="h-6 w-auto brightness-0 invert" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-1">
+                      <p className="text-sm font-bold text-gray-900">Women Up!</p>
+                      <p className="text-sm text-gray-500">@womenup_pl · 2g</p>
+                    </div>
+                    <p className="text-sm text-gray-800 mt-1">
+                      Nowa inicjatywa „Ogrody Społeczne" startuje w marcu! 🌱 Wspólne ogrody dla mieszkanek Białegostoku. Chcesz dołączyć? Link w bio.
+                    </p>
+                    {/* Link preview */}
+                    <div className="mt-2 border border-gray-200 rounded-lg overflow-hidden">
+                      <img src="/og-image.png" alt="" className="w-full h-auto" />
+                      <div className="p-2">
+                        <p className="text-[11px] text-gray-500">womenup.com</p>
+                        <p className="text-sm font-semibold text-gray-900">Women Up! — Waleczne · Sprawcze · Niezależne</p>
+                      </div>
+                    </div>
+                    <div className="flex gap-8 mt-2">
+                      <span className="text-xs text-gray-500">💬 12</span>
+                      <span className="text-xs text-gray-500">🔁 24</span>
+                      <span className="text-xs text-gray-500">♡ 89</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Instagram Story Preview */}
+            <div>
+              <p className="text-[11px] uppercase tracking-[2px] text-muted-foreground mb-3">Instagram · Story</p>
+              <div className="bg-white rounded-lg shadow-brand-sm overflow-hidden border border-gray-200 max-w-[280px] mx-auto">
+                <div className="aspect-[9/16] bg-gradient-to-b from-primary to-primary-dark relative overflow-hidden flex flex-col items-center justify-center">
+                  <div
+                    className="absolute inset-0 opacity-[0.05]"
+                    style={{
+                      backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='2' y='2' width='7' height='7' fill='white' opacity='0.5'/%3E%3Crect x='11' y='11' width='7' height='7' fill='white' opacity='0.5'/%3E%3C/svg%3E")`,
+                    }}
+                  />
+                  {/* Story header */}
+                  <div className="absolute top-3 left-3 right-3 flex items-center gap-2 z-10">
+                    <div className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center">
+                      <img src={logo} alt="" className="h-4 w-auto brightness-0 invert" />
+                    </div>
+                    <p className="text-xs font-semibold text-white">womenup_podlasie</p>
+                  </div>
+                  <div className="relative z-10 text-center px-6">
+                    <img src={logo} alt="" className="h-20 w-auto mx-auto mb-6 brightness-0 invert" />
+                    <p className="font-heading text-3xl font-bold text-white tracking-brand-wide mb-3">DLA PSIAKÓW</p>
+                    <div className="w-16 h-px bg-white/40 mx-auto mb-3" />
+                    <p className="text-base text-white/90 leading-relaxed">Zbiórka karmy dla schroniska</p>
+                    <p className="text-sm text-white/60 mt-2">📍 Białystok · 1-15 marca</p>
+                  </div>
+                  {/* Swipe up */}
+                  <div className="absolute bottom-6 left-0 right-0 text-center z-10">
+                    <p className="text-xs text-white/60 uppercase tracking-wider">Więcej ↑</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <DiamondDivider className="max-w-[240px] mx-auto" />
 
       {/* Formularze */}
       <section className="py-14 md:py-20 bg-secondary">

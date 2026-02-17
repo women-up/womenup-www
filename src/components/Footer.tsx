@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
 import CrossStitchBorder from "./CrossStitchBorder";
+import logoWhite from "@/assets/logo-white.svg";
 
 const Footer = () => {
   return (
@@ -10,9 +11,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Col 1: Logo */}
           <div>
-            <h3 className="font-heading text-2xl font-bold text-primary tracking-brand-wide mb-2">
-              WOMEN UP!
-            </h3>
+            <div className="flex items-center gap-3 mb-2">
+              <img src={logoWhite} alt="Women Up! logo" className="h-8 w-auto" />
+              <h3 className="font-heading text-2xl font-bold text-primary tracking-brand-wide">
+                WOMEN UP!
+              </h3>
+            </div>
             <p className="text-xs uppercase tracking-brand-wide text-brand-cream/60 mb-4">
               Inicjatywa Społeczna
             </p>

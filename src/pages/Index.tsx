@@ -3,6 +3,7 @@ import { HandHeart, Flame, Sprout, Users, DoorOpen, Scale, Heart, MapPin, ArrowR
 import { Button } from "@/components/ui/button";
 import DiamondDivider from "@/components/DiamondDivider";
 import Layout from "@/components/Layout";
+import logo from "@/assets/logo.svg";
 
 const values = [
   { icon: HandHeart, title: "Kobiety Razem", desc: "Solidarność i wsparcie" },
@@ -41,7 +42,9 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative py-20 md:py-32 overflow-hidden">
+      <section className="relative py-12 md:py-32 overflow-hidden">
+        {/* Diamond pattern background */}
+        <div className="absolute inset-0 pattern-diamond" />
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -51,20 +54,22 @@ const Index = () => {
         />
         <div className="container mx-auto px-4 text-center relative z-10">
           <DiamondDivider className="max-w-xs mx-auto" />
-          <h1 className="font-heading text-brand-h1 md:text-[3.5rem] text-[2.25rem] font-bold text-primary tracking-brand-subtle mb-6">
+          {/* Mobile logo */}
+          <img src={logo} alt="Women Up! logo" className="md:hidden h-16 w-auto mx-auto mb-4" />
+          <h1 className="font-heading text-[1.75rem] md:text-[3.5rem] font-bold text-primary tracking-brand-subtle mb-4 md:mb-6 leading-tight">
             Waleczne · Sprawcze · Niezależne
           </h1>
-          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
+          <p className="text-sm md:text-lg text-muted-foreground max-w-2xl mx-auto mb-6 md:mb-8 leading-relaxed px-2">
             Stowarzyszenie Women Up! to oddolna inicjatywa społeczna z Podlasia. Łączymy kobiety różnych statusów społecznych — bo razem możemy więcej.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center px-4 sm:px-0">
             <Link to="/o-nas">
-              <Button className="uppercase tracking-brand-wide text-xs font-semibold px-8 py-3 h-auto">
+              <Button className="w-full sm:w-auto uppercase tracking-brand-wide text-xs font-semibold px-8 py-3 h-auto">
                 Poznaj nas
               </Button>
             </Link>
             <Link to="/inicjatywy">
-              <Button variant="outline" className="uppercase tracking-brand-wide text-xs font-semibold px-8 py-3 h-auto border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+              <Button variant="outline" className="w-full sm:w-auto uppercase tracking-brand-wide text-xs font-semibold px-8 py-3 h-auto border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
                 Nasze inicjatywy
               </Button>
             </Link>

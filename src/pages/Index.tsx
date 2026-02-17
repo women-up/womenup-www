@@ -43,7 +43,7 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative py-16 md:py-40 overflow-hidden">
+      <section className="relative py-12 md:py-32 overflow-hidden">
         {/* Diamond pattern background */}
         <div className="absolute inset-0 pattern-diamond" />
         <div
@@ -75,7 +75,7 @@ const Index = () => {
             Waleczne · Sprawcze · Niezależne
           </motion.h1>
           <motion.p
-            className="text-sm md:text-lg text-foreground/70 max-w-2xl mx-auto mb-6 md:mb-8 leading-relaxed px-2"
+            className="text-sm md:text-lg text-foreground/70 max-w-2xl mx-auto mb-6 md:mb-8 leading-relaxed px-2 py-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}

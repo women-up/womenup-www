@@ -2,6 +2,8 @@ import Layout from "@/components/Layout";
 import DiamondDivider from "@/components/DiamondDivider";
 import { Button } from "@/components/ui/button";
 import { HandHeart, ArrowRight, Heart, MapPin, Users, Image } from "lucide-react";
+import businessCardFront from "@/assets/Bcard_landscape.png";
+import businessCardBack from "@/assets/BcardPort.png";
 
 const colors = [
   { name: "Czerwień Podlaska", hex: "#C41A2C", token: "--primary", label: "Kolor główny · CTA · Logo", className: "bg-primary" },
@@ -328,6 +330,36 @@ const DesignSystem = () => {
                   Poznaj nas
                 </Button>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Wizytówka / Business Card */}
+      <section className="py-14 md:py-20 bg-secondary">
+        <div className="container mx-auto px-4">
+          <h2 className="font-heading text-brand-h2 font-semibold text-primary text-center mb-3">
+            Wizytówka
+          </h2>
+          <p className="text-center text-muted-foreground text-sm mb-10">
+            Business Card · 3.5" × 2" · 300 DPI
+          </p>
+          <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
+            <div className="bg-card rounded-sm shadow-brand-md overflow-hidden">
+              <img
+                src={businessCardFront}
+                alt="Women Up! business card — front"
+                className="w-full max-w-[480px] h-auto"
+              />
+              <p className="text-center text-xs text-muted-foreground py-2">Przód</p>
+            </div>
+            <div className="bg-card rounded-sm shadow-brand-md overflow-hidden">
+              <img
+                src={businessCardBack}
+                alt="Women Up! business card — back"
+                className="w-full max-w-[480px] h-auto"
+              />
+              <p className="text-center text-xs text-muted-foreground py-2">Tył</p>
             </div>
           </div>
         </div>

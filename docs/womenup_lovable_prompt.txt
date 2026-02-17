@@ -1,0 +1,229 @@
+# LOVABLE AI PROMPT — WOMEN UP! WEBSITE
+# ═══════════════════════════════════════════════════════════════
+# Skopiuj caly ten prompt do Lovable AI aby zbudowal strone.
+# Prompt jest w jezyku angielskim bo Lovable lepiej rozumie
+# instrukcje techniczne po angielsku, ale tresci strony sa po polsku.
+# ═══════════════════════════════════════════════════════════════
+
+Build a complete, responsive website for "Women Up!" — a Polish women's social initiative association from Podlasie region. The site should be informational, warm, and culturally authentic, with a distinctive Slavic folk art cross-stitch aesthetic.
+
+## BRAND IDENTITY AND DESIGN SYSTEM
+
+### Color Palette (Tailwind config)
+Use these exact colors throughout:
+- Primary red: #C41A2C (deep Polish red — use for headings, buttons, accents, logo)
+- Primary dark: #9E1523 (hover states)
+- Primary light: #E8344A (subtle accents)
+- Background: #F5F0E8 (warm cream — main page background, NOT white)
+- Background alt: #EDE7DB (alternating sections)
+- Surface: #FFFFFF (cards, forms, modals)
+- Text primary: #2D2016 (dark warm brown, NOT black)
+- Text secondary: #6B5E52 (muted brown)
+- Border: #D4CBBC (warm light border)
+
+### Typography
+- Headings: Cormorant Garamond from Google Fonts (serif, elegant, cultural). Weights: 400, 600, 700. Add letter-spacing: 0.02em on H1.
+- Body text: Inter from Google Fonts (clean sans-serif). Weights: 400, 500, 600.
+- Scale: H1=56px, H2=40px, H3=28px, H4=22px, Body=16px, Small=14px, Caption=12px.
+
+### Slavic Cross-Stitch Design Motif (CRITICAL — this defines the visual identity)
+The brand uses a Slavic folk cross-stitch diamond pattern. Incorporate these decorative elements:
+
+1. Page top border: A thin repeating pixel/cross-stitch pattern strip (4px height) at the very top of the page in primary red. Create this with CSS repeating gradient or a tiny SVG pattern of small squares.
+
+2. Section dividers: Between major sections, use a horizontal line with a small diamond character centered. Style: thin line #D4CBBC, diamond in #C41A2C. Like this: a thin line, then a diamond symbol, then a thin line.
+
+3. Hero background pattern: A very subtle (opacity: 0.03-0.05) repeating diamond/cross-stitch grid pattern behind the hero section. Use CSS background pattern or SVG.
+
+4. Card corner decorations: Optional tiny pixel squares (4x4px) in the top-left corner of cards, in primary red with low opacity.
+
+5. Footer pattern: Repeating cross-stitch border along the top of the footer.
+
+### Buttons
+- Primary: bg #C41A2C text white, rounded-sm (2px, NOT rounded-full), px-8 py-3, hover: bg #9E1523, uppercase tracking-wider text-sm font-semibold
+- Secondary: border-2 border #C41A2C text #C41A2C, transparent bg, same shape
+- Ghost: text #C41A2C, underline on hover
+
+### Cards
+White background, border border-#D4CBBC, rounded-sm, p-6, hover: shadow-md + border-#C41A2C transition
+
+### General rules
+- Border radius: use rounded-sm (2px) everywhere. NO rounded-full or rounded-xl. The aesthetic is geometric, not bubbly.
+- Shadows: minimal. Use shadow-sm or none. Warmth comes from color, not depth.
+- Everything should feel warm, cultural, handcrafted — NOT corporate or generic SaaS.
+- Cream backgrounds, NOT white. The warmth of the cream (#F5F0E8) is essential to the brand.
+- NO stock photo placeholders with blue/purple gradients. Use #F5F0E8 cream backgrounds with red accents.
+
+---
+
+## SITE STRUCTURE AND PAGES
+
+### Page 1: STRONA GLOWNA (/)
+
+Navbar (sticky, cream bg #F5F0E8, border-bottom with subtle pattern):
+- Left: Logo area — text "WOMEN UP!" in Cormorant Garamond bold, red #C41A2C, letter-spacing 0.1em. Below it in tiny caps: "INICJATYWA SPOLECZNA"
+- Center: nav links — "O nas", "Inicjatywy", "Aktualnosci", "Kontakt"
+- Right: Red CTA button "DOLACZ DO NAS"
+- Mobile: hamburger menu
+
+Hero section (full-width, generous padding 120px vertical):
+- Cream background with subtle cross-stitch pattern overlay (very low opacity)
+- Centered layout
+- Small decorative diamond divider above headline
+- H1: "Waleczne - Sprawcze - Niezalezne" (Cormorant Garamond, 56px, red)
+- Subtitle paragraph: "Stowarzyszenie Women Up! to oddolna inicjatywa spoleczna z Podlasia. Laczymy kobiety roznych statusow spolecznych — bo razem mozemy wiecej."
+- Two buttons: "POZNAJ NAS" (primary) + "NASZE INICJATYWY" (secondary)
+- Diamond divider below
+
+Section: Kim Jestesmy (white bg):
+- H2: "Kim Jestesmy"
+- Two-column layout (text left, values grid right)
+- Left: paragraph about the association mission: "Women Up! to przestrzen dla kobiet, ktore chca dzialac. Nasze czlonkinie moga zakladac wlasne inicjatywy spoleczne — od pomocy zwierzetom, przez wsparcie lokalne, po projekty kulturalne. Wierzymy w moc oddolnego dzialania i sile kobiecej solidarnosci."
+- Right: 2x3 grid of value cards with Lucide icons:
+  - HandHeart icon: "Kobiety Razem" — "Solidarnosc i wsparcie"
+  - Flame icon: "Moc Podlasia" — "Sila regionalna"
+  - Sprout icon: "Oddolne Inicjatywy" — "Od dolu do gory"
+  - Users icon: "Wspolnie Razem" — "Kolektywne dzialanie"
+  - DoorOpen icon: "Otwartosc" — "Dla wszystkich kobiet"
+  - Scale icon: "Rownosc" — "Bez barier spolecznych"
+
+Section: Nasze Inicjatywy (cream bg #F5F0E8):
+- H2: "Nasze Inicjatywy"
+- Subtitle: "Czlonkinie Women Up! prowadza wlasne projekty spoleczne"
+- 3 initiative cards in a row:
+  - Dla Psiakow — "Pomoc bezdomnym zwierzetom w regionie. Organizujemy zbiorki, spacery wolontariackie i wspolpracujemy ze schroniskami." Icon: Heart
+  - Moc Podlasia — "Wzmacnianie lokalnej tozsamosci i promocja kultury Podlasia. Warsztaty, spotkania, wydarzenia kulturalne." Icon: MapPin
+  - Kobiety Razem — "Program mentoringowy i grupa wsparcia dla kobiet w trudnych sytuacjach zyciowych." Icon: Users
+- Each card: white bg, border, icon in red circle at top, H4 title, paragraph, "Dowiedz sie wiecej" link with arrow
+- Below cards: centered text "Masz pomysl na inicjatywe?" + button "ROZPOCZNIJ SWOJA"
+
+Section: Aktualnosci (white bg):
+- H2: "Aktualnosci"
+- 3 latest post cards in a row (placeholder posts):
+  - Each card: image placeholder (cream bg with diamond pattern), date in caption style, H4 title, excerpt (2 lines), "Czytaj wiecej" with arrow
+- Placeholder posts:
+  1. "Pierwsze spotkanie organizacyjne Women Up!" — "15 lutego 2026"
+  2. "Zbiorka dla schroniska — Dla Psiakow startuje!" — "10 lutego 2026"
+  3. "Warsztaty krzyzikowe — Moc Podlasia" — "5 lutego 2026"
+- Button below: "WSZYSTKIE AKTUALNOSCI"
+
+Section: Social Media (cream bg):
+- H2: "Badz na biezaco"
+- Two columns:
+  - Left: Facebook embed placeholder — a styled card with Facebook icon, "Women Up! na Facebooku", "Sledz nas na Facebooku po najnowsze informacje", button "ODWIEDZ FACEBOOK"
+  - Right: Instagram embed placeholder — styled card with Instagram icon, grid of 6 placeholder image squares (cream bg with red diamond patterns), button "SLEDZ NA INSTAGRAMIE"
+
+Section: Dolacz (primary red #C41A2C bg, white text):
+- Full-width CTA band
+- H2: "Dolacz do Women Up!" (white, Cormorant Garamond)
+- Text: "Otwartosc na wszystkie kobiety — niezaleznie od statusu spolecznego. Razem tworzymy zmiane."
+- White button: "SKONTAKTUJ SIE Z NAMI"
+
+Footer (dark warm bg #2D2016):
+- Cross-stitch pattern border at top (red on dark brown)
+- 4 columns:
+  1. Logo "WOMEN UP!" + tagline "Inicjatywa Spoleczna" + small description
+  2. "Nawigacja": O nas, Inicjatywy, Aktualnosci, Kontakt
+  3. "Inicjatywy": Dla Psiakow, Moc Podlasia, Kobiety Razem
+  4. "Kontakt": email, phone, address placeholder, social media icons (Facebook, Instagram)
+- Bottom bar: copyright 2026 Women Up! Stowarzyszenie + "Polityka prywatnosci"
+- Text in cream/light color on dark bg
+
+---
+
+### Page 2: O NAS (/o-nas)
+
+- Hero banner (smaller than homepage): H1 "O nas", subtitle about the association
+- Section "Nasza historia" — timeline or paragraphs about how Women Up! started
+- Section "Misja i Wartosci" — expanded values with descriptions
+- Section "Nasz Zespol" — grid of team member cards (placeholder: name, role, short bio, circular photo placeholder)
+- Section "Statut" — link to download PDF
+
+### Page 3: INICJATYWY (/inicjatywy)
+
+- Hero banner: H1 "Nasze Inicjatywy", subtitle
+- Filter/tabs: "Wszystkie", "Aktywne", "Planowane"
+- Grid of initiative cards (expandable — click to see full description)
+- CTA section: "Rozpocznij wlasna inicjatywe"
+
+### Page 4: AKTUALNOSCI (/aktualnosci)
+
+- Hero banner: H1 "Aktualnosci"
+- Blog post grid (2 columns on desktop, 1 on mobile)
+- Each post card: image, date, title, excerpt, category tag, "Czytaj wiecej" with arrow
+- Pagination
+- Sidebar (desktop): categories, recent posts, social media links
+
+### Page 5: KONTAKT (/kontakt)
+
+- Hero banner: H1 "Kontakt"
+- Two columns:
+  - Left: Contact form (fields: Imie, Email, Temat dropdown with options Chce dolaczyc / Mam pytanie / Chce rozpoczac inicjatywe / Inne, Wiadomosc textarea, submit button "WYSLIJ")
+  - Right: Contact info cards: Email kontakt@womenup.com, Telefon placeholder, Adres Podlasie Polska, Social media links with icons
+- Map placeholder below (full width, cream bg with centered pin icon)
+
+### Page 6: DOLACZ (/dolacz)
+
+- Hero: H1 "Dolacz do Women Up!"
+- Section "Jak to dziala" — 3-step process:
+  1. Skontaktuj sie z nami
+  2. Poznaj nasze inicjatywy
+  3. Dzialaj z nami lub rozpocznij wlasna!
+- Section "Rozpocznij inicjatywe" — description of how members can start their own projects
+- CTA with contact form
+
+---
+
+## RESPONSIVE DESIGN
+
+- Mobile-first approach
+- Navbar: collapses to hamburger on mobile
+- Hero: reduce H1 to 36px on mobile, stack buttons vertically
+- Card grids: 3 cols then 2 cols then 1 col
+- Sections: reduce vertical padding on mobile
+- Font sizes: scale down approximately 20% on mobile
+- Touch-friendly: minimum 44px tap targets
+
+---
+
+## IMPORTANT IMPLEMENTATION NOTES
+
+1. Use React Router for multi-page navigation
+2. All text content is in POLISH — do not translate to English
+3. The overall feeling should be: warm, cultural, authentic, community-focused — NOT corporate, NOT startup-y
+4. Cream backgrounds, NOT white. The warmth of the cream (#F5F0E8) is essential to the brand.
+5. Red (#C41A2C) is used for accents, headings, buttons — NOT for large background areas (except the CTA band)
+6. Typography hierarchy is important: Cormorant Garamond for all headings (elegant serif), Inter for body text
+7. The cross-stitch/pixel pattern decorations are subtle but present — they tie everything to the Slavic folk art identity
+8. Sharp corners (rounded-sm, 2px) — this is geometric, not soft/bubbly
+9. Include a favicon — a small red diamond shape on cream background
+10. Add Google Fonts imports for Cormorant Garamond and Inter
+11. All images are placeholders for now — use cream-colored boxes with subtle diamond pattern or Lucide icons
+12. Footer should feel substantial and warm, not minimal
+
+---
+
+## TAILWIND CONFIG EXTENSION
+
+Add to tailwind.config.js:
+
+colors:
+  brand:
+    red: '#C41A2C'
+    red-dark: '#9E1523'
+    red-light: '#E8344A'
+    cream: '#F5F0E8'
+    cream-dark: '#EDE7DB'
+    brown: '#2D2016'
+    brown-light: '#6B5E52'
+    border: '#D4CBBC'
+
+fontFamily:
+  heading: ['Cormorant Garamond', 'Georgia', 'serif']
+  body: ['Inter', 'system-ui', 'sans-serif']
+
+letterSpacing:
+  brand-wide: '0.1em'
+  brand-subtle: '0.02em'
+
+Build all pages with smooth scroll behavior, proper semantic HTML, and accessible form labels. Make it production-ready and beautiful.

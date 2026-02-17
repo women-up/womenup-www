@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Women Up! — Design System</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #C41A2C;
+    --primary-dark: #8B1A2C;
+    --primary-light: #E8505B;
+    --bg-main: #F5F0E8;
+    --bg-white: #FFFFFF;
+    --bg-alt: #E8DFD0;
+    --text: #2D2926;
+    --text-secondary: #8B8178;
+    --gold: #C9972A;
+    --green: #4A7C59;
+    --footer-bg: #2D2926;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Source Sans 3', sans-serif; background: var(--bg-main); color: var(--text); line-height: 1.6; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  .ds-header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    padding: 64px 0; position: relative; overflow: hidden;
+  }
+  .ds-header::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='2' y='2' width='7' height='7' fill='white' opacity='0.06'/%3E%3Crect x='11' y='11' width='7' height='7' fill='white' opacity='0.06'/%3E%3C/svg%3E");
+  }
+  .ds-header h1 { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 48px; color: white; position: relative; text-align: center; letter-spacing: 4px; }
+  .ds-header p { color: rgba(255,255,255,0.85); text-align: center; font-size: 16px; margin-top: 12px; position: relative; letter-spacing: 3px; text-transform: uppercase; }
+  .section { padding: 56px 0; }
+  .section-alt { background: var(--bg-alt); }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 32px; color: var(--primary); margin-bottom: 32px; text-align: center; }
+  .divider { display: flex; align-items: center; justify-content: center; gap: 0; margin: 48px auto; width: 240px; }
+  .divider-line { flex: 1; height: 1px; background: var(--primary); opacity: 0.3; }
+  .divider-diamond { width: 10px; height: 10px; background: var(--primary); opacity: 0.4; transform: rotate(45deg); flex-shrink: 0; margin: 0 8px; }
+  .colors-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+  .color-card { background: white; border-radius: 4px; overflow: hidden; box-shadow: 0 2px 12px rgba(45,41,38,0.08); }
+  .color-swatch { height: 80px; }
+  .color-info { padding: 14px 16px; }
+  .color-name { font-weight: 600; font-size: 14px; }
+  .color-hex { color: var(--text-secondary); font-size: 13px; font-family: monospace; }
+  .color-label { color: var(--text-secondary); font-size: 12px; margin-top: 2px; }
+  .type-sample { margin-bottom: 28px; }
+  .type-label { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--text-secondary); margin-bottom: 6px; }
+  .type-h1 { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 56px; line-height: 1.14; }
+  .type-h2 { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 40px; line-height: 1.2; }
+  .type-h3 { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 28px; line-height: 1.29; }
+  .type-body { font-size: 16px; line-height: 1.625; }
+  .type-small { font-size: 14px; line-height: 1.57; color: var(--text-secondary); }
+  .buttons-row { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; margin-bottom: 24px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; font-family: 'Source Sans 3', sans-serif; font-weight: 600; font-size: 16px; letter-spacing: 0.5px; text-transform: uppercase; padding: 14px 32px; border-radius: 2px; cursor: pointer; transition: all 0.2s; text-decoration: none; border: 2px solid transparent; }
+  .btn-primary { background: var(--primary); color: white; border-color: var(--primary); }
+  .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(196,26,44,0.3); }
+  .btn-secondary { background: transparent; color: var(--primary); border-color: var(--primary); }
+  .btn-secondary:hover { background: var(--primary); color: white; }
+  .btn-white { background: white; color: var(--primary); border-color: white; }
+  .btn-white-outline { background: transparent; color: white; border-color: white; }
+  .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
+  .card { background: white; border-radius: 4px; border-left: 4px solid var(--primary); box-shadow: 0 2px 12px rgba(45,41,38,0.08); padding: 28px 24px; transition: all 0.25s; }
+  .card:hover { box-shadow: 0 8px 24px rgba(45,41,38,0.12); transform: translateY(-2px); }
+  .card-icon { font-size: 32px; margin-bottom: 12px; }
+  .card-title { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 22px; margin-bottom: 8px; }
+  .card-text { font-size: 15px; color: var(--text-secondary); line-height: 1.6; }
+  .card-link { display: inline-block; margin-top: 16px; color: var(--primary); font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; text-decoration: none; }
+  .card-link:hover { color: var(--primary-dark); }
+  .blog-card { background: white; border-radius: 4px; box-shadow: 0 2px 12px rgba(45,41,38,0.08); overflow: hidden; transition: all 0.25s; }
+  .blog-card:hover { box-shadow: 0 8px 24px rgba(45,41,38,0.12); transform: translateY(-2px); }
+  .blog-img { height: 180px; background: linear-gradient(135deg, var(--bg-alt), var(--primary-light)); display: flex; align-items: center; justify-content: center; color: white; font-size: 40px; opacity: 0.5; }
+  .blog-content { padding: 24px; }
+  .blog-tag { display: inline-block; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--primary); font-weight: 600; margin-bottom: 8px; }
+  .blog-date { font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; }
+  .blog-title { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 20px; margin-bottom: 8px; }
+  .navbar-demo { background: var(--bg-main); padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; border-radius: 4px; border: 1px solid rgba(0,0,0,0.06); }
+  .navbar-logo { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 24px; color: var(--primary); letter-spacing: 3px; }
+  .navbar-links { display: flex; gap: 28px; }
+  .navbar-links a { font-weight: 600; font-size: 15px; color: var(--text); text-decoration: none; padding-bottom: 4px; }
+  .navbar-links a.active { border-bottom: 2px solid var(--primary); color: var(--primary); }
+  .navbar-links a:hover { color: var(--primary); }
+  .footer-demo { background: var(--footer-bg); color: white; padding: 48px 32px 24px; border-radius: 4px; position: relative; overflow: hidden; }
+  .footer-demo::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: repeating-linear-gradient(90deg, var(--primary) 0px, var(--primary) 8px, transparent 8px, transparent 12px); }
+  .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .footer-col h4 { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 18px; margin-bottom: 12px; }
+  .footer-col a, .footer-col p { display: block; color: rgba(255,255,255,0.6); font-size: 14px; text-decoration: none; margin-bottom: 6px; }
+  .footer-col a:hover { color: white; }
+  .footer-bottom { margin-top: 32px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; color: rgba(255,255,255,0.4); font-size: 13px; }
+  .hero-demo { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 64px 40px; border-radius: 4px; text-align: center; position: relative; overflow: hidden; }
+  .hero-demo::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='2' y='2' width='7' height='7' fill='white' opacity='0.06'/%3E%3Crect x='11' y='11' width='7' height='7' fill='white' opacity='0.06'/%3E%3C/svg%3E"); }
+  .hero-demo * { position: relative; }
+  .hero-demo h2 { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 44px; color: white; margin-bottom: 16px; letter-spacing: 2px; }
+  .hero-demo p { color: rgba(255,255,255,0.88); font-size: 18px; max-width: 600px; margin: 0 auto 28px; line-height: 1.6; }
+  .pattern-box { width: 100%; height: 120px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--text-secondary); border: 1px solid rgba(0,0,0,0.06); }
+  .pattern-cross { background-color: var(--bg-main); background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='2' y='2' width='7' height='7' fill='%23C41A2C' opacity='0.07'/%3E%3Crect x='11' y='11' width='7' height='7' fill='%23C41A2C' opacity='0.07'/%3E%3C/svg%3E"); }
+  .pattern-diamond { background-color: var(--bg-main); background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='17' y='2' width='6' height='6' fill='%23C41A2C' opacity='0.06' transform='rotate(45 20 5)'/%3E%3Crect x='2' y='17' width='6' height='6' fill='%23C41A2C' opacity='0.06' transform='rotate(45 5 20)'/%3E%3Crect x='32' y='17' width='6' height='6' fill='%23C41A2C' opacity='0.06' transform='rotate(45 35 20)'/%3E%3Crect x='17' y='32' width='6' height='6' fill='%23C41A2C' opacity='0.06' transform='rotate(45 20 35)'/%3E%3C/svg%3E"); }
+  .patterns-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-demo { max-width: 500px; }
+  .form-group { margin-bottom: 20px; }
+  .form-label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 6px; }
+  .form-input { width: 100%; padding: 12px 16px; border: 1px solid #D1C9BE; border-radius: 2px; font-family: 'Source Sans 3', sans-serif; font-size: 15px; background: white; color: var(--text); transition: border-color 0.2s; }
+  .form-input:focus { outline: none; border-color: var(--primary); }
+  .form-textarea { min-height: 120px; resize: vertical; }
+  @media (max-width: 768px) {
+    .ds-header h1 { font-size: 32px; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .navbar-links { display: none; }
+    .type-h1 { font-size: 36px; }
+    .type-h2 { font-size: 28px; }
+    .hero-demo h2 { font-size: 28px; }
+    .patterns-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="ds-header"><div class="container"><h1>WOMEN UP!</h1><p>Design System · Brand Guide</p></div></div>
+
+<div class="section"><div class="container">
+  <h2 class="section-title">Paleta Kolorów</h2>
+  <div class="colors-grid">
+    <div class="color-card"><div class="color-swatch" style="background:#C41A2C"></div><div class="color-info"><div class="color-name">Czerwień Podlaska</div><div class="color-hex">#C41A2C</div><div class="color-label">Kolor główny · CTA · Logo</div></div></div>
+    <div class="color-card"><div class="color-swatch" style="background:#8B1A2C"></div><div class="color-info"><div class="color-name">Czerwień Ciemna</div><div class="color-hex">#8B1A2C</div><div class="color-label">Hover · Gradient</div></div></div>
+    <div class="color-card"><div class="color-swatch" style="background:#E8505B"></div><div class="color-info"><div class="color-name">Czerwień Jasna</div><div class="color-hex">#E8505B</div><div class="color-label">Linki · Akcenty</div></div></div>
+    <div class="color-card"><div class="color-swatch" style="background:#F5F0E8"></div><div class="color-info"><div class="color-name">Kremowe Płótno</div><div class="color-hex">#F5F0E8</div><div class="color-label">Tło główne</div></div></div>
+    <div class="color-card"><div class="color-swatch" style="background:#E8DFD0"></div><div class="color-info"><div class="color-name">Ciepły Beż</div><div class="color-hex">#E8DFD0</div><div class="color-label">Tło alternujące</div></div></div>
+    <div class="color-card"><div class="color-swatch" style="background:#2D2926"></div><div class="color-info"><div class="color-name">Antracyt</div><div class="color-hex">#2D2926</div><div class="color-label">Tekst · Footer</div></div></div>
+    <div class="color-card"><div class="color-swatch" style="background:#8B8178"></div><div class="color-info"><div class="color-name">Szarość Ciepła</div><div class="color-hex">#8B8178</div><div class="color-label">Tekst drugorzędny</div></div></div>
+    <div class="color-card"><div class="color-swatch" style="background:#C9972A"></div><div class="color-info"><div class="color-name">Złoto Podlasia</div><div class="color-hex">#C9972A</div><div class="color-label">Akcenty dekoracyjne</div></div></div>
+    <div class="color-card"><div class="color-swatch" style="background:#4A7C59"></div><div class="color-info"><div class="color-name">Zieleń Łąk</div><div class="color-hex">#4A7C59</div><div class="color-label">Sukces · Statusy</div></div></div>
+  </div>
+</div></div>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+<div class="section"><div class="container">
+  <h2 class="section-title">Typografia</h2>
+  <div class="type-sample"><div class="type-label">H1 · Cormorant Garamond 700 · 56px</div><div class="type-h1">Waleczne · Sprawcze · Niezależne</div></div>
+  <div class="type-sample"><div class="type-label">H2 · Cormorant Garamond 600 · 40px</div><div class="type-h2">Nasze Inicjatywy</div></div>
+  <div class="type-sample"><div class="type-label">H3 · Cormorant Garamond 600 · 28px</div><div class="type-h3">Kobiety Razem</div></div>
+  <div class="type-sample"><div class="type-label">Body · Source Sans 3 400 · 16px</div><div class="type-body">Women Up! to stowarzyszenie, które daje kobietom przestrzeń do tworzenia własnych inicjatyw społecznych. Od pomocy zwierzętom po wsparcie lokalnych społeczności — każda z nas może zacząć coś, co zmieni świat wokół niej.</div></div>
+  <div class="type-sample"><div class="type-label">Body Small · Source Sans 3 400 · 14px</div><div class="type-small">Stowarzyszenie inicjatyw społecznych kobiet z Podlasia. Otwarte na wszystkie kobiety, niezależnie od statusu społecznego.</div></div>
+</div></div>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+<div class="section"><div class="container">
+  <h2 class="section-title">Wzory Dekoracyjne</h2>
+  <div class="patterns-grid">
+    <div><div class="type-label" style="margin-bottom:8px">Wzór krzyżykowy (cross-stitch)</div><div class="pattern-box pattern-cross">Tło sekcji · opacity 0.07</div></div>
+    <div><div class="type-label" style="margin-bottom:8px">Wzór diamentowy</div><div class="pattern-box pattern-diamond">Dekoracja · opacity 0.06</div></div>
+  </div>
+  <div style="margin-top:24px"><div class="type-label" style="margin-bottom:8px">Separator sekcji (Diamond Divider)</div>
+  <div class="divider" style="margin:16px auto"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div></div>
+</div></div>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+<div class="section"><div class="container">
+  <h2 class="section-title">Przyciski</h2>
+  <div class="buttons-row"><a class="btn btn-primary" href="#">DOŁĄCZ DO NAS</a><a class="btn btn-secondary" href="#">DOWIEDZ SIĘ WIĘCEJ</a></div>
+  <div class="hero-demo" style="margin-top:24px">
+    <h2>Dołącz do Women Up!</h2>
+    <p>Masz pomysł na inicjatywę? Chcesz działać z nami? Jesteśmy otwarte na każdą kobietę.</p>
+    <div class="buttons-row" style="justify-content:center"><a class="btn btn-white" href="#">NAPISZ DO NAS</a><a class="btn btn-white-outline" href="#">POZNAJ NAS</a></div>
+  </div>
+</div></div>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+<div class="section"><div class="container">
+  <h2 class="section-title">Nawigacja</h2>
+  <div class="navbar-demo"><div class="navbar-logo">WOMEN UP!</div><div class="navbar-links"><a href="#" class="active">Strona Główna</a><a href="#">O Nas</a><a href="#">Inicjatywy</a><a href="#">Blog</a><a href="#">Kontakt</a><a href="#" style="color:var(--primary)">Dołącz</a></div></div>
+</div></div>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+<div class="section section-alt"><div class="container">
+  <h2 class="section-title">Karty Inicjatyw</h2>
+  <div class="cards-grid">
+    <div class="card"><div class="card-icon">🐾</div><div class="card-title">Dla Psiakow</div><div class="card-text">Pomagamy bezdomnym zwierzętom na Podlasiu. Organizujemy zbiórki, spacery i adopcje.</div><a class="card-link" href="#">Dowiedz się więcej →</a></div>
+    <div class="card"><div class="card-icon">💪</div><div class="card-title">Moc Podlasia</div><div class="card-text">Rozwijamy lokalne społeczności i wspieramy oddolne inicjatywy w regionie.</div><a class="card-link" href="#">Dowiedz się więcej →</a></div>
+    <div class="card"><div class="card-icon">🤝</div><div class="card-title">Kobiety Razem</div><div class="card-text">Mentoring i wsparcie między kobietami. Razem jesteśmy silniejsze.</div><a class="card-link" href="#">Dowiedz się więcej →</a></div>
+  </div>
+</div></div>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+<div class="section"><div class="container">
+  <h2 class="section-title">Karty Bloga</h2>
+  <div class="cards-grid">
+    <div class="blog-card"><div class="blog-img">📷</div><div class="blog-content"><div class="blog-tag">Inicjatywy</div><div class="blog-date">14 lutego 2026</div><div class="blog-title">Nowa inicjatywa: Ogrody Społeczne</div><div class="card-text">Startujemy z nowym projektem! Wspólne ogrody dla mieszkanek Białegostoku...</div><a class="card-link" href="#">Czytaj dalej →</a></div></div>
+    <div class="blog-card"><div class="blog-img">📷</div><div class="blog-content"><div class="blog-tag">Wydarzenie</div><div class="blog-date">10 lutego 2026</div><div class="blog-title">Spotkanie integracyjne — podsumowanie</div><div class="card-text">Nasze pierwsze spotkanie w nowym roku przyciągnęło 30 uczestniczek...</div><a class="card-link" href="#">Czytaj dalej →</a></div></div>
+  </div>
+</div></div>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+<div class="section section-alt"><div class="container">
+  <h2 class="section-title">Formularz Kontaktowy</h2>
+  <div class="form-demo">
+    <div class="form-group"><label class="form-label">Imię</label><input class="form-input" type="text" placeholder="Twoje imię"></div>
+    <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" placeholder="twoj@email.com"></div>
+    <div class="form-group"><label class="form-label">Wiadomość</label><textarea class="form-input form-textarea" placeholder="Napisz do nas..."></textarea></div>
+    <a class="btn btn-primary" href="#">WYŚLIJ WIADOMOŚĆ</a>
+  </div>
+</div></div>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+<div class="section" style="padding-bottom:0"><div class="container">
+  <h2 class="section-title">Footer</h2>
+  <div class="footer-demo">
+    <div class="footer-grid">
+      <div class="footer-col"><h4>Women Up!</h4><p>Stowarzyszenie inicjatyw społecznych kobiet z Podlasia.</p><p style="margin-top:8px">Waleczne · Sprawcze · Niezależne</p></div>
+      <div class="footer-col"><h4>Inicjatywy</h4><a href="#">Dla Psiakow</a><a href="#">Moc Podlasia</a><a href="#">Kobiety Razem</a></div>
+      <div class="footer-col"><h4>Kontakt</h4><a href="#">kontakt@womenup.com</a><a href="#">Podlasie, Polska</a></div>
+      <div class="footer-col"><h4>Social Media</h4><a href="#">Facebook</a><a href="#">Instagram</a></div>
+    </div>
+    <div class="footer-bottom">© 2026 Women Up! Stowarzyszenie. Wszelkie prawa zastrzeżone.</div>
+  </div>
+</div></div>
+<div style="height:48px"></div>
+</body>
+</html>

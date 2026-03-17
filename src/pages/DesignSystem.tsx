@@ -129,6 +129,80 @@ const DesignSystem = () => {
 
       <DiamondDivider className="max-w-[240px] mx-auto" />
 
+      {/* Wzory Wektorowe · Vector Patterns */}
+      <section className="py-14 md:py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="font-heading text-brand-h2 font-semibold text-primary text-center mb-10">
+            Wzory Wektorowe
+          </h2>
+          <p className="text-center text-muted-foreground text-sm mb-10 max-w-xl mx-auto">
+            Wzory krzyżykowe w formacie SVG — skalowalne bez utraty jakości. Kliknij „Pobierz SVG" aby pobrać plik.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <div className="bg-card border border-border rounded-sm p-8 flex flex-col items-center">
+              <p className="text-[11px] uppercase tracking-[2px] text-muted-foreground mb-4">Wzór diamentowy · przezroczyste tło</p>
+              <img src={diamondPattern} alt="Women Up! diamond pattern" className="h-48 w-auto mb-4" />
+              <p className="text-xs font-mono text-muted-foreground mb-3">womenup_diamond_pattern.svg · 249×249</p>
+              <a href="/assets/womenup_diamond_pattern.svg" download="womenup_diamond_pattern.svg" className="inline-flex items-center gap-2 text-xs uppercase tracking-[2px] font-semibold text-primary hover:text-primary-dark transition-colors">
+                <Download className="h-3.5 w-3.5" /> Pobierz SVG
+              </a>
+            </div>
+            <div className="bg-card border border-border rounded-sm p-8 flex flex-col items-center">
+              <p className="text-[11px] uppercase tracking-[2px] text-muted-foreground mb-4">Diamenty koncentryczne · tło kremowe</p>
+              <img src={concentricDiamonds} alt="Concentric diamonds pattern" className="h-48 w-auto mb-4" />
+              <p className="text-xs font-mono text-muted-foreground mb-3">womenup_concentric_diamonds.svg · 470×600</p>
+              <a href="/assets/womenup_concentric_diamonds.svg" download="womenup_concentric_diamonds.svg" className="inline-flex items-center gap-2 text-xs uppercase tracking-[2px] font-semibold text-primary hover:text-primary-dark transition-colors">
+                <Download className="h-3.5 w-3.5" /> Pobierz SVG
+              </a>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-8">
+            <div className="bg-card border border-border rounded-sm p-6 flex flex-col items-center">
+              <p className="text-[11px] uppercase tracking-[2px] text-muted-foreground mb-4">Białe tło</p>
+              <img src={concentricWhite} alt="Concentric diamonds on white" className="h-40 w-auto mb-3" />
+              <p className="text-[10px] font-mono text-muted-foreground mb-3">concentric_white.svg</p>
+              <a href="/assets/womenup_concentric_white.svg" download="womenup_concentric_white.svg" className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[2px] font-semibold text-primary hover:text-primary-dark transition-colors">
+                <Download className="h-3 w-3" /> Pobierz
+              </a>
+            </div>
+            <div className="rounded-sm p-6 flex flex-col items-center border border-border" style={{ background: '#F5F0E8' }}>
+              <p className="text-[11px] uppercase tracking-[2px] text-muted-foreground mb-4">Inwersja</p>
+              <img src={concentricInverted} alt="Concentric diamonds inverted" className="h-40 w-auto mb-3" />
+              <p className="text-[10px] font-mono text-muted-foreground mb-3">concentric_inverted.svg</p>
+              <a href="/assets/womenup_concentric_inverted.svg" download="womenup_concentric_inverted.svg" className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[2px] font-semibold text-primary hover:text-primary-dark transition-colors">
+                <Download className="h-3 w-3" /> Pobierz
+              </a>
+            </div>
+            <div className="bg-card border border-border rounded-sm p-6 flex flex-col items-center">
+              <p className="text-[11px] uppercase tracking-[2px] text-muted-foreground mb-4">Sam wzór</p>
+              <img src={patternOnly} alt="Diamond pattern only" className="h-40 w-auto mb-3" />
+              <p className="text-[10px] font-mono text-muted-foreground mb-3">pattern_only.svg</p>
+              <a href="/assets/womenup_pattern_only.svg" download="womenup_pattern_only.svg" className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[2px] font-semibold text-primary hover:text-primary-dark transition-colors">
+                <Download className="h-3 w-3" /> Pobierz
+              </a>
+            </div>
+          </div>
+
+          <h3 className="font-heading text-lg font-semibold text-primary text-center mb-6 mt-12">
+            Wizytówka · przykład użycia
+          </h3>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-card border border-border rounded-sm p-6 flex flex-col items-center">
+              <p className="text-[11px] uppercase tracking-[2px] text-muted-foreground mb-4">Przód · landscape</p>
+              <img src={businessCardFront} alt="Business card front" className="w-full max-w-sm rounded-sm shadow-brand-sm" />
+            </div>
+            <div className="bg-card border border-border rounded-sm p-6 flex flex-col items-center">
+              <p className="text-[11px] uppercase tracking-[2px] text-muted-foreground mb-4">Tył · portrait</p>
+              <img src={businessCardBack} alt="Business card back" className="h-64 w-auto rounded-sm shadow-brand-sm" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <DiamondDivider className="max-w-[240px] mx-auto" />
+
       {/* Paleta Kolorów */}
       <section className="py-14 md:py-20">
         <div className="container mx-auto px-4">

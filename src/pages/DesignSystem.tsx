@@ -1,11 +1,16 @@
 import Layout from "@/components/Layout";
 import DiamondDivider from "@/components/DiamondDivider";
 import { Button } from "@/components/ui/button";
-import { Heart, MapPin, Users, Image } from "lucide-react";
+import { Heart, MapPin, Users, Image, Download } from "lucide-react";
 import businessCardFront from "@/assets/Bcard_landscape.png";
 import businessCardBack from "@/assets/BcardPort.png";
 import logo from "@/assets/logo.svg";
 import logoWhite from "@/assets/logo-white.svg";
+import diamondPattern from "@/assets/womenup_diamond_pattern.svg";
+import concentricDiamonds from "@/assets/womenup_concentric_diamonds.svg";
+import concentricWhite from "@/assets/womenup_concentric_white.svg";
+import concentricInverted from "@/assets/womenup_concentric_inverted.svg";
+import patternOnly from "@/assets/womenup_pattern_only.svg";
 
 const colors = [
   { name: "Czerwień Podlaska", hex: "#C41A2C", token: "--primary", label: "Kolor główny · CTA · Logo", className: "bg-primary" },

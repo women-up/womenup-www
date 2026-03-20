@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Heart, MapPin, Users, Lightbulb, Palette, BookOpen, ArrowRight } from "lucide-react";
+import { Heart, Star, Flame, Coffee, Sparkles, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import DiamondDivider from "@/components/DiamondDivider";
 import Layout from "@/components/Layout";
@@ -7,12 +7,11 @@ import AnimatedSection from "@/components/AnimatedSection";
 import { Link } from "react-router-dom";
 
 const allInitiatives = [
-  { icon: Heart, title: "Dla Psiaków", desc: "Pomoc bezdomnym zwierzętom w regionie. Organizujemy zbiórki, spacery wolontariackie i współpracujemy ze schroniskami.", status: "Aktywne", full: "Inicjatywa Dla Psiaków powstała z miłości do zwierząt. Regularnie organizujemy zbiórki karmy, koców i zabawek. Współpracujemy z lokalnymi schroniskami, organizujemy spacery wolontariackie i kampanie adopcyjne." },
-  { icon: MapPin, title: "Moc Podlasia", desc: "Wzmacnianie lokalnej tożsamości i promocja kultury Podlasia.", status: "Aktywne", full: "Moc Podlasia to inicjatywa kulturalna promująca tradycje regionu. Organizujemy warsztaty haftu krzyżykowego, spotkania z lokalnymi artystkami i wydarzenia popularyzujące kulturę Podlasia." },
-  { icon: Users, title: "Kobiety Razem", desc: "Program mentoringowy i grupa wsparcia dla kobiet w trudnych sytuacjach życiowych.", status: "Aktywne", full: "Program mentoringowy łączący doświadczone kobiety z tymi, które potrzebują wsparcia. Prowadzimy regularne spotkania grupowe, indywidualne sesje mentoringowe i warsztaty rozwojowe." },
-  { icon: Lightbulb, title: "Startup Kobiet", desc: "Wsparcie kobiet w zakładaniu własnych działalności gospodarczych.", status: "Planowane", full: "Planowana inicjatywa wspierająca kobiety przedsiębiorcze z Podlasia. Warsztaty z zakresu biznesu, networkingu i finansów." },
-  { icon: Palette, title: "Sztuka Wspólna", desc: "Warsztaty artystyczne i wystawy lokalnych artystek.", status: "Planowane", full: "Inicjatywa łącząca kobiety przez sztukę. Planujemy warsztaty malarstwa, ceramiki i rękodzieła." },
-  { icon: BookOpen, title: "Czytelnia Kobiet", desc: "Klub książkowy i spotkania autorskie dla kobiet z regionu.", status: "Planowane", full: "Literacka inicjatywa dla kobiet lubiących czytać i dyskutować o książkach." },
+  { icon: Star, title: "Białostoczanka", desc: "Jednodniowe wydarzenie łączące warsztaty, kulturę, networking i zdrowie.", status: "Aktywne", full: "Jednodniowe wydarzenie, które łączy warsztaty, kulturę, networking i zdrowie. Kobiety Podlasia spotykają się, uczą, inspirują i wzmacniają swoją lokalną tożsamość – razem tworząc społeczność pełną energii i możliwości." },
+  { icon: Flame, title: "LEVEL UP: Kobieta", desc: "Rozwijaj się świadomie — na swoich zasadach. Cały dzień tylko dla kobiet!", status: "Aktywne", full: "To wyjątkowa okazja, by w jednym miejscu połączyć warsztaty, inspiracje, aktywności dla zdrowia i dobrej energii. Cały dzień wypełniony spotkaniami, które dodają pewności siebie, odkrywają pasje i pozwalają poczuć moc wspólnoty. Przyjdź, poczuj inspirację, zrelaksuj się i odkryj swoje szczęście w gronie kobiet, które tak jak Ty chcą rozwijać się, czerpać energię i celebrować życie!" },
+  { icon: Heart, title: "#RatujPSA", desc: "Akcja kobiet wspierających schroniskowe psy w przełamywaniu lęku i budowaniu zaufania.", status: "Aktywne", full: "Women Up to akcja kobiet, które wspierają schroniskowe psy w przełamywaniu lęku i budowaniu zaufania. Pracujemy z tymi, które boją się wychodzić z boksów, pomagając im odkryć świat i pewność siebie. Każdy gest zmienia ich życie na lepsze!" },
+  { icon: Coffee, title: "Kawa z ekspertem", desc: "Kameralne spotkania z ekspertami przy filiżance kawy (do 25 osób).", status: "Aktywne", full: "Kameralne spotkania, podczas których eksperci dzielą się swoją wiedzą i doświadczeniem przy filiżance kawy. To okazja, by zdobyć praktyczne wskazówki, zadawać pytania i nawiązać wartościowe kontakty w przyjaznej, kameralnej atmosferze (do 25 osób)." },
+  { icon: Sparkles, title: "The Good Night — Wieczór z Misją", desc: "Elegancki bal charytatywny z licytacjami, organizowany przez kobiety.", status: "Aktywne", full: "Inicjatywa kobiet, które zapraszają mężczyzn na elegancki bal zmieniający rzeczywistość w ramach licytacji charytatywnych." },
 ];
 
 const Inicjatywy = () => {
@@ -39,7 +38,7 @@ const Inicjatywy = () => {
         <div className="container mx-auto px-4">
           {/* Filter tabs */}
           <div className="flex gap-2 justify-center mb-10 flex-wrap">
-            {["Wszystkie", "Aktywne", "Planowane"].map((tab) => (
+            {["Wszystkie", "Aktywne"].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setFilter(tab)}

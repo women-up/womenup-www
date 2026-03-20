@@ -5,10 +5,13 @@ import Layout from "@/components/Layout";
 import AnimatedSection from "@/components/AnimatedSection";
 
 const team = [
-  { name: "Anna Kowalska", role: "Prezeska", bio: "Inicjatorka Women Up!, działaczka społeczna z Podlasia." },
-  { name: "Maria Nowak", role: "Wiceprezeska", bio: "Koordynatorka inicjatyw lokalnych i wolontariatu." },
-  { name: "Katarzyna Wiśniewska", role: "Skarbniczka", bio: "Specjalistka ds. finansów i fundraisingu." },
-  { name: "Joanna Kamińska", role: "Sekretarz", bio: "Odpowiedzialna za komunikację i media społecznościowe." },
+  { name: "Marlena Soczyńska", role: "Prezeska" },
+  { name: "Kinga Klepacka", role: "Wiceprezeska" },
+  { name: "Julita Nos", role: "Członkini Zarządu" },
+  { name: "", role: "Koordynatorka ds. Wydarzeń" },
+  { name: "Ewelina Sienicka-Kupicha", role: "Koordynatorka ds. Komunikacji" },
+  { name: "Diana Chwaszczewska", role: "Koordynatorka ds. Mediów" },
+  { name: "Anna Dzienisowicz", role: "Koordynatorka ds. Inicjatyw Społecznych" },
 ];
 
 const values = [
@@ -68,17 +71,47 @@ const ONas = () => {
       <AnimatedSection className="py-16 md:py-24 bg-card">
         <div className="container mx-auto px-4">
           <h2 className="font-heading text-brand-h2 font-bold text-primary text-center mb-12">Nasz Zespół</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {team.map((member) => (
-              <div key={member.name} className="bg-background border border-border rounded-sm p-6 text-center hover:border-primary transition-all">
+
+          {/* Team photo */}
+          <div className="max-w-3xl mx-auto mb-12">
+            <img
+              src="/assets/team-photo.jpg"
+              alt="Zespół Women Up!"
+              className="w-full rounded-sm border border-border shadow-sm"
+            />
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {team.map((member, i) => (
+              <div key={member.role + i} className="bg-background border border-border rounded-sm p-6 text-center hover:border-primary transition-all">
                 <div className="w-20 h-20 rounded-full bg-secondary mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-primary text-2xl font-heading font-bold">{member.name[0]}</span>
+                  <span className="text-primary text-2xl font-heading font-bold">
+                    {member.name ? member.name[0] : "?"}
+                  </span>
                 </div>
-                <h4 className="font-heading text-lg font-semibold text-foreground">{member.name}</h4>
-                <p className="text-xs uppercase tracking-brand-wide text-primary mb-2">{member.role}</p>
-                <p className="text-sm text-muted-foreground">{member.bio}</p>
+                {member.name && (
+                  <h4 className="font-heading text-lg font-semibold text-foreground">{member.name}</h4>
+                )}
+                <p className="text-xs uppercase tracking-brand-wide text-primary mt-1">{member.role}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </AnimatedSection>
+
+      {/* Video */}
+      <AnimatedSection className="py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <h2 className="font-heading text-brand-h2 font-bold text-primary text-center mb-8">Nasza Historia</h2>
+          <div className="max-w-3xl mx-auto">
+            <video
+              controls
+              className="w-full rounded-sm border border-border shadow-sm"
+              poster="/assets/team-photo.jpg"
+            >
+              <source src="/assets/story.mp4" type="video/mp4" />
+              Twoja przeglądarka nie obsługuje odtwarzania wideo.
+            </video>
           </div>
         </div>
       </AnimatedSection>

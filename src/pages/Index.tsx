@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { HandHeart, Flame, Sprout, Users, DoorOpen, Scale, Heart, MapPin, ArrowRight, Facebook, Instagram } from "lucide-react";
+import { HandHeart, Flame, Sprout, Users, DoorOpen, Scale, Star, Heart, ArrowRight, Facebook, Instagram } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import DiamondDivider from "@/components/DiamondDivider";
@@ -18,26 +18,26 @@ const values = [
 
 const initiatives = [
   {
+    icon: Star,
+    title: "Białostoczanka",
+    desc: "Jednodniowe wydarzenie łączące warsztaty, kulturę, networking i zdrowie. Kobiety Podlasia spotykają się, uczą, inspirują i wzmacniają swoją lokalną tożsamość.",
+  },
+  {
+    icon: Flame,
+    title: "LEVEL UP: Kobieta",
+    desc: "Cały dzień tylko dla kobiet! Warsztaty, inspiracje, aktywności dla zdrowia i dobrej energii — spotkania, które dodają pewności siebie i odkrywają pasje.",
+  },
+  {
     icon: Heart,
-    title: "Dla Psiaków",
-    desc: "Pomoc bezdomnym zwierzętom w regionie. Organizujemy zbiórki, spacery wolontariackie i współpracujemy ze schroniskami.",
-  },
-  {
-    icon: MapPin,
-    title: "Moc Podlasia",
-    desc: "Wzmacnianie lokalnej tożsamości i promocja kultury Podlasia. Warsztaty, spotkania, wydarzenia kulturalne.",
-  },
-  {
-    icon: Users,
-    title: "Kobiety Razem",
-    desc: "Program mentoringowy i grupa wsparcia dla kobiet w trudnych sytuacjach życiowych.",
+    title: "#RatujPSA",
+    desc: "Akcja kobiet wspierających schroniskowe psy w przełamywaniu lęku i budowaniu zaufania. Pomagamy im odkryć świat i pewność siebie.",
   },
 ];
 
 const news = [
-  { date: "15 lutego 2026", title: "Pierwsze spotkanie organizacyjne Women Up!", excerpt: "Zapraszamy na inauguracyjne spotkanie naszego stowarzyszenia. Poznaj nasze plany i dołącz do inicjatywy." },
-  { date: "10 lutego 2026", title: "Zbiórka dla schroniska — Dla Psiaków startuje!", excerpt: "Rusza nasza pierwsza akcja charytatywna. Zbieramy karmę, koce i zabawki dla bezdomnych zwierząt." },
-  { date: "5 lutego 2026", title: "Warsztaty krzyżykowe — Moc Podlasia", excerpt: "Zapraszamy na warsztaty haftu krzyżykowego inspirowanego tradycyjnymi wzorami podlaskimi." },
+  { date: "15 marca 2026", title: "Praca nad kalendarzem Women Up!", excerpt: "Trwają prace nad kalendarzem wydarzeń Women Up! Planujemy pełen rok inicjatyw, warsztatów i spotkań." },
+  { date: "25 stycznia 2026", title: "Spotkanie założycielskie Women Up!", excerpt: "Odbyło się spotkanie założycielskie Women Up! Inicjatywa Społeczna oficjalnie rozpoczyna swoją działalność na Podlasiu." },
+  { date: "Nadchodzące", title: "Białostoczanka — jednodniowe wydarzenie", excerpt: "Warsztaty, kultura, networking i zdrowie. Kobiety Podlasia spotykają się, uczą i inspirują razem." },
 ];
 
 const Index = () => {

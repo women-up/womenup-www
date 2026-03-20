@@ -6,12 +6,12 @@ import AnimatedSection from "@/components/AnimatedSection";
 import { Link } from "react-router-dom";
 
 const posts = [
-  { date: "15 lutego 2026", title: "Pierwsze spotkanie organizacyjne Women Up!", excerpt: "Zapraszamy na inauguracyjne spotkanie naszego stowarzyszenia. Poznaj nasze plany i dołącz do inicjatywy, która zmienia Podlasie.", category: "Wydarzenie" },
-  { date: "10 lutego 2026", title: "Zbiórka dla schroniska — Dla Psiaków startuje!", excerpt: "Rusza nasza pierwsza akcja charytatywna. Zbieramy karmę, koce i zabawki dla bezdomnych zwierząt z regionu.", category: "Inicjatywa" },
-  { date: "5 lutego 2026", title: "Warsztaty krzyżykowe — Moc Podlasia", excerpt: "Zapraszamy na warsztaty haftu krzyżykowego inspirowanego tradycyjnymi wzorami podlaskimi. Wszystkie poziomy zaawansowania.", category: "Warsztaty" },
-  { date: "1 lutego 2026", title: "Women Up! oficjalnie zarejestrowane!", excerpt: "Z radością informujemy, że nasze stowarzyszenie zostało oficjalnie zarejestrowane. To dopiero początek naszej drogi.", category: "Ogłoszenie" },
-  { date: "25 stycznia 2026", title: "Spotkanie założycielskie — relacja", excerpt: "Podsumowanie spotkania założycielskiego Women Up! Dziękujemy wszystkim, które przyszły i podzieliły się swoimi pomysłami.", category: "Wydarzenie" },
-  { date: "20 stycznia 2026", title: "Dlaczego Podlasie potrzebuje Women Up?", excerpt: "O potrzebie oddolnych inicjatyw kobiecych w regionie — rozmowa z inicjatorkami stowarzyszenia.", category: "Artykuł" },
+  { date: "15 marca 2026", title: "Praca nad kalendarzem Women Up!", excerpt: "Trwają prace nad kalendarzem wydarzeń Women Up! Planujemy pełen rok inicjatyw, warsztatów i spotkań dla kobiet z Podlasia.", category: "Ogłoszenie" },
+  { date: "25 stycznia 2026", title: "Spotkanie założycielskie Women Up!", excerpt: "Odbyło się spotkanie założycielskie Women Up! Inicjatywa Społeczna oficjalnie rozpoczyna swoją działalność na Podlasiu.", category: "Wydarzenie" },
+  { date: "Nadchodzące", title: "Białostoczanka", excerpt: "Jednodniowe wydarzenie łączące warsztaty, kulturę, networking i zdrowie. Kobiety Podlasia spotykają się, uczą, inspirują i wzmacniają swoją lokalną tożsamość.", category: "Wydarzenie" },
+  { date: "Nadchodzące", title: "LEVEL UP: Kobieta", excerpt: "Cały dzień tylko dla kobiet! Warsztaty, inspiracje, aktywności dla zdrowia i dobrej energii — spotkania, które dodają pewności siebie i odkrywają pasje.", category: "Wydarzenie" },
+  { date: "Nadchodzące", title: "#RatujPSA — startuje!", excerpt: "Akcja kobiet wspierających schroniskowe psy w przełamywaniu lęku i budowaniu zaufania. Każdy gest zmienia ich życie na lepsze!", category: "Inicjatywa" },
+  { date: "Nadchodzące", title: "Kawa z ekspertem", excerpt: "Kameralne spotkania z ekspertami przy filiżance kawy. Praktyczne wskazówki, pytania i wartościowe kontakty w przyjaznej atmosferze.", category: "Wydarzenie" },
 ];
 
 const categories = ["Wszystkie", "Wydarzenie", "Inicjatywa", "Warsztaty", "Ogłoszenie", "Artykuł"];

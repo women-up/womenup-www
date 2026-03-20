@@ -50,9 +50,11 @@ const Footer = () => {
           <div>
             <h4 className="font-heading text-lg font-semibold mb-4">Inicjatywy</h4>
             <nav className="flex flex-col gap-2">
-              <span className="text-sm text-brand-cream/70">Dla Psiaków</span>
-              <span className="text-sm text-brand-cream/70">Moc Podlasia</span>
-              <span className="text-sm text-brand-cream/70">Kobiety Razem</span>
+              <span className="text-sm text-brand-cream/70">Białostoczanka</span>
+              <span className="text-sm text-brand-cream/70">LEVEL UP: Kobieta</span>
+              <span className="text-sm text-brand-cream/70">#RatujPSA</span>
+              <span className="text-sm text-brand-cream/70">Kawa z ekspertem</span>
+              <span className="text-sm text-brand-cream/70">The Good Night</span>
             </nav>
           </div>
 
@@ -60,14 +62,14 @@ const Footer = () => {
           <div>
             <h4 className="font-heading text-lg font-semibold mb-4">Kontakt</h4>
             <div className="flex flex-col gap-3">
-              <a href="mailto:kontakt@womenup.com" className="flex items-center gap-2 text-sm text-brand-cream/70 hover:text-primary transition-colors">
-                <Mail size={16} /> kontakt@womenup.com
+              <a href="mailto:womenup.inicjatywaspoleczna@gmail.com" className="flex items-center gap-2 text-sm text-brand-cream/70 hover:text-primary transition-colors">
+                <Mail size={16} /> womenup.inicjatywaspoleczna@gmail.com
               </a>
               <span className="flex items-center gap-2 text-sm text-brand-cream/70">
-                <Phone size={16} /> +48 123 456 789
+                <Phone size={16} /> +48 533 874 086
               </span>
               <span className="flex items-center gap-2 text-sm text-brand-cream/70">
-                <MapPin size={16} /> Podlasie, Polska
+                <MapPin size={16} /> Mickiewicza 83 lok. U1, 15-527 Białystok
               </span>
               <div className="flex gap-3 mt-2">
                 <a href="#" aria-label="Facebook" className="text-brand-cream/70 hover:text-primary transition-colors">

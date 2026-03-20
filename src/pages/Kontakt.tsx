@@ -79,9 +79,9 @@ const Kontakt = () => {
             {/* Contact info */}
             <div className="space-y-6">
               {[
-                { icon: Mail, title: "Email", value: "kontakt@womenup.com", href: "mailto:kontakt@womenup.com" },
-                { icon: Phone, title: "Telefon", value: "+48 123 456 789" },
-                { icon: MapPin, title: "Adres", value: "Podlasie, Polska" },
+                { icon: Mail, title: "Email", value: "womenup.inicjatywaspoleczna@gmail.com", href: "mailto:womenup.inicjatywaspoleczna@gmail.com" },
+                { icon: Phone, title: "Telefon", value: "+48 533 874 086" },
+                { icon: MapPin, title: "Adres", value: "Mickiewicza 83 lok. U1, 15-527 Białystok" },
               ].map((item) => (
                 <div key={item.title} className="bg-card border border-border rounded-sm p-5 flex items-start gap-4 hover:border-primary transition-colors">
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -116,7 +116,7 @@ const Kontakt = () => {
           <div className="mt-12 bg-secondary border border-border rounded-sm h-64 flex items-center justify-center">
             <div className="text-center">
               <MapPin className="text-primary mx-auto mb-2" size={32} />
-              <p className="text-sm text-muted-foreground">Podlasie, Polska</p>
+              <p className="text-sm text-muted-foreground">Mickiewicza 83 lok. U1, 15-527 Białystok</p>
             </div>
           </div>
         </div>

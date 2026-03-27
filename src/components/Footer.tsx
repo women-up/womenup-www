@@ -32,7 +32,6 @@ const Footer = () => {
               {[
                 { to: "/o-nas", label: "O nas" },
                 { to: "/inicjatywy", label: "Inicjatywy" },
-                { to: "/aktualnosci", label: "Aktualności" },
                 { to: "/kontakt", label: "Kontakt" },
               ].map((link) => (
                 <Link
@@ -54,6 +53,8 @@ const Footer = () => {
               <span className="text-sm text-brand-cream/70">LEVEL UP: Kobieta</span>
               <span className="text-sm text-brand-cream/70">#RatujPSA</span>
               <span className="text-sm text-brand-cream/70">Kawa z ekspertem</span>
+              <span className="text-sm text-brand-cream/70">Kierunek Dobrostan</span>
+              <span className="text-sm text-brand-cream/70">Kryzys: Instrukcja Przetrwania</span>
               <span className="text-sm text-brand-cream/70">The Good Night</span>
             </nav>
           </div>

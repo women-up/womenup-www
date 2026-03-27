@@ -1,17 +1,17 @@
-import { HandHeart, Flame, Sprout, Users, DoorOpen, Scale, FileDown } from "lucide-react";
+import { HandHeart, Flame, Sprout, Users, DoorOpen, Scale, FileDown, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import DiamondDivider from "@/components/DiamondDivider";
 import Layout from "@/components/Layout";
 import AnimatedSection from "@/components/AnimatedSection";
 
 const team = [
-  { name: "Marlena Soczyńska", role: "Prezeska" },
-  { name: "Kinga Klepacka", role: "Wiceprezeska" },
-  { name: "Julita Nos", role: "Członkini Zarządu" },
-  { name: "", role: "Koordynatorka ds. Wydarzeń" },
-  { name: "Ewelina Sienicka-Kupicha", role: "Koordynatorka ds. Komunikacji" },
-  { name: "Diana Chwaszczewska", role: "Koordynatorka ds. Mediów" },
-  { name: "Anna Dzienisowicz", role: "Koordynatorka ds. Inicjatyw Społecznych" },
+  { name: "Marlena Soczyńska", role: "Prezeska", photo: "/assets/team/marlena.jpeg" },
+  { name: "Kinga Klepacka", role: "Wiceprezeska", photo: "/assets/team/kinga.jpeg" },
+  { name: "Julita Nos", role: "Członkini Zarządu", photo: "/assets/team/julita.jpeg" },
+  { name: "Dorota Lange", role: "Koordynatorka ds. Wydarzeń", photo: "/assets/team/dorota.jpeg" },
+  { name: "Ewelina Sienicka-Kupicha", role: "Koordynatorka ds. Komunikacji", photo: "/assets/team/ewelina.jpeg" },
+  { name: "Diana Chwaszczewska", role: "Koordynatorka ds. Mediów", photo: "/assets/team/diana.jpeg" },
+  { name: "Anna Dzienisowicz", role: "Koordynatorka ds. Inicjatyw Społecznych", photo: "" },
 ];
 
 const values = [
@@ -39,18 +39,6 @@ const ONas = () => {
         </div>
       </AnimatedSection>
 
-      {/* Historia */}
-      <AnimatedSection className="py-16 md:py-24 bg-card">
-        <div className="container mx-auto px-4 max-w-3xl">
-          <h2 className="font-heading text-brand-h2 font-bold text-primary mb-8">Nasza Historia</h2>
-          <div className="space-y-4 text-foreground leading-relaxed">
-            <p>Women Up! narodziło się z potrzeby — potrzeby wspólnoty, działania i wzajemnego wsparcia. W 2025 roku grupa kobiet z Podlasia postanowiła stworzyć przestrzeń, w której każda kobieta może realizować swoje pomysły na zmianę.</p>
-            <p>Zaczęłyśmy od rozmów przy kawie, a dziś prowadzimy kilka aktywnych inicjatyw społecznych. Nasze stowarzyszenie łączy kobiety różnych pokoleń, zawodów i doświadczeń życiowych.</p>
-            <p>Wierzymy, że oddolne działanie ma moc zmieniania rzeczywistości — krok po kroku, inicjatywa po inicjatywie.</p>
-          </div>
-        </div>
-      </AnimatedSection>
-
       {/* Misja i Wartości */}
       <AnimatedSection className="py-16 md:py-24">
         <div className="container mx-auto px-4">
@@ -72,22 +60,27 @@ const ONas = () => {
         <div className="container mx-auto px-4">
           <h2 className="font-heading text-brand-h2 font-bold text-primary text-center mb-12">Nasz Zespół</h2>
 
-          {/* Team photo */}
-          <div className="max-w-3xl mx-auto mb-12">
-            <img
-              src="/assets/team-photo.jpg"
-              alt="Zespół Women Up!"
-              className="w-full rounded-sm border border-border shadow-sm"
-            />
-          </div>
-
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {team.map((member, i) => (
               <div key={member.role + i} className="bg-background border border-border rounded-sm p-6 text-center hover:border-primary transition-all">
-                <div className="w-20 h-20 rounded-full bg-secondary mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-primary text-2xl font-heading font-bold">
-                    {member.name ? member.name[0] : "?"}
-                  </span>
+                <div className="w-20 h-20 rounded-full bg-secondary mx-auto mb-4 overflow-hidden">
+                  <img
+                    src={member.photo}
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      const parent = target.parentElement;
+                      if (parent) {
+                        parent.classList.add('flex', 'items-center', 'justify-center');
+                        const span = document.createElement('span');
+                        span.className = 'text-primary text-2xl font-heading font-bold';
+                        span.textContent = member.name ? member.name[0] : '?';
+                        parent.appendChild(span);
+                      }
+                    }}
+                  />
                 </div>
                 {member.name && (
                   <h4 className="font-heading text-lg font-semibold text-foreground">{member.name}</h4>
@@ -99,22 +92,47 @@ const ONas = () => {
         </div>
       </AnimatedSection>
 
-      {/* Video */}
+      {/* Dla Partnerów i Sponsorów */}
       <AnimatedSection className="py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <h2 className="font-heading text-brand-h2 font-bold text-primary text-center mb-8">Nasza Historia</h2>
-          <div className="max-w-3xl mx-auto">
-            <video
-              controls
-              className="w-full rounded-sm border border-border shadow-sm"
-              poster="/assets/team-photo.jpg"
-            >
-              <source src="/assets/story.mp4" type="video/mp4" />
-              Twoja przeglądarka nie obsługuje odtwarzania wideo.
-            </video>
+        <div className="container mx-auto px-4 max-w-3xl">
+          <h2 className="font-heading text-brand-h2 font-bold text-primary mb-8">
+            Dla Partnerów i Sponsorów: Razem budujemy Moc
+          </h2>
+          <div className="space-y-4 text-foreground leading-relaxed">
+            <p>
+              Partnerstwo z <strong>Women Up!</strong> to coś więcej niż marketing. To realny wpływ na dobrostan kobiet
+              w regionie. Zapraszamy firmy, które chcą stać się mecenasami kobiecej siły.
+            </p>
+            <h3 className="font-heading text-brand-h3 font-semibold text-foreground pt-4">Oferujemy:</h3>
+            <ul className="space-y-3 ml-4">
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold mt-0.5">&#9670;</span>
+                <span><strong>Eksperckie partnerstwo:</strong> Możliwość wystąpienia w roli eksperta podczas cyklu "Kawa z ekspertem".</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold mt-0.5">&#9670;</span>
+                <span><strong>Wizerunek mecenasa:</strong> Tytuł Partnera Konferencji "Białostoczanka".</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold mt-0.5">&#9670;</span>
+                <span><strong>Wspólne wartości:</strong> Promocję Twojej marki wśród świadomych, decyzyjnych kobiet z Białegostoku.</span>
+              </li>
+            </ul>
+            <div className="pt-6">
+              <p className="text-muted-foreground mb-3">Napisz do nas by otrzymać ofertę współpracy:</p>
+              <a
+                href="mailto:womenup.inicjatywaspoleczna@gmail.com"
+                className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
+              >
+                <Mail size={16} />
+                womenup.inicjatywaspoleczna@gmail.com
+              </a>
+            </div>
           </div>
         </div>
       </AnimatedSection>
+
+      
 
       {/* Statut */}
       <AnimatedSection className="py-16 md:py-24">

@@ -34,11 +34,6 @@ const initiatives = [
   },
 ];
 
-const news = [
-  { date: "15 marca 2026", title: "Praca nad kalendarzem Women Up!", excerpt: "Trwają prace nad kalendarzem wydarzeń Women Up! Planujemy pełen rok inicjatyw, warsztatów i spotkań." },
-  { date: "25 stycznia 2026", title: "Spotkanie założycielskie Women Up!", excerpt: "Odbyło się spotkanie założycielskie Women Up! Inicjatywa Społeczna oficjalnie rozpoczyna swoją działalność na Podlasiu." },
-  { date: "Nadchodzące", title: "Białostoczanka — jednodniowe wydarzenie", excerpt: "Warsztaty, kultura, networking i zdrowie. Kobiety Podlasia spotykają się, uczą i inspirują razem." },
-];
 
 const Index = () => {
   return (
@@ -165,39 +160,6 @@ const Index = () => {
             <Link to="/dolacz">
               <Button className="uppercase tracking-brand-wide text-xs font-semibold px-8 py-3 h-auto">
                 Rozpocznij swoją
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </AnimatedSection>
-
-      {/* Aktualności */}
-      <AnimatedSection className="py-16 md:py-24 bg-card">
-        <div className="container mx-auto px-4">
-          <h2 className="font-heading text-brand-h2 md:text-[2.5rem] text-[2rem] font-bold text-primary text-center mb-12">
-            Aktualności
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {news.map((post) => (
-              <div key={post.title} className="bg-background border border-border rounded-sm overflow-hidden hover:border-primary hover:shadow-md transition-all">
-                <div className="h-40 bg-secondary flex items-center justify-center">
-                  <span className="text-primary text-3xl">◆</span>
-                </div>
-                <div className="p-5">
-                  <p className="text-brand-caption text-muted-foreground uppercase tracking-brand-wide mb-2">{post.date}</p>
-                  <h4 className="font-heading text-lg font-semibold text-foreground mb-2">{post.title}</h4>
-                  <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{post.excerpt}</p>
-                  <Link to="/aktualnosci" className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline">
-                    Czytaj więcej <ArrowRight size={14} />
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="text-center mt-10">
-            <Link to="/aktualnosci">
-              <Button variant="outline" className="uppercase tracking-brand-wide text-xs font-semibold px-8 py-3 h-auto border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-                Wszystkie aktualności
               </Button>
             </Link>
           </div>

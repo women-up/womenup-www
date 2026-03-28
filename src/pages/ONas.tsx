@@ -11,7 +11,7 @@ const team = [
   { name: "Dorota Lange", role: "Koordynatorka ds. Wydarzeń", photo: "/assets/team/dorota.jpeg" },
   { name: "Ewelina Sienicka-Kupicha", role: "Koordynatorka ds. Komunikacji", photo: "/assets/team/ewelina.jpeg" },
   { name: "Diana Chwaszczewska", role: "Koordynatorka ds. Mediów", photo: "/assets/team/diana.jpeg" },
-  { name: "Anna Dzienisowicz", role: "Koordynatorka ds. Inicjatyw Społecznych", photo: "" },
+  { name: "Anna Dzienisowicz", role: "Koordynatorka ds. Inicjatyw Społecznych", photo: "/assets/team/anna_dzienisowicz.jpeg" },
 ];
 
 const values = [

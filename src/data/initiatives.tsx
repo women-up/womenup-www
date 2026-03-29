@@ -280,7 +280,7 @@ export const allInitiatives: Initiative[] = [
     subtitle: "Power Girl w Podlaskiej Odsłonie",
     desc: "Cykliczny projekt edukacyjno-inspiracyjny, który łączy biznes, zdrowie, styl i lokalną moc Podlasia w nowoczesnej, praktycznej formule.",
     status: "Aktywne",
-    coordinator: { name: "Marlena Soczyńska", email: "womenup.inicjatywaspoleczna@gmail.com", phone: "533 874 086" },
+    coordinator: { name: "Marlena Soczyńska", email: "womenup.inicjatywaspoleczna@gmail.com", phone: "533 874 086", photo: "/assets/team/marlena.jpeg" },
     detail: (
       <div className="space-y-8">
         <p className="text-lg font-medium italic">„Rozwijaj się świadomie – na swoich zasadach"</p>
@@ -382,7 +382,7 @@ export const allInitiatives: Initiative[] = [
     title: "LEVEL UP: Kobieta – Podlasie Experience",
     desc: "Łączymy networking, wellness i przygodę, odkrywamy magiczne miejsca Podlasia, poznajemy lokalne zioła i siłę regionu.",
     status: "Aktywne",
-    coordinator: { name: "Marlena Soczyńska", email: "womenup.inicjatywaspoleczna@gmail.com", phone: "533 874 086" },
+    coordinator: { name: "Marlena Soczyńska", email: "womenup.inicjatywaspoleczna@gmail.com", phone: "533 874 086", photo: "/assets/team/marlena.jpeg" },
     detail: (
       <div className="space-y-8">
         <p className="text-lg font-medium italic">
@@ -427,7 +427,7 @@ export const allInitiatives: Initiative[] = [
     title: "#RatujPSA",
     desc: "Wspieramy psy w potrzebie – zwłaszcza te w boksach – poprzez akcje ratunkowe, socjalizację, pomoc behawiorystyczną i edukację społeczną.",
     status: "Aktywne",
-    coordinator: { name: "Marlena Soczyńska", email: "womenup.inicjatywaspoleczna@gmail.com", phone: "533 874 086" },
+    coordinator: { name: "Marlena Soczyńska", email: "womenup.inicjatywaspoleczna@gmail.com", phone: "533 874 086", photo: "/assets/team/marlena.jpeg" },
     detail: (
       <div className="space-y-8">
         <h3 className="font-heading text-xl font-bold text-primary">Co robimy w ramach Projektu #RatujPSA</h3>
@@ -489,7 +489,7 @@ export const allInitiatives: Initiative[] = [
     title: "The Good Night — Wieczór z Misją",
     desc: "Elegancki bal charytatywny z licytacjami, organizowany przez kobiety.",
     status: "Aktywne",
-    coordinator: { name: "Marlena Soczyńska", email: "womenup.inicjatywaspoleczna@gmail.com" },
+    coordinator: { name: "Marlena Soczyńska", email: "womenup.inicjatywaspoleczna@gmail.com", photo: "/assets/team/marlena.jpeg" },
     detail: (
       <div className="space-y-4">
         <p>

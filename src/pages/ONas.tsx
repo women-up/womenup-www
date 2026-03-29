@@ -8,10 +8,12 @@ const team = [
   { name: "Marlena Soczyńska", role: "Prezeska", photo: "/assets/team/marlena.jpeg" },
   { name: "Kinga Klepacka", role: "Wiceprezeska", photo: "/assets/team/kinga.jpeg" },
   { name: "Julita Nos", role: "Członkini Zarządu", photo: "/assets/team/julita.jpeg" },
+   { name: "Izabella Sobiech", role: "Koordynatorka ds. Wydarzeń", photo: "/assets/team/izabella.jpeg" },
   { name: "Dorota Lange", role: "Koordynatorka ds. Wydarzeń", photo: "/assets/team/dorota.jpeg" },
   { name: "Ewelina Sienicka-Kupicha", role: "Koordynatorka ds. Komunikacji", photo: "/assets/team/ewelina.jpeg" },
   { name: "Diana Chwaszczewska", role: "Koordynatorka ds. Mediów", photo: "/assets/team/diana.jpeg" },
   { name: "Anna Dzienisowicz", role: "Koordynatorka ds. Inicjatyw Społecznych", photo: "/assets/team/anna_dzienisowicz.jpeg" },
+ 
 ];
 
 const values = [

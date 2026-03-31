@@ -47,7 +47,7 @@ export const allInitiatives: Initiative[] = [
             </div>
 
             <div className="border-l-2 border-primary pl-4">
-              <h4 className="font-heading font-bold text-lg">11:45 – 13:15 | BLOK II: SEX (Seksuologia i Intymność)</h4>
+              <h4 className="font-heading font-bold text-lg">11:45 – 13:15 | BLOK II: Intymnosci (Seksuologia i Intymność)</h4>
               <p className="mt-2"><strong>Wykład Główny:</strong> Mapa przyjemności. Seksuolog o tym, jak stres i tryb życia wpływają na libido oraz jak odbudować bliskość w długoletnich relacjach.</p>
               <p className="mt-1"><strong>Warsztat:</strong> Komunikacja potrzeb. Jak mówić o tym, czego chcemy w sypialni, bez wstydu i lęku przed oceną.</p>
               <p className="mt-1"><strong>Q&A:</strong> Anonimowe pytania do seksuologa (wrzucane do boxu przy wejściu).</p>

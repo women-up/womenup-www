@@ -18,7 +18,7 @@ export const allInitiatives: Initiative[] = [
     slug: "bialostoczanka",
     icon: Star,
     title: "Białostoczanka",
-    subtitle: "Zdrowie. Seks. Kariera.",
+    subtitle: "Zdrowie. Intymność. Kariera.",
     date: "18.09.2026",
     desc: "Intensywny, jednodniowy warsztat życia, który łączy profilaktykę zdrowotną, odważną edukację o intymności i konkretne narzędzia budowania kariery.",
     status: "Aktywne",

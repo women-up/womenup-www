@@ -7,6 +7,8 @@ import AnimatedSection from "@/components/AnimatedSection";
 import { Link } from "react-router-dom";
 import { allInitiatives, type Initiative } from "@/data/initiatives";
 
+const CONTACT_EMAIL = "womenup.inicjatywaspoleczna@gmail.com";
+
 const Inicjatywy = () => {
   const [selected, setSelected] = useState<Initiative | null>(null);
 
@@ -64,6 +66,50 @@ const Inicjatywy = () => {
                 Dowiedz się jak <ArrowRight size={14} className="ml-1" />
               </Button>
             </Link>
+          </div>
+        </div>
+      </AnimatedSection>
+
+      {/* Dla Partnerów i Sponsorów */}
+      <AnimatedSection className="py-16 md:py-24 bg-card">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <h2 className="font-heading text-brand-h2 font-bold text-primary mb-8">
+            Dla Partnerów i Sponsorów: Razem budujemy Moc
+          </h2>
+          <div className="space-y-4 text-foreground leading-relaxed">
+            <p>
+              Partnerstwo z <strong>Women Up!</strong> to coś więcej niż marketing. To realny wpływ na dobrostan kobiet
+              w regionie. Zapraszamy firmy, które chcą stać się mecenasami kobiecej siły.
+            </p>
+            <h3 className="font-heading text-brand-h3 font-semibold text-foreground pt-4">Oferujemy:</h3>
+            <ul className="space-y-3 ml-4">
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold mt-0.5">&#9670;</span>
+                <span><strong>Eksperckie partnerstwo:</strong> Możliwość wystąpienia w roli eksperta podczas cyklu "Kawa z ekspertem".</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold mt-0.5">&#9670;</span>
+                <span><strong>Wizerunek mecenasa:</strong> Tytuł Partnera Konferencji.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold mt-0.5">&#9670;</span>
+                <span><strong>Wizerunek Ambasadora:</strong> Wsparcie działań stowarzyszenia w przestrzeni publicznej oraz wzmacnianie siły i potencjału kobiet.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold mt-0.5">&#9670;</span>
+                <span><strong>Wspólne wartości:</strong> Promocję Twojej marki wśród świadomych, decyzyjnych kobiet z Białegostoku.</span>
+              </li>
+            </ul>
+            <div className="pt-6">
+              <p className="text-muted-foreground mb-3">Napisz do nas by otrzymać ofertę współpracy:</p>
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
+              >
+                <Mail size={16} />
+                {CONTACT_EMAIL}
+              </a>
+            </div>
           </div>
         </div>
       </AnimatedSection>

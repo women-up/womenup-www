@@ -7,6 +7,7 @@ import logo from "@/assets/logo.svg";
 const navLinks = [
 { to: "/o-nas", label: "O nas" },
 { to: "/inicjatywy", label: "Inicjatywy" },
+{ to: "/partnerzy", label: "Partnerzy" },
 { to: "/kontakt", label: "Kontakt" }];
 
 

@@ -10,6 +10,9 @@ import Aktualnosci from "./pages/Aktualnosci";
 import Kontakt from "./pages/Kontakt";
 import Dolacz from "./pages/Dolacz";
 import DesignSystem from "./pages/DesignSystem";
+import Partnerzy from "./pages/Partnerzy";
+import PolitykaPrywatnosci from "./pages/PolitykaPrywatnosci";
+import Regulamin from "./pages/Regulamin";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,9 +27,12 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/o-nas" element={<ONas />} />
           <Route path="/inicjatywy" element={<Inicjatywy />} />
+          <Route path="/partnerzy" element={<Partnerzy />} />
           <Route path="/aktualnosci" element={<Aktualnosci />} />
           <Route path="/kontakt" element={<Kontakt />} />
           <Route path="/dolacz" element={<Dolacz />} />
+          <Route path="/polityka-prywatnosci" element={<PolitykaPrywatnosci />} />
+          <Route path="/regulamin" element={<Regulamin />} />
           <Route path="/design-system" element={<DesignSystem />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

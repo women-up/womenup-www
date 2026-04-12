@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { HandHeart, Flame, Sprout, Users, DoorOpen, Scale, Star, Heart, ArrowRight, Facebook, Instagram } from "lucide-react";
+import { Heart, Briefcase, Shield, BookOpen, Users, Scale, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import DiamondDivider from "@/components/DiamondDivider";
@@ -7,40 +7,55 @@ import Layout from "@/components/Layout";
 import AnimatedSection from "@/components/AnimatedSection";
 import logo from "@/assets/logo.svg";
 
-const values = [
-  { icon: HandHeart, title: "Kobiety Razem", desc: "Solidarność i wsparcie" },
-  { icon: Flame, title: "Moc Podlasia", desc: "Siła regionalna" },
-  { icon: Sprout, title: "Oddolne Inicjatywy", desc: "Od dołu do góry" },
-  { icon: Users, title: "Wspólnie Razem", desc: "Kolektywne działanie" },
-  { icon: DoorOpen, title: "Otwartość", desc: "Dla wszystkich kobiet" },
-  { icon: Scale, title: "Równość", desc: "Bez barier społecznych" },
-];
-
-const initiatives = [
-  {
-    icon: Star,
-    title: "Białostoczanka",
-    desc: "Jednodniowe wydarzenie łączące warsztaty, kulturę, networking i zdrowie. Kobiety Podlasia spotykają się, uczą, inspirują i wzmacniają swoją lokalną tożsamość.",
-  },
-  {
-    icon: Flame,
-    title: "LEVEL UP: Kobieta",
-    desc: "Cały dzień tylko dla kobiet! Warsztaty, inspiracje, aktywności dla zdrowia i dobrej energii — spotkania, które dodają pewności siebie i odkrywają pasje.",
-  },
+const wisdom = [
   {
     icon: Heart,
-    title: "#RatujPSA",
-    desc: "Akcja kobiet wspierających schroniskowe psy w przełamywaniu lęku i budowaniu zaufania. Pomagamy im odkryć świat i pewność siebie.",
+    title: "Witalność",
+    label: "Zdrowie to nasza Witalność",
+    desc: "Jak dawne zielarki, dbamy o ciało z czułością i szacunkiem. Nie czekamy, aż zabraknie sił \u2013 profilaktyka to nasz rytuał, a medycyna to nasza tarcza. Nasze zdrowie jest święte, bo jest źródłem naszej energii.",
+  },
+  {
+    icon: Briefcase,
+    title: "Sprawczość",
+    label: "Kariera to nasza Sprawczość",
+    desc: "Budujemy firmy i karierę nie przez walkę, a przez mądrość i współpracę. Jesteśmy Przewodniczkami. Wiemy jak pomnażać dobrobyt, chronić swoje finanse i zarządzać \u201Eposagiem\u201D współczesności z godnością i sprytem.",
+  },
+  {
+    icon: Shield,
+    title: "Inicjacja",
+    label: "Kryzys to nasza Inicjacja",
+    desc: "Kiedy przychodzi \u201EZima Duszy\u201D \u2013 problemy w firmie, urzędach czy w domu \u2013 nie chowamy się w cieniu. Wtedy rozpalamy ogień. Prawo, psychologia i wsparcie sióstr to nasze pochodnie. Wyjdziemy z mroku silniejsze, bo znamy drogę.",
   },
 ];
 
+const beliefs = [
+  {
+    icon: BookOpen,
+    title: "W wiedzę, która daje wolność",
+    desc: "Rozmawiamy o zdrowiu bez lęku i o seksie bez wstydu. Wiemy, że zrozumienie własnego ciała to nasz pierwszy krok do odzyskania mocy.",
+  },
+  {
+    icon: Users,
+    title: "W solidarność zamiast rywalizacji",
+    desc: "Women Up! to nie sztywny klub, to nowoczesny krąg. Kiedy jedna z nas idzie w górę, podaje rękę kolejnej. Twoja kariera jest naszą wspólną radością.",
+  },
+  {
+    icon: Scale,
+    title: "W prawo od kryzysu",
+    desc: "Nie uciekamy, gdy życie rzuca kłody pod nogi. Jesteśmy tu, by dać Ci \u201EZłotą Teczkę\u201D \u2013 konkretne narzędzia prawne, psychologiczne i biznesowe, gdy grunt usuwa się spod stóp. Problemy z urzędem, firmą czy bliskimi nie są Twoim wstydem \u2013 są wyzwaniem, przed którym nie stoisz sama.",
+  },
+  {
+    icon: Sparkles,
+    title: "W autentyczność",
+    desc: "Ściągamy maski \u201Eidealnych kobiet\u201D. W Women Up! jest miejsce na Twój sukces, Twoje łzy, Twoją ambicję i Twój odpoczynek.",
+  },
+];
 
 const Index = () => {
   return (
     <Layout>
       {/* Hero */}
       <section className="relative py-12 md:py-32 overflow-hidden">
-        {/* Diamond pattern background */}
         <div className="absolute inset-0 pattern-diamond" />
         <div
           className="absolute inset-0 opacity-[0.03]"
@@ -53,7 +68,6 @@ const Index = () => {
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
             <DiamondDivider className="max-w-xs mx-auto" />
           </motion.div>
-          {/* Mobile logo */}
           <motion.img
             src={logo}
             alt="Women Up! logo"
@@ -101,111 +115,85 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Kim Jesteśmy */}
+      {/* Manifest Women Up! */}
       <AnimatedSection className="py-16 md:py-24 bg-card">
         <div className="container mx-auto px-4">
-          <h2 className="font-heading text-brand-h2 md:text-[2.5rem] text-[2rem] font-bold text-primary text-center mb-12">
-            Kim Jesteśmy
-          </h2>
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div>
-              <p className="text-base md:text-lg text-foreground leading-relaxed">
-                Women Up! to przestrzeń dla kobiet, które chcą działać. Nasze członkinie mogą zakładać własne inicjatywy społeczne — od pomocy zwierzętom, przez wsparcie lokalne, po projekty kulturalne. Wierzymy w moc oddolnego działania i siłę kobiecej solidarności.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {values.map((v) => (
-                <div
-                  key={v.title}
-                  className="bg-background border border-border rounded-sm p-4 text-center hover:border-primary hover:shadow-sm transition-all"
-                >
-                  <v.icon className="mx-auto mb-2 text-primary" size={28} />
-                  <h4 className="font-heading text-sm font-semibold text-foreground mb-1">{v.title}</h4>
-                  <p className="text-xs text-muted-foreground">{v.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </AnimatedSection>
-
-      {/* Nasze Inicjatywy */}
-      <AnimatedSection className="py-16 md:py-24">
-        <div className="container mx-auto px-4">
           <h2 className="font-heading text-brand-h2 md:text-[2.5rem] text-[2rem] font-bold text-primary text-center mb-4">
-            Nasze Inicjatywy
+            Manifest Women Up!
           </h2>
-          <p className="text-center text-muted-foreground mb-12">
-            Członkinie Women Up! prowadzą własne projekty społeczne
+          <p className="text-center text-lg md:text-xl font-heading font-semibold text-foreground mb-8">
+            Słowiańska krew. Współczesna moc.
           </p>
+          <div className="max-w-3xl mx-auto mb-12">
+            <p className="text-base md:text-lg text-foreground leading-relaxed text-center mb-4">
+              Nie czekamy na zaproszenie do stołu. Same rozstawiamy krąg.
+            </p>
+            <p className="text-base md:text-lg text-foreground/80 leading-relaxed text-center">
+              W Białymstoku, gdzie wiatr niesie szept przodkiń, a lasy pamiętają imiona bogiń, budzimy nową siłę. Jesteśmy Białostoczankami. Kobietami, które wiedzą, że korzenie dają moc, by sięgać gwiazd, a twarde stąpanie po ziemi pozwala przetrwać każdą burzę.
+            </p>
+          </div>
+
+          <h3 className="font-heading text-xl md:text-2xl font-semibold text-primary text-center mb-8">
+            Nasza mądrość
+          </h3>
           <div className="grid md:grid-cols-3 gap-6">
-            {initiatives.map((init) => (
+            {wisdom.map((w) => (
               <div
-                key={init.title}
-                className="bg-card border border-border rounded-sm p-6 hover:border-primary hover:shadow-md transition-all"
+                key={w.title}
+                className="bg-background border border-border rounded-sm p-8 hover:border-primary hover:shadow-md transition-all"
               >
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                  <init.icon className="text-primary" size={24} />
+                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-5">
+                  <w.icon className="text-primary" size={28} />
                 </div>
-                <h4 className="font-heading text-brand-h4 font-semibold text-foreground mb-2">{init.title}</h4>
-                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{init.desc}</p>
-                <Link to="/inicjatywy" className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline">
-                  Dowiedz się więcej <ArrowRight size={14} />
-                </Link>
+                <h4 className="font-heading text-lg font-semibold text-foreground mb-3">{w.label}</h4>
+                <p className="text-sm text-muted-foreground leading-relaxed">{w.desc}</p>
               </div>
             ))}
           </div>
-          <div className="text-center mt-10">
-            <p className="text-muted-foreground mb-4">Masz pomysł na inicjatywę?</p>
-            <Link to="/dolacz">
-              <Button className="uppercase tracking-brand-wide text-xs font-semibold px-8 py-3 h-auto">
-                Rozpocznij swoją
-              </Button>
-            </Link>
-          </div>
         </div>
       </AnimatedSection>
 
-      {/* Social Media */}
+      {/* Obietnica Kręgu */}
       <AnimatedSection className="py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <h2 className="font-heading text-brand-h2 md:text-[2.5rem] text-[2rem] font-bold text-primary text-center mb-12">
-            Bądź na bieżąco
+          <h2 className="font-heading text-brand-h2 md:text-[2.5rem] text-[2rem] font-bold text-primary text-center mb-4">
+            Obietnica Kręgu
           </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* Facebook */}
-            <div className="bg-card border border-border rounded-sm p-8 text-center">
-              <Facebook className="mx-auto mb-4 text-primary" size={40} />
-              <h4 className="font-heading text-brand-h4 font-semibold text-foreground mb-2">Women Up! na Facebooku</h4>
-              <p className="text-sm text-muted-foreground mb-6">Śledź nas na Facebooku po najnowsze informacje</p>
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <Button className="uppercase tracking-brand-wide text-xs font-semibold px-6">
-                  Odwiedź Facebook
-                </Button>
-              </a>
-            </div>
-            {/* Instagram */}
-            <div className="bg-card border border-border rounded-sm p-8 text-center">
-              <Instagram className="mx-auto mb-4 text-primary" size={40} />
-              <h4 className="font-heading text-brand-h4 font-semibold text-foreground mb-2">Śledź nas na Instagramie</h4>
-              <div className="grid grid-cols-3 gap-2 mb-6 max-w-xs mx-auto">
-                {Array.from({ length: 6 }).map((_, i) => (
-                  <div key={i} className="aspect-square bg-secondary rounded-sm flex items-center justify-center">
-                    <span className="text-primary text-sm">◆</span>
-                  </div>
-                ))}
-              </div>
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <Button className="uppercase tracking-brand-wide text-xs font-semibold px-6">
-                  Śledź na Instagramie
-                </Button>
-              </a>
-            </div>
+          <div className="max-w-3xl mx-auto text-center mb-6">
+            <p className="text-base md:text-lg text-foreground leading-relaxed mb-4">
+              Women Up! to Twoja bezpieczna przystań i Twój bastion. Tu nie musisz niczego udawać. Tu Twoja intuicja spotyka się z paragrafem, a słowiańska dusza z nowoczesnym biznesem.
+            </p>
+            <p className="text-base md:text-lg text-foreground font-semibold leading-relaxed">
+              Podnieś głowę. Poczuj tę moc. Stań z nami w kręgu. Women Up! — Bo każda z nas jest Wiedzącą.
+            </p>
           </div>
         </div>
       </AnimatedSection>
 
-      {/* Dołącz CTA */}
+      {/* W co wierzymy? */}
+      <AnimatedSection className="py-16 md:py-24 bg-card">
+        <div className="container mx-auto px-4">
+          <h2 className="font-heading text-brand-h2 md:text-[2.5rem] text-[2rem] font-bold text-primary text-center mb-12">
+            W co wierzymy?
+          </h2>
+          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {beliefs.map((b) => (
+              <div
+                key={b.title}
+                className="bg-background border border-border rounded-sm p-8 hover:border-primary hover:shadow-md transition-all"
+              >
+                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-5">
+                  <b.icon className="text-primary" size={28} />
+                </div>
+                <h4 className="font-heading text-lg font-semibold text-foreground mb-3">{b.title}</h4>
+                <p className="text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </AnimatedSection>
+
+      {/* Dolacz CTA */}
       <AnimatedSection className="py-16 md:py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <h2 className="font-heading text-brand-h2 md:text-[2.5rem] text-[2rem] font-bold mb-4">

@@ -32,6 +32,7 @@ const Footer = () => {
               {[
                 { to: "/o-nas", label: "O nas" },
                 { to: "/inicjatywy", label: "Inicjatywy" },
+                { to: "/partnerzy", label: "Partnerzy" },
                 { to: "/kontakt", label: "Kontakt" },
               ].map((link) => (
                 <Link
@@ -73,10 +74,10 @@ const Footer = () => {
                 <MapPin size={16} /> Mickiewicza 83 lok. U1, 15-527 Białystok
               </span>
               <div className="flex gap-3 mt-2">
-                <a href="#" aria-label="Facebook" className="text-brand-cream/70 hover:text-primary transition-colors">
+                <a href="https://www.facebook.com/profile.php?id=61583649266220" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-brand-cream/70 hover:text-primary transition-colors">
                   <Facebook size={20} />
                 </a>
-                <a href="#" aria-label="Instagram" className="text-brand-cream/70 hover:text-primary transition-colors">
+                <a href="https://www.instagram.com/women_up_inicjatywaspoleczna/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-brand-cream/70 hover:text-primary transition-colors">
                   <Instagram size={20} />
                 </a>
               </div>
@@ -87,9 +88,14 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className="mt-12 pt-6 border-t border-brand-cream/10 flex flex-col sm:flex-row justify-between items-center gap-2">
           <p className="text-xs text-brand-cream/50">© 2026 Women Up! Stowarzyszenie. Wszelkie prawa zastrzeżone.</p>
-          <Link to="#" className="text-xs text-brand-cream/50 hover:text-primary transition-colors">
-            Polityka prywatności
-          </Link>
+          <div className="flex gap-4">
+            <Link to="/polityka-prywatnosci" className="text-xs text-brand-cream/50 hover:text-primary transition-colors">
+              Polityka prywatności
+            </Link>
+            <Link to="/regulamin" className="text-xs text-brand-cream/50 hover:text-primary transition-colors">
+              Regulamin
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

@@ -1,4 +1,4 @@
-import { HandHeart, Flame, Sprout, Users, DoorOpen, Scale, FileDown, Mail } from "lucide-react";
+import { HandHeart, Flame, Sprout, Users, DoorOpen, Scale, FileDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import DiamondDivider from "@/components/DiamondDivider";
 import Layout from "@/components/Layout";
@@ -13,7 +13,7 @@ const team = [
   { name: "Ewelina Sienicka-Kupicha", role: "Koordynatorka ds. Komunikacji", photo: "/assets/team/ewelina.jpeg" },
   { name: "Diana Chwaszczewska", role: "Koordynatorka ds. Mediów", photo: "/assets/team/diana.jpeg" },
   { name: "Anna Dzienisowicz", role: "Koordynatorka ds. Inicjatyw Społecznych", photo: "/assets/team/anna_dzienisowicz.jpeg" },
- 
+
 ];
 
 const values = [
@@ -93,48 +93,6 @@ const ONas = () => {
           </div>
         </div>
       </AnimatedSection>
-
-      {/* Dla Partnerów i Sponsorów */}
-      <AnimatedSection className="py-16 md:py-24">
-        <div className="container mx-auto px-4 max-w-3xl">
-          <h2 className="font-heading text-brand-h2 font-bold text-primary mb-8">
-            Dla Partnerów i Sponsorów: Razem budujemy Moc
-          </h2>
-          <div className="space-y-4 text-foreground leading-relaxed">
-            <p>
-              Partnerstwo z <strong>Women Up!</strong> to coś więcej niż marketing. To realny wpływ na dobrostan kobiet
-              w regionie. Zapraszamy firmy, które chcą stać się mecenasami kobiecej siły.
-            </p>
-            <h3 className="font-heading text-brand-h3 font-semibold text-foreground pt-4">Oferujemy:</h3>
-            <ul className="space-y-3 ml-4">
-              <li className="flex items-start gap-2">
-                <span className="text-primary font-bold mt-0.5">&#9670;</span>
-                <span><strong>Eksperckie partnerstwo:</strong> Możliwość wystąpienia w roli eksperta podczas cyklu "Kawa z ekspertem".</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-primary font-bold mt-0.5">&#9670;</span>
-                <span><strong>Wizerunek mecenasa:</strong> Tytuł Partnera Konferencji "Białostoczanka".</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-primary font-bold mt-0.5">&#9670;</span>
-                <span><strong>Wspólne wartości:</strong> Promocję Twojej marki wśród świadomych, decyzyjnych kobiet z Białegostoku.</span>
-              </li>
-            </ul>
-            <div className="pt-6">
-              <p className="text-muted-foreground mb-3">Napisz do nas by otrzymać ofertę współpracy:</p>
-              <a
-                href="mailto:womenup.inicjatywaspoleczna@gmail.com"
-                className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
-              >
-                <Mail size={16} />
-                womenup.inicjatywaspoleczna@gmail.com
-              </a>
-            </div>
-          </div>
-        </div>
-      </AnimatedSection>
-
-      
 
       {/* Statut */}
       <AnimatedSection className="py-16 md:py-24">

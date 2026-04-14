@@ -278,7 +278,8 @@ export const allInitiatives: Initiative[] = [
     icon: Flame,
     title: "LEVEL UP: Kobieta",
     subtitle: "Power Girl w Podlaskiej Odsłonie",
-    desc: "Cykliczny projekt edukacyjno-inspiracyjny, który łączy biznes, zdrowie, styl i lokalną moc Podlasia w nowoczesnej, praktycznej formule.",
+    date: "11.07.2026",
+    desc: "Cykliczny projekt edukacyjno-inspiracyjny, który łączy biznes, zdrowie, styl i lokalną moc Podlasia w nowoczesnej, praktycznej formule. Projekt oferuje uczestniczkom praktyczne narzędzia, warsztaty i doświadczenia na żywo, pokazuje storytelling i glow jako elementy pewności siebie oraz umożliwia rozwój na własnych zasadach.",
     status: "Aktywne",
     coordinator: { name: "Marlena Soczyńska", email: "womenup.inicjatywaspoleczna@gmail.com", phone: "533 874 086", photo: "/assets/team/marlena.jpeg" },
     detail: (
@@ -290,78 +291,96 @@ export const allInitiatives: Initiative[] = [
             <h4 className="font-heading font-bold text-lg">09:00 – 09:45 | OTWARCIE I START DNIA</h4>
             <p className="text-sm italic mt-1">Good vibes & first energy</p>
             <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
-              <li>Rejestracja, networking i zdjęcia przy <strong>Źródle Podlaskiej Mocy</strong></li>
+              <li>Check–in i networking</li>
               <li>Powitanie i przedstawienie idei LEVEL UP: KOBIETA</li>
-              <li>Intro: energia, styl, pewność siebie, lokalna moc Podlasia</li>
+              <li>„Twoja kobiecość, Twój mindset, Twoja moc"</li>
             </ul>
           </div>
 
           <div className="border-l-2 border-primary pl-4">
             <h4 className="font-heading font-bold text-lg">09:45 – 11:00 | BLOK I: WIZERUNEK & PEWNOŚĆ SIEBIE</h4>
-            <p className="text-sm italic mt-1">Glow up od środka – pewność siebie i moc regionu</p>
+            <p className="text-sm font-semibold mt-2">Wykład „Życie z poziomu spokoju i pewności"</p>
             <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
-              <li>Pokaz makijażu: szybkie triki „effortless glow"</li>
-              <li>Jak wizerunek buduje pewność siebie w pracy i w życiu</li>
-              <li>Mini tipy: moodboardy, stylizacje, Instagram-ready glow</li>
+              <li><strong>Bezpieczna baza do decyzji</strong> — przestrzeń bez oceniania i presji, możliwość bycia sobą bez masek, decyzje podejmowane ze spokoju, nie z lęku</li>
+              <li><strong>Autentyczna pewność siebie</strong> — budowana na tym, kim naprawdę jesteś, działanie w zgodzie ze sobą, wizerunek zewnętrzny jako wyraz autentyczności</li>
+              <li><strong>Spokój, który wspiera działanie</strong> — integracja myśli, emocji i ciała, mniej wewnętrznej walki, więcej klarowności</li>
             </ul>
           </div>
 
           <div className="border-l-2 border-primary pl-4">
             <h4 className="font-heading font-bold text-lg">11:00 – 12:00 | BLOK II: STYL BIZNESOWY</h4>
-            <p className="text-sm italic mt-1">Smart girl wardrobe & lokalna moc</p>
+            <p className="text-sm italic mt-1">Glow up od środka – pewność siebie i moc regionu</p>
+            <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
+              <li>Pokaz makijażu: szybkie triki „effortless glow"</li>
+              <li>Jak wizerunek buduje pewność siebie w pracy i w życiu</li>
+              <li>Mini tipy: moodboardy, stylizacje, Instagram-ready glow</li>
+              <li><strong>Power hacks:</strong> bazowe kosmetyki do makijażu w przystępnej cenie</li>
+            </ul>
+            <p className="text-sm font-semibold mt-3">Smart girl wardrobe & lokalna moc</p>
             <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
               <li>Kapsułowa garderoba: 5 elementów, które działają zawsze</li>
               <li>Styl, który buduje autorytet i komfort w pracy</li>
-              <li>Prezentacja 3–5 gotowych looków na różne okazje</li>
+              <li>Stylizacja to narzędzie pewności siebie, nie rozmiar czy waga</li>
+              <li>Prezentacja 3–5 gotowych looków na różne okazje (biznes, networking, casual)</li>
+              <li><strong>Power hacks:</strong> karty zniżkowe na ubrania od lokalnych marek</li>
             </ul>
+            <p className="text-sm italic mt-2">„Twój wizerunek = Twój superpower"</p>
           </div>
 
           <div className="border-l-2 border-primary pl-4">
-            <h4 className="font-heading font-bold text-lg">12:00 – 12:30 | PRZERWA KAWOWA & NETWORKING</h4>
+            <h4 className="font-heading font-bold text-lg">12:00 – 12:45 | PRZERWA KAWOWA & NETWORKING</h4>
             <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
               <li>Zdrowe przekąski i shoty od lokalnych producentów</li>
+              <li>Produkty fit, bio, naturalne smaki Podlasia</li>
               <li>Networking, stories i zdjęcia przy interaktywnym źródle</li>
             </ul>
           </div>
 
           <div className="border-l-2 border-primary pl-4">
-            <h4 className="font-heading font-bold text-lg">12:30 – 13:30 | BLOK III: BIZNES – PLAN LOTU</h4>
+            <h4 className="font-heading font-bold text-lg">12:45 – 13:30 | BLOK III: BIZNES – PLAN LOTU</h4>
             <p className="text-sm italic mt-1">Od pomysłu do działania z lokalną mocą</p>
             <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
-              <li>Studium przypadków lokalnych bizneswoman</li>
-              <li>Q&A: uczestniczki pytają ekspertki</li>
+              <li>Rozmowa na kanapie – studium przypadków lokalnych liderek biznesu: Diana Chwaszczewska, Katarzyna Rokicka, Izabella Sobiech, Dorota Lange</li>
               <li>Checklisty i tipy dla start-upów i biznesów online</li>
+              <li><strong>Power hacks:</strong> praktyczne tipy od ekspertów i lokalnych bizneswoman</li>
             </ul>
+            <p className="text-sm italic mt-2">„Biznes to Twoja wolność ubrana w działanie."</p>
           </div>
 
           <div className="border-l-2 border-primary pl-4">
-            <h4 className="font-heading font-bold text-lg">13:30 – 14:15 | BLOK IV: SOCIAL MEDIA</h4>
-            <p className="text-sm italic mt-1">Marka osobista + content, który działa</p>
+            <h4 className="font-heading font-bold text-lg">13:30 – 14:30 | BLOK IV: SOCIAL MEDIA</h4>
+            <p className="text-sm italic mt-1">Marka osobista w praktyce – stwórz rolkę, która pokazuje Ciebie i Twoją markę</p>
             <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
-              <li>Budowanie spójnego profilu: estetyka + przekaz + autentyczność</li>
-              <li>Warsztaty: jak zrobić rolkę / story w czasie eventu</li>
-              <li>Zabezpieczenie social mediów przed hakerem</li>
+              <li>Budowanie spójnego obrazu w rolce – estetyka, przekaz i autentyczność</li>
+              <li>Warsztat: Twoja marka w rolce – jak pokazać siebie w social media</li>
+              <li>Wsparcie zespołu przy tworzeniu rolki na żywo podczas finału (live assistance)</li>
+              <li><strong>Power hacks:</strong> techniczne wskazówki i triki</li>
             </ul>
+            <div className="mt-3 bg-card border border-border rounded-sm p-4">
+              <p className="text-sm font-semibold">Rozmowa specjalna: „Prawda o hejcie w social mediach: historia i konsekwencje"</p>
+              <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
+                <li><strong>Ewelina Sienicka – Kupicha</strong> (perspektywa osoby z doświadczeniem życia w świecie publicznej rozpoznawalności)</li>
+                <li><strong>Marlena Soczyńska</strong> (perspektywa prawna)</li>
+              </ul>
+              <p className="text-sm mt-2 text-muted-foreground">Jak patrzeć na hejt z większym dystansem i nie pozwalać, by wpływał na codzienne życie. Rozmowa daje zrozumienie, jak reagować w trudnych sytuacjach i jak zachować wewnętrzny spokój oraz poczucie własnej wartości w przestrzeni online.</p>
+            </div>
           </div>
 
           <div className="border-l-2 border-primary pl-4">
-            <h4 className="font-heading font-bold text-lg">14:15 – 15:00 | BLOK V: SLOW LIFE / EKO</h4>
-            <p className="text-sm italic mt-1">Życie w zgodzie z naturą i moc regionu</p>
-            <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
-              <li>Roślinne alternatywy w diecie</li>
-              <li>Świadomość kobiety: selekcja śmieci, zero waste, codzienne wybory</li>
-              <li>Lokalne produkty Podlasia – zdrowie i energia</li>
-            </ul>
-          </div>
-
-          <div className="border-l-2 border-primary pl-4">
-            <h4 className="font-heading font-bold text-lg">15:00 – 16:00 | BLOK VI: RELAX & RUCH</h4>
+            <h4 className="font-heading font-bold text-lg">14:30 – 16:00 | BLOK VI: RELAX & RUCH</h4>
             <p className="text-sm italic mt-1">Stretching & Pilates z psami = total reset</p>
             <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
               <li>Rozgrzewka i ćwiczenia oddechowe</li>
-              <li>Pilates / joga z psami na macie</li>
+              <li>Pilates z psami na macie</li>
               <li>Elementy zabawy i integracji</li>
             </ul>
+            <p className="text-sm font-semibold mt-2">Praktyczne narzędzia:</p>
+            <ul className="mt-1 space-y-1 text-sm list-disc ml-4">
+              <li>ćwiczenia w domu z pupilem</li>
+              <li>inspiracje do social media content</li>
+              <li>relaks, endorfiny, chwile radości</li>
+            </ul>
+            <p className="text-sm italic mt-2">„Serotonin boost z futrzanym twistem"</p>
           </div>
 
           <div className="border-l-2 border-primary pl-4">
@@ -372,6 +391,13 @@ export const allInitiatives: Initiative[] = [
               <li>Niespodzianki i upominki: karty zniżkowe, vouchery, lokalne produkty</li>
             </ul>
           </div>
+        </div>
+
+        <div className="bg-card border border-border rounded-sm p-5 mt-6">
+          <p className="text-sm font-semibold text-primary mb-2">Ważne: komfort ma znaczenie.</p>
+          <p className="text-sm text-muted-foreground">
+            W trakcie wydarzenia najlepiej sprawdzi się strój wygodny i praktyczny, dopasowany do części warsztatowej oraz aktywności w ruchu. Polecamy swobodne stylizacje, takie jak legginsy, luźniejsze zestawy casualowe oraz komfortowe obuwie. To czas, w którym liczy się pełna swoboda – tak, aby nic nie ograniczało Twojego udziału w wydarzeniu.
+          </p>
         </div>
       </div>
     ),
@@ -487,16 +513,16 @@ export const allInitiatives: Initiative[] = [
     slug: "the-good-night",
     icon: Sparkles,
     title: "The Good Night — Wieczór z Misją",
-    desc: "Elegancki bal charytatywny z licytacjami, organizowany przez kobiety.",
+    desc: "Elegancki bal charytatywny tworzony przez kobiety z inicjatywą, które łączą siłę działania z ideą dzielenia się dobrem.",
     status: "Aktywne",
     coordinator: { name: "Marlena Soczyńska", email: "womenup.inicjatywaspoleczna@gmail.com", photo: "/assets/team/marlena.jpeg" },
     detail: (
       <div className="space-y-4">
         <p>
-          Inicjatywa kobiet, które zapraszają mężczyzn na elegancki bal zmieniający rzeczywistość w ramach licytacji charytatywnych.
+          Elegancki bal charytatywny tworzony przez kobiety z inicjatywą, które łączą siłę działania z ideą dzielenia się dobrem i zapraszają mężczyzn do wspólnego współtworzenia zmiany. To wyjątkowe spotkanie, w którym styl, relacje i wartości tworzą jedną spójną całość.
         </p>
         <p>
-          Elegancki bal charytatywny, organizowany przez kobiety, w ramach którego licytacje i wydarzenia wspierają lokalne inicjatywy społeczne.
+          Podczas wieczoru odbywają się aukcje charytatywne oraz zbiórka środków na lokalne projekty społeczne. Całość dopełnia starannie zaplanowany program artystyczny, wyjątkowa oprawa i przestrzeń do budowania autentycznych relacji w atmosferze klasy i zaangażowania.
         </p>
       </div>
     ),

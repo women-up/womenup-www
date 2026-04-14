@@ -50,13 +50,14 @@ const Footer = () => {
           <div>
             <h4 className="font-heading text-lg font-semibold mb-4">Inicjatywy</h4>
             <nav className="flex flex-col gap-2">
-              <span className="text-sm text-brand-cream/70">Białostoczanka</span>
-              <span className="text-sm text-brand-cream/70">LEVEL UP: Kobieta</span>
-              <span className="text-sm text-brand-cream/70">#RatujPSA</span>
-              <span className="text-sm text-brand-cream/70">Kawa z ekspertem</span>
-              <span className="text-sm text-brand-cream/70">Kierunek Dobrostan</span>
-              <span className="text-sm text-brand-cream/70">Kryzys: Instrukcja Przetrwania</span>
-              <span className="text-sm text-brand-cream/70">The Good Night</span>
+              <Link to="/inicjatywy" className="text-sm text-brand-cream/70 hover:text-primary transition-colors">Białostoczanka</Link>
+              <Link to="/inicjatywy" className="text-sm text-brand-cream/70 hover:text-primary transition-colors">LEVEL UP: Kobieta</Link>
+              <Link to="/inicjatywy" className="text-sm text-brand-cream/70 hover:text-primary transition-colors">LEVEL UP: Kobieta – Podlasie Experience</Link>
+              <Link to="/inicjatywy" className="text-sm text-brand-cream/70 hover:text-primary transition-colors">#RatujPSA</Link>
+              <Link to="/inicjatywy" className="text-sm text-brand-cream/70 hover:text-primary transition-colors">Kawa z ekspertem</Link>
+              <Link to="/inicjatywy" className="text-sm text-brand-cream/70 hover:text-primary transition-colors">Kierunek Dobrostan</Link>
+              <Link to="/inicjatywy" className="text-sm text-brand-cream/70 hover:text-primary transition-colors">Kryzys: Instrukcja Przetrwania</Link>
+              <Link to="/inicjatywy" className="text-sm text-brand-cream/70 hover:text-primary transition-colors">The Good Night</Link>
             </nav>
           </div>
 
@@ -87,7 +88,15 @@ const Footer = () => {
 
         {/* Bottom bar */}
         <div className="mt-12 pt-6 border-t border-brand-cream/10 flex flex-col sm:flex-row justify-between items-center gap-2">
-          <p className="text-xs text-brand-cream/50">© 2026 Women Up! Stowarzyszenie. Wszelkie prawa zastrzeżone.</p>
+          <div className="text-xs text-brand-cream/50">
+            <p>© Women Up! Inicjatywa Społeczna</p>
+            <p className="mt-1">
+              Korzystanie ze strony oznacza akceptację{" "}
+              <Link to="/regulamin" className="text-brand-cream/70 hover:text-primary transition-colors underline">Regulaminu</Link>
+              {" "}i{" "}
+              <Link to="/polityka-prywatnosci" className="text-brand-cream/70 hover:text-primary transition-colors underline">Polityki prywatności</Link>.
+            </p>
+          </div>
           <div className="flex gap-4">
             <Link to="/polityka-prywatnosci" className="text-xs text-brand-cream/50 hover:text-primary transition-colors">
               Polityka prywatności

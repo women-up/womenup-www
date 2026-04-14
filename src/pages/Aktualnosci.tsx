@@ -84,8 +84,8 @@ const Aktualnosci = () => {
               <div className="bg-card border border-border rounded-sm p-5">
                 <h4 className="font-heading text-lg font-semibold text-foreground mb-4">Śledź nas</h4>
                 <div className="flex gap-3">
-                  <a href="#" className="text-muted-foreground hover:text-primary transition-colors"><Facebook size={24} /></a>
-                  <a href="#" className="text-muted-foreground hover:text-primary transition-colors"><Instagram size={24} /></a>
+                  <a href="https://www.facebook.com/profile.php?id=61583649266220" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Facebook size={24} /></a>
+                  <a href="https://www.instagram.com/women_up_inicjatywaspoleczna/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Instagram size={24} /></a>
                 </div>
               </div>
             </aside>

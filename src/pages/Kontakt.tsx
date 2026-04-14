@@ -9,17 +9,34 @@ import AnimatedSection from "@/components/AnimatedSection";
 import { useState } from "react";
 import { toast } from "sonner";
 
+const CONTACT_WORKER_URL = import.meta.env.VITE_CONTACT_WORKER_URL;
+
 const Kontakt = () => {
   const [form, setForm] = useState({ name: "", email: "", topic: "", message: "" });
+  const [sending, setSending] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) {
       toast.error("Proszę wypełnić wszystkie wymagane pola.");
       return;
     }
-    toast.success("Wiadomość została wysłana! Odpowiemy najszybciej jak to możliwe.");
-    setForm({ name: "", email: "", topic: "", message: "" });
+    setSending(true);
+    try {
+      const res = await fetch(CONTACT_WORKER_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("Send failed");
+      toast.success("Wiadomość została wysłana! Odpowiemy najszybciej jak to możliwe.");
+      setForm({ name: "", email: "", topic: "", message: "" });
+    } catch (err) {
+      console.error("Contact form error:", err);
+      toast.error("Nie udało się wysłać wiadomości. Spróbuj ponownie lub napisz bezpośrednio na nasz email.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -70,8 +87,8 @@ const Kontakt = () => {
                   <Label htmlFor="message">Wiadomość *</Label>
                   <Textarea id="message" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="Twoja wiadomość..." rows={5} className="mt-1" />
                 </div>
-                <Button type="submit" className="uppercase tracking-brand-wide text-xs font-semibold px-8 py-3 h-auto w-full sm:w-auto inline-flex items-center gap-2">
-                  <Send size={14} /> Wyślij
+                <Button type="submit" disabled={sending} className="uppercase tracking-brand-wide text-xs font-semibold px-8 py-3 h-auto w-full sm:w-auto inline-flex items-center gap-2">
+                  <Send size={14} /> {sending ? "Wysyłanie..." : "Wyślij"}
                 </Button>
               </form>
             </div>
@@ -101,10 +118,10 @@ const Kontakt = () => {
               <div className="bg-card border border-border rounded-sm p-5">
                 <h4 className="font-heading text-lg font-semibold text-foreground mb-3">Media społecznościowe</h4>
                 <div className="flex gap-4">
-                  <a href="#" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+                  <a href="https://www.facebook.com/profile.php?id=61583649266220" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
                     <Facebook size={20} /> Facebook
                   </a>
-                  <a href="#" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+                  <a href="https://www.instagram.com/women_up_inicjatywaspoleczna/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
                     <Instagram size={20} /> Instagram
                   </a>
                 </div>

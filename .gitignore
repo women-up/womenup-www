@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Local tooling / MCP config
+.mcp.json
+.claude/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

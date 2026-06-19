@@ -278,7 +278,7 @@ export const allInitiatives: Initiative[] = [
     icon: Flame,
     title: "LEVEL UP: Kobieta",
     subtitle: "Power Girl w Podlaskiej Odsłonie",
-    date: "11.07.2026",
+    date: "26.07.2026",
     desc: "Cykliczny projekt edukacyjno-inspiracyjny, który łączy biznes, zdrowie, styl i lokalną moc Podlasia w nowoczesnej, praktycznej formule. Projekt oferuje uczestniczkom praktyczne narzędzia, warsztaty i doświadczenia na żywo, pokazuje storytelling i glow jako elementy pewności siebie oraz umożliwia rozwój na własnych zasadach.",
     status: "Aktywne",
     coordinator: { name: "Marlena Soczyńska", email: "womenup.inicjatywaspoleczna@gmail.com", phone: "533 874 086", photo: "/assets/team/marlena.jpeg" },
@@ -298,41 +298,40 @@ export const allInitiatives: Initiative[] = [
           </div>
 
           <div className="border-l-2 border-primary pl-4">
-            <h4 className="font-heading font-bold text-lg">09:45 – 11:00 | BLOK I: WIZERUNEK & PEWNOŚĆ SIEBIE</h4>
-            <p className="text-sm font-semibold mt-2">Wykład „Życie z poziomu spokoju i pewności"</p>
-            <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
-              <li><strong>Bezpieczna baza do decyzji</strong> — przestrzeń bez oceniania i presji, możliwość bycia sobą bez masek, decyzje podejmowane ze spokoju, nie z lęku</li>
-              <li><strong>Autentyczna pewność siebie</strong> — budowana na tym, kim naprawdę jesteś, działanie w zgodzie ze sobą, wizerunek zewnętrzny jako wyraz autentyczności</li>
-              <li><strong>Spokój, który wspiera działanie</strong> — integracja myśli, emocji i ciała, mniej wewnętrznej walki, więcej klarowności</li>
-            </ul>
-          </div>
-
-          <div className="border-l-2 border-primary pl-4">
-            <h4 className="font-heading font-bold text-lg">11:00 – 12:00 | BLOK II: STYL BIZNESOWY</h4>
+            <h4 className="font-heading font-bold text-lg">09:45 – 10:45 | BLOK I: GLOW UP & STYL</h4>
             <p className="text-sm italic mt-1">Glow up od środka – pewność siebie i moc regionu</p>
+            <p className="text-sm font-semibold mt-2">Prowadzące: Aksana Makej, Anna Dzienisowicz</p>
             <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
               <li>Pokaz makijażu: szybkie triki „effortless glow"</li>
               <li>Jak wizerunek buduje pewność siebie w pracy i w życiu</li>
               <li>Mini tipy: moodboardy, stylizacje, Instagram-ready glow</li>
-              <li><strong>Power hacks:</strong> bazowe kosmetyki do makijażu w przystępnej cenie</li>
             </ul>
             <p className="text-sm font-semibold mt-3">Smart girl wardrobe & lokalna moc</p>
+            <p className="text-sm font-semibold mt-1">Prowadząca: Stylistka</p>
             <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
               <li>Kapsułowa garderoba: 5 elementów, które działają zawsze</li>
               <li>Styl, który buduje autorytet i komfort w pracy</li>
-              <li>Stylizacja to narzędzie pewności siebie, nie rozmiar czy waga</li>
-              <li>Prezentacja 3–5 gotowych looków na różne okazje (biznes, networking, casual)</li>
-              <li><strong>Power hacks:</strong> karty zniżkowe na ubrania od lokalnych marek</li>
             </ul>
-            <p className="text-sm italic mt-2">„Twój wizerunek = Twój superpower"</p>
+          </div>
+
+          <div className="border-l-2 border-primary pl-4">
+            <h4 className="font-heading font-bold text-lg">10:45 – 12:00 | BLOK II: SPOKÓJ I PEWNOŚĆ SIEBIE</h4>
+            <p className="text-sm font-semibold mt-2">Wykład: <span className="font-normal italic">Życie z poziomu spokoju i pewności siebie</span></p>
+            <p className="text-sm font-semibold mt-1">Prelegentka: Natalia Maj</p>
+            <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
+              <li>Dlaczego mimo wiedzy wciąż się zatrzymujesz i odkładasz decyzje</li>
+              <li>Co naprawdę buduje pewność siebie i dlaczego nie zaczyna się ona od myślenia</li>
+              <li>Jak odzyskać spokój w sytuacji presji i wątpliwości</li>
+              <li>Jak budować zaufanie do siebie przez działanie</li>
+            </ul>
           </div>
 
           <div className="border-l-2 border-primary pl-4">
             <h4 className="font-heading font-bold text-lg">12:00 – 12:45 | PRZERWA KAWOWA & NETWORKING</h4>
             <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
-              <li>Zdrowe przekąski i shoty od lokalnych producentów</li>
+              <li>Zdrowe przekąski i shoty</li>
               <li>Produkty fit, bio, naturalne smaki Podlasia</li>
-              <li>Networking, stories i zdjęcia przy interaktywnym źródle</li>
+              <li>Networking, stories i zdjęcia przy źródle mocy</li>
             </ul>
           </div>
 
@@ -340,8 +339,7 @@ export const allInitiatives: Initiative[] = [
             <h4 className="font-heading font-bold text-lg">12:45 – 13:30 | BLOK III: BIZNES – PLAN LOTU</h4>
             <p className="text-sm italic mt-1">Od pomysłu do działania z lokalną mocą</p>
             <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
-              <li>Rozmowa na kanapie – studium przypadków lokalnych liderek biznesu: Diana Chwaszczewska, Katarzyna Rokicka, Izabella Sobiech, Dorota Lange</li>
-              <li>Checklisty i tipy dla start-upów i biznesów online</li>
+              <li>Rozmowa na kanapie – studium przypadków lokalnych liderek biznesu: Diana Chwaszczewska, Katarzyna Rokicka, Dorota Lange</li>
               <li><strong>Power hacks:</strong> praktyczne tipy od ekspertów i lokalnych bizneswoman</li>
             </ul>
             <p className="text-sm italic mt-2">„Biznes to Twoja wolność ubrana w działanie."</p>
@@ -350,20 +348,13 @@ export const allInitiatives: Initiative[] = [
           <div className="border-l-2 border-primary pl-4">
             <h4 className="font-heading font-bold text-lg">13:30 – 14:30 | BLOK IV: SOCIAL MEDIA</h4>
             <p className="text-sm italic mt-1">Marka osobista w praktyce – stwórz rolkę, która pokazuje Ciebie i Twoją markę</p>
+            <p className="text-sm font-semibold mt-2">Prowadząca: Aleksandra Michałowska</p>
             <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
               <li>Budowanie spójnego obrazu w rolce – estetyka, przekaz i autentyczność</li>
               <li>Warsztat: Twoja marka w rolce – jak pokazać siebie w social media</li>
               <li>Wsparcie zespołu przy tworzeniu rolki na żywo podczas finału (live assistance)</li>
               <li><strong>Power hacks:</strong> techniczne wskazówki i triki</li>
             </ul>
-            <div className="mt-3 bg-card border border-border rounded-sm p-4">
-              <p className="text-sm font-semibold">Rozmowa specjalna: „Prawda o hejcie w social mediach: historia i konsekwencje"</p>
-              <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
-                <li><strong>Ewelina Sienicka – Kupicha</strong> (perspektywa osoby z doświadczeniem życia w świecie publicznej rozpoznawalności)</li>
-                <li><strong>Marlena Soczyńska</strong> (perspektywa prawna)</li>
-              </ul>
-              <p className="text-sm mt-2 text-muted-foreground">Jak patrzeć na hejt z większym dystansem i nie pozwalać, by wpływał na codzienne życie. Rozmowa daje zrozumienie, jak reagować w trudnych sytuacjach i jak zachować wewnętrzny spokój oraz poczucie własnej wartości w przestrzeni online.</p>
-            </div>
           </div>
 
           <div className="border-l-2 border-primary pl-4">
@@ -392,6 +383,8 @@ export const allInitiatives: Initiative[] = [
             </ul>
           </div>
         </div>
+
+        <p className="text-sm italic text-muted-foreground">Zastrzegamy sobie możliwość zmian w programie wydarzenia.</p>
 
         <div className="bg-card border border-border rounded-sm p-5 mt-6">
           <p className="text-sm font-semibold text-primary mb-2">Ważne: komfort ma znaczenie.</p>

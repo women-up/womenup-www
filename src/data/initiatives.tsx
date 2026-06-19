@@ -392,6 +392,68 @@ export const allInitiatives: Initiative[] = [
             W trakcie wydarzenia najlepiej sprawdzi się strój wygodny i praktyczny, dopasowany do części warsztatowej oraz aktywności w ruchu. Polecamy swobodne stylizacje, takie jak legginsy, luźniejsze zestawy casualowe oraz komfortowe obuwie. To czas, w którym liczy się pełna swoboda – tak, aby nic nie ograniczało Twojego udziału w wydarzeniu.
           </p>
         </div>
+
+        <div className="pt-8 border-t border-border">
+          <div className="bg-primary/5 border border-primary/30 rounded-sm p-6">
+            <div className="flex items-baseline justify-between flex-wrap gap-2 mb-3">
+              <h3 className="font-heading text-brand-h3 font-bold text-primary">Bilet: „Słowiańska Moc"</h3>
+              <span className="font-heading text-2xl font-bold text-foreground whitespace-nowrap">250 zł</span>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              Pakiet podstawowy i przepustka do „Kręgu Women Up!", łączącego nowoczesną merytorykę biznesową z lokalną tożsamością regionu. Bilet na wydarzenie LEVEL UP: Kobieta – Power Girl w Podlaskiej Odsłonie (26.07.2026).
+            </p>
+          </div>
+
+          <p className="text-sm font-medium mt-6 mb-4">Oto szczegółowy opis tego, co obejmuje ten bilet:</p>
+
+          <div className="space-y-6">
+            <div className="border-l-2 border-primary pl-4">
+              <h4 className="font-heading font-bold text-lg">1. Pełny dostęp do programu merytorycznego</h4>
+              <p className="text-sm text-muted-foreground mt-1">Bilet gwarantuje udział we wszystkich blokach tematycznych zaplanowanych na ten dzień:</p>
+              <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
+                <li><strong>Blok I (Wizerunek):</strong> Warsztaty makijażu „effortless glow" oraz budowanie garderoby kapsułowej budującej autorytet.</li>
+                <li><strong>Blok II (Psychologia):</strong> Wykład Natalii Maj o budowaniu pewności siebie przez działanie i odzyskiwaniu spokoju pod presją.</li>
+                <li><strong>Blok III (Biznes):</strong> Panel dyskusyjny z lokalnymi liderkami (m.in. Dianą Chwaszczewską i Katarzyną Rokicką) o przekuwaniu pomysłów w działanie.</li>
+                <li><strong>Blok IV (Social Media):</strong> Warsztat tworzenia autentycznych rolek z pomocą zespołu (live assistance).</li>
+                <li><strong>Blok VI (Relaks):</strong> Sesja Pilatesu z psami oraz ćwiczenia oddechowe („Serotonin boost").</li>
+              </ul>
+            </div>
+
+            <div className="border-l-2 border-primary pl-4">
+              <h4 className="font-heading font-bold text-lg">2. Wyżywienie i catering</h4>
+              <p className="text-sm text-muted-foreground mt-1">W ramach biletu uczestniczka otrzymuje pełną opiekę cateringową opartą na lokalnych produktach:</p>
+              <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
+                <li><strong>Przerwy kawowe:</strong> Zdrowe przekąski, shoty mocy oraz naturalne smaki Podlasia.</li>
+                <li><strong>Lunch:</strong> Posiłek typu „fit & bio", wspierający energię do działania.</li>
+              </ul>
+            </div>
+
+            <div className="border-l-2 border-primary pl-4">
+              <h4 className="font-heading font-bold text-lg">3. „Power Bag" i materiały edukacyjne</h4>
+              <p className="text-sm text-muted-foreground mt-1">Każda posiadaczka biletu otrzymuje torbę z upominkami, która jest fizyczną formą „Złotej Teczki" stowarzyszenia:</p>
+              <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
+                <li><strong>Podarunki:</strong> Produkty od lokalnych partnerów i marek wspierających inicjatywę.</li>
+                <li><strong>Power Hacks:</strong> Praktyczne checklisty, techniczne wskazówki i narzędzia biznesowe gotowe do wdrożenia.</li>
+              </ul>
+            </div>
+
+            <div className="border-l-2 border-primary pl-4">
+              <h4 className="font-heading font-bold text-lg">4. Wartości dodane (Manifest Women Up!)</h4>
+              <p className="text-sm text-muted-foreground mt-1">Zakup biletu to coś więcej niż udział w konferencji – to realizacja „Obietnicy Kręgu":</p>
+              <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
+                <li><strong>Solidarność zamiast rywalizacji:</strong> Wejście do społeczności, w której kobiety podają sobie rękę w drodze na szczyt.</li>
+                <li><strong>Autentyczność:</strong> Możliwość „ściągnięcia maski idealnej kobiety" w bezpiecznej przystani i zrobienia pamiątkowych zdjęć przy „Źródle Podlaskiej Mocy".</li>
+                <li><strong>Wsparcie społeczne:</strong> Część inicjatywy wiąże się ze wsparciem akcji #RatujPSA (możliwość udziału w zajęciach z własnym psem).</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="bg-card border border-border rounded-sm p-5 mt-6">
+            <p className="text-sm text-muted-foreground">
+              <strong className="text-foreground">Informacja organizacyjna:</strong> Po zakupie biletu uczestniczka proszona jest o wypełnienie formularza rejestracyjnego, aby dopasować networking oraz potrzeby dietetyczne do jej oczekiwań. Zalecany jest wygodny strój (np. legginsy, casual), ponieważ w programie kluczowe miejsce zajmuje komfort i ruch.
+            </p>
+          </div>
+        </div>
       </div>
     ),
   },

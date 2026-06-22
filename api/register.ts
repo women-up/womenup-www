@@ -57,6 +57,91 @@ interface RegistrationPayload {
   turnstileToken?: string;
 }
 
+// ---- Google Sheets (Edge-compatible: Web Crypto JWT → OAuth → Sheets API) ----
+
+function pemToArrayBuffer(pem: string): ArrayBuffer {
+  const b64 = pem
+    .replace("-----BEGIN PRIVATE KEY-----", "")
+    .replace("-----END PRIVATE KEY-----", "")
+    .replace(/\s+/g, "");
+  const binary = atob(b64);
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+  return bytes.buffer;
+}
+
+function base64urlFromBytes(bytes: Uint8Array): string {
+  let binary = "";
+  for (let i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i]);
+  return btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+}
+
+function base64urlFromString(s: string): string {
+  return base64urlFromBytes(new TextEncoder().encode(s));
+}
+
+async function getGoogleAccessToken(clientEmail: string, privateKeyPem: string): Promise<string> {
+  const now = Math.floor(Date.now() / 1000);
+  const header = base64urlFromString(JSON.stringify({ alg: "RS256", typ: "JWT" }));
+  const claim = base64urlFromString(
+    JSON.stringify({
+      iss: clientEmail,
+      scope: "https://www.googleapis.com/auth/spreadsheets",
+      aud: "https://oauth2.googleapis.com/token",
+      exp: now + 3600,
+      iat: now,
+    }),
+  );
+  const signingInput = `${header}.${claim}`;
+
+  const key = await crypto.subtle.importKey(
+    "pkcs8",
+    pemToArrayBuffer(privateKeyPem),
+    { name: "RSASSA-PKCS1-v1_5", hash: "SHA-256" },
+    false,
+    ["sign"],
+  );
+  const signature = await crypto.subtle.sign(
+    "RSASSA-PKCS1-v1_5",
+    key,
+    new TextEncoder().encode(signingInput),
+  );
+  const jwt = `${signingInput}.${base64urlFromBytes(new Uint8Array(signature))}`;
+
+  const res = await fetch("https://oauth2.googleapis.com/token", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({
+      grant_type: "urn:ietf:params:oauth:grant-type:jwt-bearer",
+      assertion: jwt,
+    }),
+  });
+  if (!res.ok) throw new Error(`Google token error: ${await res.text()}`);
+  const data = (await res.json()) as { access_token?: string };
+  if (!data.access_token) throw new Error("Google token missing access_token");
+  return data.access_token;
+}
+
+// Dopisuje wiersz do arkusza. Nie rzuca dalej — błąd jest logowany, ale nie
+// blokuje rejestracji (e-mail pozostaje głównym kanałem zapisu).
+async function appendToSheet(row: string[]): Promise<void> {
+  const clientEmail = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
+  const privateKey = (process.env.GOOGLE_PRIVATE_KEY || "").replace(/\\n/g, "\n");
+  const sheetId = process.env.GOOGLE_SHEET_ID;
+  if (!clientEmail || !privateKey || !sheetId) return; // nie skonfigurowano
+
+  const token = await getGoogleAccessToken(clientEmail, privateKey);
+  const url =
+    `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/A1:append` +
+    `?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`;
+  const res = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+    body: JSON.stringify({ values: [row] }),
+  });
+  if (!res.ok) throw new Error(`Sheets append error: ${await res.text()}`);
+}
+
 async function verifyTurnstile(token: string | undefined, remoteIp: string): Promise<boolean> {
   const secret = process.env.TURNSTILE_SECRET_KEY;
   if (!secret) return true; // Turnstile not configured yet — don't block
@@ -129,6 +214,27 @@ export default async function handler(request: Request): Promise<Response> {
     (p.modules || []).map((m) => MODULE_LABELS[m] || m).join(", ") || "(nie wybrano)";
   const socialLabel = SOCIAL_LABELS[p.socialSupport || ""] || "(nie wybrano)";
   const pilatesLabel = PILATES_LABELS[p.pilates || ""] || "(nie wybrano)";
+
+  // Trwała lista: dopisz wiersz do Google Sheets (nie blokuje rejestracji).
+  // Kolejność kolumn: Data | Imię i nazwisko | Telefon | E-mail | Droga zawodowa |
+  // Moduły | Wsparcie rolka | Pilates | Obietnica Kręgu | Regulamin | Wizerunek
+  try {
+    await appendToSheet([
+      new Date().toISOString(),
+      name,
+      phone,
+      email,
+      careerLabel,
+      modulesLabel,
+      socialLabel,
+      pilatesLabel,
+      p.promiseCircle ? "Tak" : "Nie",
+      p.acceptRegulamin ? "Tak" : "Nie",
+      p.imageConsent ? "Tak" : "Nie",
+    ]);
+  } catch (err) {
+    console.error("Google Sheets append failed:", err);
+  }
 
   const html = `
     <h2>Nowa rejestracja — LEVEL UP: Kobieta (26.07.2026)</h2>

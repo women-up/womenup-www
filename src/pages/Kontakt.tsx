@@ -9,8 +9,6 @@ import AnimatedSection from "@/components/AnimatedSection";
 import { useState } from "react";
 import { toast } from "sonner";
 
-const CONTACT_WORKER_URL = import.meta.env.VITE_CONTACT_WORKER_URL;
-
 const Kontakt = () => {
   const [form, setForm] = useState({ name: "", email: "", topic: "", message: "" });
   const [sending, setSending] = useState(false);
@@ -23,7 +21,7 @@ const Kontakt = () => {
     }
     setSending(true);
     try {
-      const res = await fetch(CONTACT_WORKER_URL, {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),

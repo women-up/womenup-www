@@ -1,9 +1,0 @@
-CREATE TABLE test_random (
-  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  name TEXT NOT NULL,
-  value INT,
-  created_at TIMESTAMPTZ DEFAULT NOW()
-);
-
-ALTER TABLE test_random ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "Allow anon all" ON test_random FOR ALL USING (true) WITH CHECK (true);

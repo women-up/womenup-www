@@ -14,6 +14,7 @@ import DesignSystem from "./pages/DesignSystem";
 import Partnerzy from "./pages/Partnerzy";
 import PolitykaPrywatnosci from "./pages/PolitykaPrywatnosci";
 import Regulamin from "./pages/Regulamin";
+import RegulaminLevelUp from "./pages/RegulaminLevelUp";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/rejestracja-level-up" element={<RejestracjaLevelUp />} />
           <Route path="/polityka-prywatnosci" element={<PolitykaPrywatnosci />} />
           <Route path="/regulamin" element={<Regulamin />} />
+          <Route path="/regulamin-level-up" element={<RegulaminLevelUp />} />
           <Route path="/design-system" element={<DesignSystem />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

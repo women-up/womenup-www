@@ -13,6 +13,7 @@ const TOPIC_LABELS: Record<string, string> = {
 // ustaw np. "Women Up! <kontakt@womenup.com.pl>".
 const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL || "Women Up! <onboarding@resend.dev>";
 const TO_EMAIL = process.env.CONTACT_TO_EMAIL || "womenup.inicjatywaspoleczna@gmail.com";
+const MIN_FILL_MS = 3000; // time-trap: odrzuć zgłoszenia wysłane zbyt szybko
 
 function escapeHtml(value: string): string {
   return value
@@ -54,11 +55,29 @@ export default async function handler(request: Request): Promise<Response> {
     return Response.json({ error: "Serwer nie jest skonfigurowany" }, { status: 500 });
   }
 
-  let payload: { name?: string; email?: string; topic?: string; message?: string; turnstileToken?: string };
+  let payload: {
+    name?: string;
+    email?: string;
+    topic?: string;
+    message?: string;
+    turnstileToken?: string;
+    website?: string;
+    elapsedMs?: number;
+  };
   try {
     payload = await request.json();
   } catch {
     return Response.json({ error: "Nieprawidłowe dane" }, { status: 400 });
+  }
+
+  // Anti-spam: honeypot — boty wypełniają ukryte pole.
+  if (payload.website && payload.website.trim() !== "") {
+    return Response.json({ success: true }); // udajemy sukces, nie wysyłamy
+  }
+
+  // Anti-spam: time-trap — formularz wypełniony nierealnie szybko.
+  if (typeof payload.elapsedMs === "number" && payload.elapsedMs < MIN_FILL_MS) {
+    return Response.json({ success: true });
   }
 
   const remoteIp = request.headers.get("CF-Connecting-IP") || request.headers.get("x-forwarded-for") || "";

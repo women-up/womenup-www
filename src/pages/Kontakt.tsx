@@ -11,10 +11,11 @@ import { toast } from "sonner";
 import Turnstile, { type TurnstileHandle } from "@/components/Turnstile";
 
 const Kontakt = () => {
-  const [form, setForm] = useState({ name: "", email: "", topic: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", topic: "", message: "", website: "" });
   const [sending, setSending] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState("");
   const turnstileRef = useRef<TurnstileHandle>(null);
+  const mountedAt = useRef(Date.now());
 
   const resetTurnstile = () => {
     setTurnstileToken("");
@@ -36,11 +37,12 @@ const Kontakt = () => {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, turnstileToken }),
+        body: JSON.stringify({ ...form, turnstileToken, elapsedMs: Date.now() - mountedAt.current }),
       });
       if (!res.ok) throw new Error("Send failed");
       toast.success("Wiadomość została wysłana! Odpowiemy najszybciej jak to możliwe.");
-      setForm({ name: "", email: "", topic: "", message: "" });
+      setForm({ name: "", email: "", topic: "", message: "", website: "" });
+      mountedAt.current = Date.now();
       resetTurnstile();
     } catch (err) {
       console.error("Contact form error:", err);
@@ -99,6 +101,12 @@ const Kontakt = () => {
                   <Label htmlFor="message">Wiadomość *</Label>
                   <Textarea id="message" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="Twoja wiadomość..." rows={5} className="mt-1" />
                 </div>
+                {/* Honeypot — ukryte pole-pułapka dla botów */}
+                <div className="hidden" aria-hidden="true">
+                  <label htmlFor="website">Nie wypełniaj tego pola</label>
+                  <input id="website" type="text" tabIndex={-1} autoComplete="off" value={form.website} onChange={(e) => setForm({ ...form, website: e.target.value })} />
+                </div>
+
                 <Turnstile ref={turnstileRef} onVerify={setTurnstileToken} onExpire={() => setTurnstileToken("")} />
                 <Button type="submit" disabled={sending} className="uppercase tracking-brand-wide text-xs font-semibold px-8 py-3 h-auto w-full sm:w-auto inline-flex items-center gap-2">
                   <Send size={14} /> {sending ? "Wysyłanie..." : "Wyślij"}

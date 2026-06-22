@@ -15,6 +15,7 @@ dist-ssr
 # Local tooling / MCP config
 .mcp.json
 .claude/
+_tmp_xlsx/
 
 # Editor directories and files
 .vscode/*

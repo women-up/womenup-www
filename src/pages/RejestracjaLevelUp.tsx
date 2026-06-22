@@ -7,9 +7,22 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import DiamondDivider from "@/components/DiamondDivider";
 import Layout from "@/components/Layout";
 import AnimatedSection from "@/components/AnimatedSection";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
+
+// Publiczny klucz witryny Cloudflare Turnstile (bezpieczny w kodzie klienta).
+const TURNSTILE_SITE_KEY = "0x4AAAAAADpNIoLdu3Ulx4x3";
+
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (el: HTMLElement, opts: Record<string, unknown>) => string;
+      reset: (id?: string) => void;
+      remove: (id?: string) => void;
+    };
+  }
+}
 
 const CAREER_OPTIONS = [
   { value: "firma", label: "Buduję własną firmę / Startup" },
@@ -50,7 +63,60 @@ const initialForm = {
 const RejestracjaLevelUp = () => {
   const [form, setForm] = useState(initialForm);
   const [sending, setSending] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState("");
   const mountedAt = useRef(Date.now());
+  const widgetRef = useRef<HTMLDivElement>(null);
+  const widgetIdRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    const SCRIPT_ID = "cf-turnstile-script";
+
+    const renderWidget = () => {
+      if (widgetRef.current && window.turnstile && widgetIdRef.current === null) {
+        widgetIdRef.current = window.turnstile.render(widgetRef.current, {
+          sitekey: TURNSTILE_SITE_KEY,
+          callback: (token: string) => setTurnstileToken(token),
+          "expired-callback": () => setTurnstileToken(""),
+          "error-callback": () => setTurnstileToken(""),
+        });
+      }
+    };
+
+    let poll: ReturnType<typeof setInterval> | undefined;
+    if (window.turnstile) {
+      renderWidget();
+    } else if (!document.getElementById(SCRIPT_ID)) {
+      const s = document.createElement("script");
+      s.id = SCRIPT_ID;
+      s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
+      s.async = true;
+      s.defer = true;
+      s.onload = renderWidget;
+      document.head.appendChild(s);
+    } else {
+      poll = setInterval(() => {
+        if (window.turnstile) {
+          clearInterval(poll);
+          renderWidget();
+        }
+      }, 200);
+    }
+
+    return () => {
+      if (poll) clearInterval(poll);
+      if (widgetIdRef.current && window.turnstile) {
+        window.turnstile.remove(widgetIdRef.current);
+        widgetIdRef.current = null;
+      }
+    };
+  }, []);
+
+  const resetTurnstile = () => {
+    setTurnstileToken("");
+    if (widgetIdRef.current && window.turnstile) {
+      window.turnstile.reset(widgetIdRef.current);
+    }
+  };
 
   const toggleModule = (value: string) => {
     setForm((prev) => ({
@@ -72,21 +138,31 @@ const RejestracjaLevelUp = () => {
       toast.error("Aby się zarejestrować, zaakceptuj Obietnicę Kręgu oraz Regulamin i Politykę Prywatności.");
       return;
     }
+    if (!turnstileToken) {
+      toast.error("Potwierdź, że nie jesteś robotem (weryfikacja antyspam).");
+      return;
+    }
 
     setSending(true);
     try {
       const res = await fetch("/api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, elapsedMs: Date.now() - mountedAt.current }),
+        body: JSON.stringify({
+          ...form,
+          elapsedMs: Date.now() - mountedAt.current,
+          turnstileToken,
+        }),
       });
       if (!res.ok) throw new Error("Send failed");
       toast.success("Rejestracja przyjęta! Do zobaczenia w kręgu. Potwierdzenie wyślemy na podany e-mail.");
       setForm(initialForm);
       mountedAt.current = Date.now();
+      resetTurnstile();
     } catch (err) {
       console.error("Registration form error:", err);
       toast.error("Nie udało się wysłać zgłoszenia. Spróbuj ponownie lub napisz na womenup.inicjatywaspoleczna@gmail.com.");
+      resetTurnstile();
     } finally {
       setSending(false);
     }
@@ -233,6 +309,10 @@ const RejestracjaLevelUp = () => {
             <div className="hidden" aria-hidden="true">
               <label htmlFor="website">Nie wypełniaj tego pola</label>
               <input id="website" type="text" tabIndex={-1} autoComplete="off" value={form.website} onChange={(e) => setForm({ ...form, website: e.target.value })} />
+            </div>
+
+            <div className="flex justify-center">
+              <div ref={widgetRef} />
             </div>
 
             <div className="text-center">

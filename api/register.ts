@@ -54,6 +54,25 @@ interface RegistrationPayload {
   imageConsent?: boolean;
   website?: string; // honeypot
   elapsedMs?: number;
+  turnstileToken?: string;
+}
+
+async function verifyTurnstile(token: string | undefined, remoteIp: string): Promise<boolean> {
+  const secret = process.env.TURNSTILE_SECRET_KEY;
+  if (!secret) return true; // Turnstile not configured yet — don't block
+  if (!token) return false;
+  try {
+    const res = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({ secret, response: token, remoteip: remoteIp }),
+    });
+    const outcome = (await res.json()) as { success?: boolean };
+    return outcome.success === true;
+  } catch (err) {
+    console.error("Turnstile verify error:", err);
+    return false;
+  }
 }
 
 export default async function handler(request: Request): Promise<Response> {
@@ -82,6 +101,13 @@ export default async function handler(request: Request): Promise<Response> {
   // Anti-spam: time-trap — formularz wypełniony nierealnie szybko.
   if (typeof p.elapsedMs === "number" && p.elapsedMs < MIN_FILL_MS) {
     return Response.json({ success: true });
+  }
+
+  // Anti-spam: Cloudflare Turnstile (jeśli skonfigurowany TURNSTILE_SECRET_KEY).
+  const remoteIp = request.headers.get("CF-Connecting-IP") || request.headers.get("x-forwarded-for") || "";
+  const turnstileOk = await verifyTurnstile(p.turnstileToken, remoteIp);
+  if (!turnstileOk) {
+    return Response.json({ error: "Weryfikacja antyspam nie powiodła się" }, { status: 400 });
   }
 
   const name = (p.name || "").trim();

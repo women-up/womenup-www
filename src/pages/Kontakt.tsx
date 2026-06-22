@@ -6,12 +6,20 @@ import { Label } from "@/components/ui/label";
 import DiamondDivider from "@/components/DiamondDivider";
 import Layout from "@/components/Layout";
 import AnimatedSection from "@/components/AnimatedSection";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { toast } from "sonner";
+import Turnstile, { type TurnstileHandle } from "@/components/Turnstile";
 
 const Kontakt = () => {
   const [form, setForm] = useState({ name: "", email: "", topic: "", message: "" });
   const [sending, setSending] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const turnstileRef = useRef<TurnstileHandle>(null);
+
+  const resetTurnstile = () => {
+    setTurnstileToken("");
+    turnstileRef.current?.reset();
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,19 +27,25 @@ const Kontakt = () => {
       toast.error("Proszę wypełnić wszystkie wymagane pola.");
       return;
     }
+    if (!turnstileToken) {
+      toast.error("Potwierdź, że nie jesteś robotem (weryfikacja antyspam).");
+      return;
+    }
     setSending(true);
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, turnstileToken }),
       });
       if (!res.ok) throw new Error("Send failed");
       toast.success("Wiadomość została wysłana! Odpowiemy najszybciej jak to możliwe.");
       setForm({ name: "", email: "", topic: "", message: "" });
+      resetTurnstile();
     } catch (err) {
       console.error("Contact form error:", err);
       toast.error("Nie udało się wysłać wiadomości. Spróbuj ponownie lub napisz bezpośrednio na nasz email.");
+      resetTurnstile();
     } finally {
       setSending(false);
     }
@@ -85,6 +99,7 @@ const Kontakt = () => {
                   <Label htmlFor="message">Wiadomość *</Label>
                   <Textarea id="message" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="Twoja wiadomość..." rows={5} className="mt-1" />
                 </div>
+                <Turnstile ref={turnstileRef} onVerify={setTurnstileToken} onExpire={() => setTurnstileToken("")} />
                 <Button type="submit" disabled={sending} className="uppercase tracking-brand-wide text-xs font-semibold px-8 py-3 h-auto w-full sm:w-auto inline-flex items-center gap-2">
                   <Send size={14} /> {sending ? "Wysyłanie..." : "Wyślij"}
                 </Button>

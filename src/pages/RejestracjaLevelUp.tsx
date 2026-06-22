@@ -7,22 +7,10 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import DiamondDivider from "@/components/DiamondDivider";
 import Layout from "@/components/Layout";
 import AnimatedSection from "@/components/AnimatedSection";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
-
-// Publiczny klucz witryny Cloudflare Turnstile (bezpieczny w kodzie klienta).
-const TURNSTILE_SITE_KEY = "0x4AAAAAADpNIoLdu3Ulx4x3";
-
-declare global {
-  interface Window {
-    turnstile?: {
-      render: (el: HTMLElement, opts: Record<string, unknown>) => string;
-      reset: (id?: string) => void;
-      remove: (id?: string) => void;
-    };
-  }
-}
+import Turnstile, { type TurnstileHandle } from "@/components/Turnstile";
 
 const CAREER_OPTIONS = [
   { value: "firma", label: "Buduję własną firmę / Startup" },
@@ -65,57 +53,11 @@ const RejestracjaLevelUp = () => {
   const [sending, setSending] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState("");
   const mountedAt = useRef(Date.now());
-  const widgetRef = useRef<HTMLDivElement>(null);
-  const widgetIdRef = useRef<string | null>(null);
-
-  useEffect(() => {
-    const SCRIPT_ID = "cf-turnstile-script";
-
-    const renderWidget = () => {
-      if (widgetRef.current && window.turnstile && widgetIdRef.current === null) {
-        widgetIdRef.current = window.turnstile.render(widgetRef.current, {
-          sitekey: TURNSTILE_SITE_KEY,
-          callback: (token: string) => setTurnstileToken(token),
-          "expired-callback": () => setTurnstileToken(""),
-          "error-callback": () => setTurnstileToken(""),
-        });
-      }
-    };
-
-    let poll: ReturnType<typeof setInterval> | undefined;
-    if (window.turnstile) {
-      renderWidget();
-    } else if (!document.getElementById(SCRIPT_ID)) {
-      const s = document.createElement("script");
-      s.id = SCRIPT_ID;
-      s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
-      s.async = true;
-      s.defer = true;
-      s.onload = renderWidget;
-      document.head.appendChild(s);
-    } else {
-      poll = setInterval(() => {
-        if (window.turnstile) {
-          clearInterval(poll);
-          renderWidget();
-        }
-      }, 200);
-    }
-
-    return () => {
-      if (poll) clearInterval(poll);
-      if (widgetIdRef.current && window.turnstile) {
-        window.turnstile.remove(widgetIdRef.current);
-        widgetIdRef.current = null;
-      }
-    };
-  }, []);
+  const turnstileRef = useRef<TurnstileHandle>(null);
 
   const resetTurnstile = () => {
     setTurnstileToken("");
-    if (widgetIdRef.current && window.turnstile) {
-      window.turnstile.reset(widgetIdRef.current);
-    }
+    turnstileRef.current?.reset();
   };
 
   const toggleModule = (value: string) => {
@@ -312,7 +254,7 @@ const RejestracjaLevelUp = () => {
             </div>
 
             <div className="flex justify-center">
-              <div ref={widgetRef} />
+              <Turnstile ref={turnstileRef} onVerify={setTurnstileToken} onExpire={() => setTurnstileToken("")} />
             </div>
 
             <div className="text-center">

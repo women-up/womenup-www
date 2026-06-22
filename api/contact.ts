@@ -23,6 +23,26 @@ function escapeHtml(value: string): string {
     .replace(/'/g, "&#39;");
 }
 
+// Weryfikacja Cloudflare Turnstile. Gdy TURNSTILE_SECRET_KEY nie jest ustawiony,
+// nie blokuje (zwraca true), żeby formularz działał przed konfiguracją sekretu.
+async function verifyTurnstile(token: string | undefined, remoteIp: string): Promise<boolean> {
+  const secret = process.env.TURNSTILE_SECRET_KEY;
+  if (!secret) return true;
+  if (!token) return false;
+  try {
+    const res = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({ secret, response: token, remoteip: remoteIp }),
+    });
+    const outcome = (await res.json()) as { success?: boolean };
+    return outcome.success === true;
+  } catch (err) {
+    console.error("Turnstile verify error:", err);
+    return false;
+  }
+}
+
 export default async function handler(request: Request): Promise<Response> {
   if (request.method !== "POST") {
     return Response.json({ error: "Method not allowed" }, { status: 405 });
@@ -34,11 +54,17 @@ export default async function handler(request: Request): Promise<Response> {
     return Response.json({ error: "Serwer nie jest skonfigurowany" }, { status: 500 });
   }
 
-  let payload: { name?: string; email?: string; topic?: string; message?: string };
+  let payload: { name?: string; email?: string; topic?: string; message?: string; turnstileToken?: string };
   try {
     payload = await request.json();
   } catch {
     return Response.json({ error: "Nieprawidłowe dane" }, { status: 400 });
+  }
+
+  const remoteIp = request.headers.get("CF-Connecting-IP") || request.headers.get("x-forwarded-for") || "";
+  const turnstileOk = await verifyTurnstile(payload.turnstileToken, remoteIp);
+  if (!turnstileOk) {
+    return Response.json({ error: "Weryfikacja antyspam nie powiodła się" }, { status: 400 });
   }
 
   const name = (payload.name || "").trim();

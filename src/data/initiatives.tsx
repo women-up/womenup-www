@@ -1,5 +1,7 @@
 import { Star, Flame, Heart, Coffee, Sparkles, Shield, Compass, Mountain, Bike } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 export interface Initiative {
   slug: string;
@@ -456,6 +458,9 @@ export const allInitiatives: Initiative[] = [
               <div className="border-l-2 border-primary pl-4">
                 <p className="text-sm font-medium text-foreground">Krok 1</p>
                 <p className="text-sm text-muted-foreground mt-1">Wypełnij formularz zgłoszeniowy dostępny na stronie wydarzenia.</p>
+                <Button asChild className="mt-3 uppercase tracking-brand-wide text-xs font-semibold">
+                  <Link to="/rejestracja-level-up">Wypełnij formularz zgłoszeniowy</Link>
+                </Button>
               </div>
               <div className="border-l-2 border-primary pl-4">
                 <p className="text-sm font-medium text-foreground">Krok 2</p>

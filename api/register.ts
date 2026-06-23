@@ -40,6 +40,82 @@ function row(label: string, value: string): string {
   return `<p><strong>${escapeHtml(label)}:</strong> ${escapeHtml(value)}</p>`;
 }
 
+// E-mail potwierdzający wysyłany do Uczestniczki, z danymi do przelewu.
+function buildConfirmationHtml(name: string): string {
+  const safeName = escapeHtml(name);
+  return `
+    <div style="font-family: Arial, Helvetica, sans-serif; color: #222; line-height: 1.6; max-width: 560px;">
+      <p>Dzień dobry,</p>
+      <p>dziękujemy za zapis na wydarzenie <strong>LEVEL UP: Kobieta</strong>, które odbędzie się
+      26 lipca 2026 r. w Hotelu Mercure Białystok.</p>
+      <p>Aby potwierdzić udział, prosimy o dokonanie płatności przelewem tradycyjnym zgodnie z poniższymi danymi:</p>
+      <h3 style="margin: 24px 0 8px;">Dane do przelewu</h3>
+      <table cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+        <tr><td style="padding: 2px 12px 2px 0;"><strong>Odbiorca:</strong></td><td>Prestige Event House sp. z o.o.</td></tr>
+        <tr><td style="padding: 2px 12px 2px 0;"><strong>Bank:</strong></td><td>PKO Bank Polski</td></tr>
+        <tr><td style="padding: 2px 12px 2px 0;"><strong>Numer rachunku:</strong></td><td>88 1020 1332 0000 1102 1689 1500</td></tr>
+        <tr><td style="padding: 2px 12px 2px 0;"><strong>Kwota:</strong></td><td>250,00 zł</td></tr>
+        <tr><td style="padding: 2px 12px 2px 0;"><strong>Tytuł przelewu:</strong></td><td>LEVEL UP KOBIETA – ${safeName}</td></tr>
+        <tr><td style="padding: 2px 12px 2px 0;"><strong>Termin płatności:</strong></td><td>do 23.07.2026 r.</td></tr>
+      </table>
+      <p style="margin-top: 24px;">Przesłanie formularza zgłoszeniowego nie jest równoznaczne z potwierdzeniem miejsca na wydarzeniu.
+      Miejsce na wydarzeniu zostaje potwierdzone po zaksięgowaniu pełnej opłaty za udział.</p>
+      <p>Po zaksięgowaniu wpłaty prześlemy potwierdzenie uczestnictwa.</p>
+      <p>W razie pytań pozostajemy do dyspozycji pod adresem:<br />
+      <a href="mailto:womenup.inicjatywaspoleczna@gmail.com">womenup.inicjatywaspoleczna@gmail.com</a></p>
+      <p>Pozdrawiamy,<br />Women Up! Inicjatywa Społeczna</p>
+    </div>
+  `;
+}
+
+function buildConfirmationText(name: string): string {
+  return [
+    "Dzień dobry,",
+    "",
+    "dziękujemy za zapis na wydarzenie LEVEL UP: Kobieta, które odbędzie się 26 lipca 2026 r. w Hotelu Mercure Białystok.",
+    "",
+    "Aby potwierdzić udział, prosimy o dokonanie płatności przelewem tradycyjnym zgodnie z poniższymi danymi:",
+    "",
+    "Dane do przelewu",
+    "",
+    "Odbiorca: Prestige Event House sp. z o.o.",
+    "Bank: PKO Bank Polski",
+    "Numer rachunku: 88 1020 1332 0000 1102 1689 1500",
+    "Kwota: 250,00 zł",
+    `Tytuł przelewu: LEVEL UP KOBIETA – ${name}`,
+    "Termin płatności: do 23.07.2026 r.",
+    "",
+    "Przesłanie formularza zgłoszeniowego nie jest równoznaczne z potwierdzeniem miejsca na wydarzeniu.",
+    "Miejsce na wydarzeniu zostaje potwierdzone po zaksięgowaniu pełnej opłaty za udział.",
+    "",
+    "Po zaksięgowaniu wpłaty prześlemy potwierdzenie uczestnictwa.",
+    "",
+    "W razie pytań pozostajemy do dyspozycji pod adresem:",
+    "womenup.inicjatywaspoleczna@gmail.com",
+    "",
+    "Pozdrawiamy,",
+    "Women Up! Inicjatywa Społeczna",
+  ].join("\n");
+}
+
+// Wysyła potwierdzenie do Uczestniczki. Nie blokuje rejestracji — błąd jest
+// logowany (np. gdy domena nadawcy nie jest jeszcze zweryfikowana w Resend).
+async function sendConfirmationEmail(apiKey: string, to: string, name: string): Promise<void> {
+  const res = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
+    body: JSON.stringify({
+      from: FROM_EMAIL,
+      to: [to],
+      reply_to: TO_EMAIL,
+      subject: "LEVEL UP: Kobieta – potwierdzenie zgłoszenia i dane do przelewu",
+      html: buildConfirmationHtml(name),
+      text: buildConfirmationText(name),
+    }),
+  });
+  if (!res.ok) throw new Error(`Resend confirmation error: ${await res.text()}`);
+}
+
 interface RegistrationPayload {
   name?: string;
   phone?: string;
@@ -273,6 +349,13 @@ export default async function handler(request: Request): Promise<Response> {
       const error = await res.text();
       console.error("Resend error:", error);
       return Response.json({ error: "Nie udało się wysłać zgłoszenia" }, { status: 502 });
+    }
+
+    // Potwierdzenie do Uczestniczki z danymi do przelewu (nie blokuje rejestracji).
+    try {
+      await sendConfirmationEmail(apiKey, email, name);
+    } catch (err) {
+      console.error("Confirmation email failed:", err);
     }
 
     return Response.json({ success: true });

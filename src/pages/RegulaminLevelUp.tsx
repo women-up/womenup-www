@@ -34,7 +34,7 @@ const RegulaminLevelUp = () => {
                 <p>1.8. Przepisy niniejszego Regulaminu stanowią integralną część zgłoszenia uczestnictwa w Wydarzeniu i obowiązują wszystkie Uczestniczki.</p>
                 <p>1.9. W ramach Wydarzenia mogą odbywać się prelekcje, wystąpienia, panele, rozmowy, warsztaty, spotkania networkingowe, sesje inspiracyjne oraz aktywności realizowane z udziałem partnerów i sponsorów Wydarzenia.</p>
                 <p>1.10. Organizator zastrzega, że nie ponosi odpowiedzialności za formę i treść tez, opinii, poglądów oraz wypowiedzi prezentowanych przez prelegentki, partnerów, sponsorów lub inne osoby występujące podczas Wydarzenia, z zastrzeżeniem bezwzględnie obowiązujących przepisów prawa.</p>
-                <p>1.11. Kontakt z Organizatorem w sprawach związanych z Wydarzeniem możliwy jest pod adresem e-mail: <a href="mailto:womenup.inicjatywaspoleczna@gmail.com" className="text-primary hover:underline">womenup.inicjatywaspoleczna@gmail.com</a> oraz numerem telefonu: +48 533 874 086.</p>
+                <p>1.11. Kontakt z Organizatorem w sprawach związanych z Wydarzeniem, w tym w sprawach dotyczących zapisów, płatności, rezygnacji, reklamacji oraz organizacji udziału, odbywa się za pośrednictwem poczty elektronicznej pod adresem: <a href="mailto:womenup.inicjatywaspoleczna@gmail.com" className="text-primary hover:underline">womenup.inicjatywaspoleczna@gmail.com</a>. Organizator może dodatkowo udostępniać kontakt telefoniczny o charakterze pomocniczym.</p>
               </div>
             </section>
 
@@ -65,11 +65,13 @@ const RegulaminLevelUp = () => {
                 <p>3.1. Udział w Wydarzeniu jest odpłatny.</p>
                 <p>3.2. Opłata za udział w Wydarzeniu wynosi 250,00 zł brutto od jednej Uczestniczki.</p>
                 <p>3.3. Płatności za udział w Wydarzeniu należy dokonać najpóźniej do dnia 23 lipca 2026 r.</p>
-                <p>3.4. Płatność za udział w Wydarzeniu realizowana jest za pośrednictwem elektronicznej bramki płatniczej lub systemu sprzedażowego obsługiwanego przez Podwykonawcę. Podwykonawca działa w tym zakresie na rzecz Organizatora i w jego imieniu, jako podmiot odpowiedzialny za techniczną i organizacyjną obsługę procesu rejestracji oraz poboru opłat za uczestnictwo w Wydarzeniu.</p>
-                <p>3.5. Dokonanie płatności za pośrednictwem bramki płatniczej lub systemu sprzedażowego obsługiwanego przez Podwykonawcę stanowi zapłatę na rzecz Organizatora za udział w Wydarzeniu.</p>
-                <p>3.6. Za moment dokonania płatności uznaje się moment skutecznego zaksięgowania wpłaty w systemie płatniczym lub potwierdzenia jej przyjęcia przez Podwykonawcę działającego na rzecz Organizatora.</p>
+                <p>3.4. Płatność za udział w Wydarzeniu realizowana jest wyłącznie przelewem na rachunek bankowy Podwykonawcy: PRESTIGE EVENT HOUSE sp. z o.o., nr rachunku 88 1020 1332 0000 1102 1689 1500, prowadzony w PKO Bank Polski, wskazany również w procesie rejestracji lub w komunikacji dotyczącej Wydarzenia. Podwykonawca działa w tym zakresie na rzecz Organizatora i w jego imieniu, jako podmiot odpowiedzialny za techniczną i organizacyjną obsługę procesu rejestracji oraz poboru opłat za uczestnictwo w Wydarzeniu.</p>
+                <p>3.5. Dokonanie płatności przelewem na rachunek bankowy Podwykonawcy stanowi zapłatę na rzecz Organizatora za udział w Wydarzeniu.</p>
+                <p>3.6. Za moment dokonania płatności uznaje się moment uznania rachunku bankowego Podwykonawcy kwotą należną za udział w Wydarzeniu.</p>
                 <p>3.7. W przypadku braku uiszczenia opłaty w terminie Organizator ma prawo anulować zgłoszenie uczestnictwa bez ponoszenia odpowiedzialności z tego tytułu.</p>
                 <p>3.8. Na życzenie Uczestniczki dokument sprzedaży / fakturę za udział w Wydarzeniu wystawia WOMEN UP! INICJATYWA SPOŁECZNA jako Organizator Wydarzenia, po przekazaniu danych niezbędnych do jej wystawienia.</p>
+                <p>3.9. Przesłanie formularza zgłoszeniowego nie jest równoznaczne z potwierdzeniem miejsca na Wydarzeniu. Potwierdzenie uczestnictwa następuje po zaksięgowaniu pełnej opłaty za udział.</p>
+                <p>3.10. W tytule przelewu Uczestniczka zobowiązana jest wskazać co najmniej nazwę Wydarzenia oraz swoje imię i nazwisko, według formatu: „LEVEL UP KOBIETA – imię i nazwisko Uczestniczki".</p>
               </div>
             </section>
 
@@ -190,7 +192,7 @@ const RegulaminLevelUp = () => {
                 <p>12.3. Organizator nie ponosi odpowiedzialności za rzeczy Uczestniczek zgubione, zniszczone lub skradzione podczas Wydarzenia.</p>
                 <p>12.4. Organizator ma prawo zmiany postanowień niniejszego Regulaminu. Zmiany wchodzą w życie z dniem ich opublikowania w miejscu udostępnienia Regulaminu, przy czym wobec Uczestniczek, które dokonały już zgłoszenia uczestnictwa, Organizator może dodatkowo przekazać informację o zmianie drogą elektroniczną.</p>
                 <p>12.5. W sprawach nieuregulowanych niniejszym Regulaminem zastosowanie mają przepisy prawa polskiego, w szczególności Kodeksu cywilnego, ustawy o prawach konsumenta oraz przepisy dotyczące ochrony danych osobowych.</p>
-                <p>12.6. Regulamin obowiązuje od dnia jego opublikowania przez Organizatora.</p>
+                <p>12.6. Regulamin obowiązuje od dnia 24.06.2026 r.</p>
               </div>
             </section>
 

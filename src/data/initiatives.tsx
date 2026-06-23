@@ -429,8 +429,8 @@ export const allInitiatives: Initiative[] = [
             </div>
 
             <div className="border-l-2 border-primary pl-4">
-              <h4 className="font-heading font-bold text-lg">3. „Power Bag" i materiały edukacyjne</h4>
-              <p className="text-sm text-muted-foreground mt-1">Każda posiadaczka biletu otrzymuje torbę z upominkami, która jest fizyczną formą „Złotej Teczki" stowarzyszenia:</p>
+              <h4 className="font-heading font-bold text-lg">3. „Power Box" i materiały edukacyjne</h4>
+              <p className="text-sm text-muted-foreground mt-1">Każda posiadaczka biletu otrzymuje pudełko z upominkami, które jest fizyczną formą „Złotej Teczki" stowarzyszenia:</p>
               <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
                 <li><strong>Podarunki:</strong> Produkty od lokalnych partnerów i marek wspierających inicjatywę.</li>
                 <li><strong>Power Hacks:</strong> Praktyczne checklisty, techniczne wskazówki i narzędzia biznesowe gotowe do wdrożenia.</li>
@@ -444,13 +444,38 @@ export const allInitiatives: Initiative[] = [
                 <li><strong>Solidarność zamiast rywalizacji:</strong> Wejście do społeczności, w której kobiety podają sobie rękę w drodze na szczyt.</li>
                 <li><strong>Autentyczność:</strong> Możliwość „ściągnięcia maski idealnej kobiety" w bezpiecznej przystani i zrobienia pamiątkowych zdjęć przy „Źródle Podlaskiej Mocy".</li>
                 <li><strong>Wsparcie społeczne:</strong> Część inicjatywy wiąże się ze wsparciem akcji #RatujPSA (możliwość udziału w zajęciach z własnym psem).</li>
+                <li><strong>Informacja organizacyjna:</strong> Po zakupie biletu uczestniczka proszona jest o wypełnienie formularza rejestracyjnego, aby dopasować networking oraz potrzeby dietetyczne do jej oczekiwań. Zalecany jest wygodny strój (np. legginsy, casual), ponieważ w programie kluczowe miejsce zajmuje komfort i ruch.</li>
               </ul>
             </div>
           </div>
 
+          <div className="mt-8">
+            <h4 className="font-heading font-bold text-lg mb-1">Jak kupić bilet?</h4>
+            <p className="text-sm text-muted-foreground">Zakup biletu na wydarzenie LEVEL UP: Kobieta odbywa się w dwóch krokach:</p>
+            <div className="mt-4 space-y-4">
+              <div className="border-l-2 border-primary pl-4">
+                <p className="text-sm font-medium text-foreground">Krok 1</p>
+                <p className="text-sm text-muted-foreground mt-1">Wypełnij formularz zgłoszeniowy dostępny na stronie wydarzenia.</p>
+              </div>
+              <div className="border-l-2 border-primary pl-4">
+                <p className="text-sm font-medium text-foreground">Krok 2</p>
+                <p className="text-sm text-muted-foreground mt-1">Opłać udział przelewem tradycyjnym na rachunek wskazany po zapisaniu formularza oraz w wiadomości e-mail przesłanej po zgłoszeniu.</p>
+              </div>
+            </div>
+            <div className="mt-4 flex flex-wrap gap-x-8 gap-y-1 text-sm">
+              <p><strong className="text-foreground">Koszt udziału:</strong> <span className="text-muted-foreground">250,00 zł</span></p>
+              <p><strong className="text-foreground">Termin płatności:</strong> <span className="text-muted-foreground">do 23.07.2026 r.</span></p>
+            </div>
+          </div>
+
           <div className="bg-card border border-border rounded-sm p-5 mt-6">
+            <p className="text-sm font-medium text-foreground mb-1">Ważne</p>
             <p className="text-sm text-muted-foreground">
-              <strong className="text-foreground">Informacja organizacyjna:</strong> Po zakupie biletu uczestniczka proszona jest o wypełnienie formularza rejestracyjnego, aby dopasować networking oraz potrzeby dietetyczne do jej oczekiwań. Zalecany jest wygodny strój (np. legginsy, casual), ponieważ w programie kluczowe miejsce zajmuje komfort i ruch.
+              Przesłanie formularza zgłoszeniowego nie jest równoznaczne z potwierdzeniem miejsca na wydarzeniu. Miejsce zostaje potwierdzone po zaksięgowaniu pełnej opłaty za udział.
+            </p>
+            <p className="text-sm text-muted-foreground mt-2">
+              W razie pytań skontaktuj się z nami:{" "}
+              <a href="mailto:womenup.inicjatywaspoleczna@gmail.com" className="text-primary hover:underline">womenup.inicjatywaspoleczna@gmail.com</a>
             </p>
           </div>
         </div>

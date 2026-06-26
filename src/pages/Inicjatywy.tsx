@@ -39,9 +39,16 @@ const Inicjatywy = () => {
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                     <init.icon className="text-primary" size={24} />
                   </div>
-                  <span className="text-xs uppercase tracking-brand-wide px-2 py-1 rounded-sm bg-primary/10 text-primary">
-                    {init.status}
-                  </span>
+                  <div className="flex flex-col items-end gap-1">
+                    <span className="text-xs uppercase tracking-brand-wide px-2 py-1 rounded-sm bg-primary/10 text-primary">
+                      {init.status}
+                    </span>
+                    {init.registrationOpen && (
+                      <span className="text-xs uppercase tracking-brand-wide px-2 py-1 rounded-sm bg-primary/10 text-primary">
+                        rejestracja otwarta
+                      </span>
+                    )}
+                  </div>
                 </div>
                 <h4 className="font-heading text-brand-h4 font-semibold text-foreground mb-1">{init.title}</h4>
                 {init.subtitle && (

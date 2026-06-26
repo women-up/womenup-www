@@ -1,4 +1,4 @@
-import { Star, Flame, Heart, Coffee, Sparkles, Shield, Compass, Mountain, Bike } from "lucide-react";
+﻿import { Star, Flame, Heart, Coffee, Sparkles, Shield, Compass, Mountain, Bike } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -12,10 +12,224 @@ export interface Initiative {
   desc: string;
   status: string;
   coordinator?: { name: string; email: string; phone?: string; photo?: string };
+  registrationOpen?: boolean;
   detail: React.ReactNode;
 }
 
 export const allInitiatives: Initiative[] = [
+  {
+    slug: "level-up-kobieta",
+    icon: Flame,
+    title: "LEVEL UP: Kobieta",
+    subtitle: "Power Girl w Podlaskiej Odsłonie",
+    date: "26.07.2026",
+    desc: "Cykliczny projekt edukacyjno-inspiracyjny, który łączy biznes, zdrowie, styl i lokalną moc Podlasia w nowoczesnej, praktycznej formule. Projekt oferuje uczestniczkom praktyczne narzędzia, warsztaty i doświadczenia na żywo, pokazuje storytelling i glow jako elementy pewności siebie oraz umożliwia rozwój na własnych zasadach.",
+    status: "Aktywne",
+    registrationOpen: true,
+    coordinator: { name: "Marlena Soczyńska", email: "womenup.inicjatywaspoleczna@gmail.com", phone: "533 874 086", photo: "/assets/team/marlena.jpeg" },
+    detail: (
+      <div className="space-y-8">
+        <p className="text-lg font-medium italic">„Rozwijaj się świadomie – na swoich zasadach"</p>
+
+        <div className="space-y-6">
+          <div className="border-l-2 border-primary pl-4">
+            <h4 className="font-heading font-bold text-lg">09:00 – 09:45 | OTWARCIE I START DNIA</h4>
+            <p className="text-sm italic mt-1">Good vibes & first energy</p>
+            <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
+              <li>Check–in i networking</li>
+              <li>Powitanie i przedstawienie idei LEVEL UP: KOBIETA</li>
+              <li>„Twoja kobiecość, Twój mindset, Twoja moc"</li>
+            </ul>
+          </div>
+
+          <div className="border-l-2 border-primary pl-4">
+            <h4 className="font-heading font-bold text-lg">09:45 – 10:45 | BLOK I: GLOW UP & STYL</h4>
+            <p className="text-sm italic mt-1">Glow up od środka – pewność siebie i moc regionu</p>
+            <p className="text-sm font-semibold mt-2">Prowadzące: Aksana Makej, Kinga Klepacka</p>
+            <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
+              <li>Pokaz makijażu: szybkie triki „effortless glow"</li>
+              <li>Jak wizerunek buduje pewność siebie w pracy i w życiu</li>
+              <li>Mini tipy: moodboardy, stylizacje, Instagram-ready glow</li>
+            </ul>
+            <p className="text-sm font-semibold mt-3">Smart girl wardrobe & lokalna moc</p>
+            <p className="text-sm font-semibold mt-1">Prowadząca: Stylistka</p>
+            <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
+              <li>Kapsułowa garderoba: 5 elementów, które działają zawsze</li>
+              <li>Styl, który buduje autorytet i komfort w pracy</li>
+            </ul>
+          </div>
+
+          <div className="border-l-2 border-primary pl-4">
+            <h4 className="font-heading font-bold text-lg">10:45 – 12:00 | BLOK II: SPOKÓJ I PEWNOŚĆ SIEBIE</h4>
+            <p className="text-sm font-semibold mt-2">Wykład: <span className="font-normal italic">Życie z poziomu spokoju i pewności siebie</span></p>
+            <p className="text-sm font-semibold mt-1">Prelegentka: Natalia Maj</p>
+            <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
+              <li>Dlaczego mimo wiedzy wciąż się zatrzymujesz i odkładasz decyzje</li>
+              <li>Co naprawdę buduje pewność siebie i dlaczego nie zaczyna się ona od myślenia</li>
+              <li>Jak odzyskać spokój w sytuacji presji i wątpliwości</li>
+              <li>Jak budować zaufanie do siebie przez działanie</li>
+            </ul>
+          </div>
+
+          <div className="border-l-2 border-primary pl-4">
+            <h4 className="font-heading font-bold text-lg">12:00 – 12:45 | PRZERWA KAWOWA & NETWORKING</h4>
+            <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
+              <li>Zdrowe przekąski i shoty</li>
+              <li>Produkty fit, bio, naturalne smaki Podlasia</li>
+              <li>Networking, stories i zdjęcia przy źródle mocy</li>
+            </ul>
+          </div>
+
+          <div className="border-l-2 border-primary pl-4">
+            <h4 className="font-heading font-bold text-lg">12:45 – 13:30 | BLOK III: BIZNES – PLAN LOTU</h4>
+            <p className="text-sm italic mt-1">Od pomysłu do działania z lokalną mocą</p>
+            <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
+              <li>Rozmowa na kanapie – studium przypadków lokalnych liderek biznesu: Diana Chwaszczewska, Katarzyna Rokicka, Dorota Lange</li>
+              <li><strong>Power hacks:</strong> praktyczne tipy od ekspertów i lokalnych bizneswoman</li>
+            </ul>
+            <p className="text-sm italic mt-2">„Biznes to Twoja wolność ubrana w działanie."</p>
+          </div>
+
+          <div className="border-l-2 border-primary pl-4">
+            <h4 className="font-heading font-bold text-lg">13:30 – 14:30 | BLOK IV: SOCIAL MEDIA</h4>
+            <p className="text-sm italic mt-1">Marka osobista w praktyce – stwórz rolkę, która pokazuje Ciebie i Twoją markę</p>
+            <p className="text-sm font-semibold mt-2">Prowadząca: Aleksandra Michałowska</p>
+            <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
+              <li>Budowanie spójnego obrazu w rolce – estetyka, przekaz i autentyczność</li>
+              <li>Warsztat: Twoja marka w rolce – jak pokazać siebie w social media</li>
+              <li>Wsparcie zespołu przy tworzeniu rolki na żywo podczas finału (live assistance)</li>
+              <li><strong>Power hacks:</strong> techniczne wskazówki i triki</li>
+            </ul>
+          </div>
+
+          <div className="border-l-2 border-primary pl-4">
+            <h4 className="font-heading font-bold text-lg">14:30 – 16:00 | BLOK VI: RELAX & RUCH</h4>
+            <p className="text-sm italic mt-1">Stretching & Pilates z psami = total reset</p>
+            <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
+              <li>Rozgrzewka i ćwiczenia oddechowe</li>
+              <li>Pilates z psami na macie</li>
+              <li>Elementy zabawy i integracji</li>
+            </ul>
+            <p className="text-sm font-semibold mt-2">Praktyczne narzędzia:</p>
+            <ul className="mt-1 space-y-1 text-sm list-disc ml-4">
+              <li>ćwiczenia w domu z pupilem</li>
+              <li>inspiracje do social media content</li>
+              <li>relaks, endorfiny, chwile radości</li>
+            </ul>
+            <p className="text-sm italic mt-2">„Serotonin boost z futrzanym twistem"</p>
+          </div>
+
+          <div className="border-l-2 border-primary pl-4">
+            <h4 className="font-heading font-bold text-lg">16:00 – 16:30 | FINAŁ I ZAKOŃCZENIE</h4>
+            <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
+              <li>Podsumowanie dnia, networking końcowy</li>
+              <li>Zdjęcia przy ściance i przy Źródle Podlaskiej Mocy</li>
+              <li>Niespodzianki i upominki: karty zniżkowe, vouchery, lokalne produkty</li>
+            </ul>
+          </div>
+        </div>
+
+        <p className="text-sm italic text-muted-foreground">Zastrzegamy sobie możliwość zmian w programie wydarzenia.</p>
+
+        <div className="bg-card border border-border rounded-sm p-5 mt-6">
+          <p className="text-sm font-semibold text-primary mb-2">Ważne: komfort ma znaczenie.</p>
+          <p className="text-sm text-muted-foreground">
+            W trakcie wydarzenia najlepiej sprawdzi się strój wygodny i praktyczny, dopasowany do części warsztatowej oraz aktywności w ruchu. Polecamy swobodne stylizacje, takie jak legginsy, luźniejsze zestawy casualowe oraz komfortowe obuwie. To czas, w którym liczy się pełna swoboda – tak, aby nic nie ograniczało Twojego udziału w wydarzeniu.
+          </p>
+        </div>
+
+        <div className="pt-8 border-t border-border">
+          <div className="bg-primary/5 border border-primary/30 rounded-sm p-6">
+            <div className="flex items-baseline justify-between flex-wrap gap-2 mb-3">
+              <h3 className="font-heading text-brand-h3 font-bold text-primary">Bilet: „Słowiańska Moc"</h3>
+              <span className="font-heading text-2xl font-bold text-foreground whitespace-nowrap">250 zł</span>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              Pakiet podstawowy i przepustka do „Kręgu Women Up!", łączącego nowoczesną merytorykę biznesową z lokalną tożsamością regionu. Bilet na wydarzenie LEVEL UP: Kobieta – Power Girl w Podlaskiej Odsłonie (26.07.2026).
+            </p>
+          </div>
+
+          <p className="text-sm font-medium mt-6 mb-4">Oto szczegółowy opis tego, co obejmuje ten bilet:</p>
+
+          <div className="space-y-6">
+            <div className="border-l-2 border-primary pl-4">
+              <h4 className="font-heading font-bold text-lg">1. Pełny dostęp do programu merytorycznego</h4>
+              <p className="text-sm text-muted-foreground mt-1">Bilet gwarantuje udział we wszystkich blokach tematycznych zaplanowanych na ten dzień:</p>
+              <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
+                <li><strong>Blok I (Wizerunek):</strong> Warsztaty makijażu „effortless glow" oraz budowanie garderoby kapsułowej budującej autorytet.</li>
+                <li><strong>Blok II (Psychologia):</strong> Wykład Natalii Maj o budowaniu pewności siebie przez działanie i odzyskiwaniu spokoju pod presją.</li>
+                <li><strong>Blok III (Biznes):</strong> Panel dyskusyjny z lokalnymi liderkami (m.in. Dianą Chwaszczewską i Katarzyną Rokicką) o przekuwaniu pomysłów w działanie.</li>
+                <li><strong>Blok IV (Social Media):</strong> Warsztat tworzenia autentycznych rolek z pomocą zespołu (live assistance).</li>
+                <li><strong>Blok VI (Relaks):</strong> Sesja Pilatesu z psami oraz ćwiczenia oddechowe („Serotonin boost").</li>
+              </ul>
+            </div>
+
+            <div className="border-l-2 border-primary pl-4">
+              <h4 className="font-heading font-bold text-lg">2. Wyżywienie i catering</h4>
+              <p className="text-sm text-muted-foreground mt-1">W ramach biletu uczestniczka otrzymuje pełną opiekę cateringową opartą na lokalnych produktach:</p>
+              <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
+                <li><strong>Przerwy kawowe:</strong> Zdrowe przekąski, shoty mocy oraz naturalne smaki Podlasia.</li>
+                <li><strong>Lunch:</strong> Posiłek typu „fit & bio", wspierający energię do działania.</li>
+              </ul>
+            </div>
+
+            <div className="border-l-2 border-primary pl-4">
+              <h4 className="font-heading font-bold text-lg">3. „Power Box" i materiały edukacyjne</h4>
+              <p className="text-sm text-muted-foreground mt-1">Każda posiadaczka biletu otrzymuje pudełko z upominkami, które jest fizyczną formą „Złotej Teczki" stowarzyszenia:</p>
+              <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
+                <li><strong>Podarunki:</strong> Produkty od lokalnych partnerów i marek wspierających inicjatywę.</li>
+                <li><strong>Power Hacks:</strong> Praktyczne checklisty, techniczne wskazówki i narzędzia biznesowe gotowe do wdrożenia.</li>
+              </ul>
+            </div>
+
+            <div className="border-l-2 border-primary pl-4">
+              <h4 className="font-heading font-bold text-lg">4. Wartości dodane (Manifest Women Up!)</h4>
+              <p className="text-sm text-muted-foreground mt-1">Zakup biletu to coś więcej niż udział w konferencji – to realizacja „Obietnicy Kręgu":</p>
+              <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
+                <li><strong>Solidarność zamiast rywalizacji:</strong> Wejście do społeczności, w której kobiety podają sobie rękę w drodze na szczyt.</li>
+                <li><strong>Autentyczność:</strong> Możliwość „ściągnięcia maski idealnej kobiety" w bezpiecznej przystani i zrobienia pamiątkowych zdjęć przy „Źródle Podlaskiej Mocy".</li>
+                <li><strong>Wsparcie społeczne:</strong> Część inicjatywy wiąże się ze wsparciem akcji #RatujPSA (możliwość udziału w zajęciach z własnym psem).</li>
+                <li><strong>Informacja organizacyjna:</strong> Po zakupie biletu uczestniczka proszona jest o wypełnienie formularza rejestracyjnego, aby dopasować networking oraz potrzeby dietetyczne do jej oczekiwań. Zalecany jest wygodny strój (np. legginsy, casual), ponieważ w programie kluczowe miejsce zajmuje komfort i ruch.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-8">
+            <h4 className="font-heading font-bold text-lg mb-1">Jak kupić bilet?</h4>
+            <p className="text-sm text-muted-foreground">Zakup biletu na wydarzenie LEVEL UP: Kobieta odbywa się w dwóch krokach:</p>
+            <div className="mt-4 space-y-4">
+              <div className="border-l-2 border-primary pl-4">
+                <p className="text-sm font-medium text-foreground">Krok 1</p>
+                <p className="text-sm text-muted-foreground mt-1">Wypełnij formularz zgłoszeniowy dostępny na stronie wydarzenia.</p>
+                <Button asChild className="mt-3 uppercase tracking-brand-wide text-xs font-semibold">
+                  <Link to="/rejestracja-level-up">Wypełnij formularz zgłoszeniowy</Link>
+                </Button>
+              </div>
+              <div className="border-l-2 border-primary pl-4">
+                <p className="text-sm font-medium text-foreground">Krok 2</p>
+                <p className="text-sm text-muted-foreground mt-1">Opłać udział przelewem tradycyjnym na rachunek wskazany po zapisaniu formularza oraz w wiadomości e-mail przesłanej po zgłoszeniu.</p>
+              </div>
+            </div>
+            <div className="mt-4 flex flex-wrap gap-x-8 gap-y-1 text-sm">
+              <p><strong className="text-foreground">Koszt udziału:</strong> <span className="text-muted-foreground">250,00 zł</span></p>
+              <p><strong className="text-foreground">Termin płatności:</strong> <span className="text-muted-foreground">do 23.07.2026 r.</span></p>
+            </div>
+          </div>
+
+          <div className="bg-card border border-border rounded-sm p-5 mt-6">
+            <p className="text-sm font-medium text-foreground mb-1">Ważne</p>
+            <p className="text-sm text-muted-foreground">
+              Przesłanie formularza zgłoszeniowego nie jest równoznaczne z potwierdzeniem miejsca na wydarzeniu. Miejsce zostaje potwierdzone po zaksięgowaniu pełnej opłaty za udział.
+            </p>
+            <p className="text-sm text-muted-foreground mt-2">
+              W razie pytań skontaktuj się z nami:{" "}
+              <a href="mailto:womenup.inicjatywaspoleczna@gmail.com" className="text-primary hover:underline">womenup.inicjatywaspoleczna@gmail.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    ),
+  },
   {
     slug: "bialostoczanka",
     icon: Star,
@@ -275,218 +489,7 @@ export const allInitiatives: Initiative[] = [
       </div>
     ),
   },
-  {
-    slug: "level-up-kobieta",
-    icon: Flame,
-    title: "LEVEL UP: Kobieta",
-    subtitle: "Power Girl w Podlaskiej Odsłonie",
-    date: "26.07.2026",
-    desc: "Cykliczny projekt edukacyjno-inspiracyjny, który łączy biznes, zdrowie, styl i lokalną moc Podlasia w nowoczesnej, praktycznej formule. Projekt oferuje uczestniczkom praktyczne narzędzia, warsztaty i doświadczenia na żywo, pokazuje storytelling i glow jako elementy pewności siebie oraz umożliwia rozwój na własnych zasadach.",
-    status: "Aktywne",
-    coordinator: { name: "Marlena Soczyńska", email: "womenup.inicjatywaspoleczna@gmail.com", phone: "533 874 086", photo: "/assets/team/marlena.jpeg" },
-    detail: (
-      <div className="space-y-8">
-        <p className="text-lg font-medium italic">„Rozwijaj się świadomie – na swoich zasadach"</p>
 
-        <div className="space-y-6">
-          <div className="border-l-2 border-primary pl-4">
-            <h4 className="font-heading font-bold text-lg">09:00 – 09:45 | OTWARCIE I START DNIA</h4>
-            <p className="text-sm italic mt-1">Good vibes & first energy</p>
-            <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
-              <li>Check–in i networking</li>
-              <li>Powitanie i przedstawienie idei LEVEL UP: KOBIETA</li>
-              <li>„Twoja kobiecość, Twój mindset, Twoja moc"</li>
-            </ul>
-          </div>
-
-          <div className="border-l-2 border-primary pl-4">
-            <h4 className="font-heading font-bold text-lg">09:45 – 10:45 | BLOK I: GLOW UP & STYL</h4>
-            <p className="text-sm italic mt-1">Glow up od środka – pewność siebie i moc regionu</p>
-            <p className="text-sm font-semibold mt-2">Prowadzące: Aksana Makej, Anna Dzienisowicz</p>
-            <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
-              <li>Pokaz makijażu: szybkie triki „effortless glow"</li>
-              <li>Jak wizerunek buduje pewność siebie w pracy i w życiu</li>
-              <li>Mini tipy: moodboardy, stylizacje, Instagram-ready glow</li>
-            </ul>
-            <p className="text-sm font-semibold mt-3">Smart girl wardrobe & lokalna moc</p>
-            <p className="text-sm font-semibold mt-1">Prowadząca: Stylistka</p>
-            <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
-              <li>Kapsułowa garderoba: 5 elementów, które działają zawsze</li>
-              <li>Styl, który buduje autorytet i komfort w pracy</li>
-            </ul>
-          </div>
-
-          <div className="border-l-2 border-primary pl-4">
-            <h4 className="font-heading font-bold text-lg">10:45 – 12:00 | BLOK II: SPOKÓJ I PEWNOŚĆ SIEBIE</h4>
-            <p className="text-sm font-semibold mt-2">Wykład: <span className="font-normal italic">Życie z poziomu spokoju i pewności siebie</span></p>
-            <p className="text-sm font-semibold mt-1">Prelegentka: Natalia Maj</p>
-            <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
-              <li>Dlaczego mimo wiedzy wciąż się zatrzymujesz i odkładasz decyzje</li>
-              <li>Co naprawdę buduje pewność siebie i dlaczego nie zaczyna się ona od myślenia</li>
-              <li>Jak odzyskać spokój w sytuacji presji i wątpliwości</li>
-              <li>Jak budować zaufanie do siebie przez działanie</li>
-            </ul>
-          </div>
-
-          <div className="border-l-2 border-primary pl-4">
-            <h4 className="font-heading font-bold text-lg">12:00 – 12:45 | PRZERWA KAWOWA & NETWORKING</h4>
-            <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
-              <li>Zdrowe przekąski i shoty</li>
-              <li>Produkty fit, bio, naturalne smaki Podlasia</li>
-              <li>Networking, stories i zdjęcia przy źródle mocy</li>
-            </ul>
-          </div>
-
-          <div className="border-l-2 border-primary pl-4">
-            <h4 className="font-heading font-bold text-lg">12:45 – 13:30 | BLOK III: BIZNES – PLAN LOTU</h4>
-            <p className="text-sm italic mt-1">Od pomysłu do działania z lokalną mocą</p>
-            <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
-              <li>Rozmowa na kanapie – studium przypadków lokalnych liderek biznesu: Diana Chwaszczewska, Katarzyna Rokicka, Dorota Lange</li>
-              <li><strong>Power hacks:</strong> praktyczne tipy od ekspertów i lokalnych bizneswoman</li>
-            </ul>
-            <p className="text-sm italic mt-2">„Biznes to Twoja wolność ubrana w działanie."</p>
-          </div>
-
-          <div className="border-l-2 border-primary pl-4">
-            <h4 className="font-heading font-bold text-lg">13:30 – 14:30 | BLOK IV: SOCIAL MEDIA</h4>
-            <p className="text-sm italic mt-1">Marka osobista w praktyce – stwórz rolkę, która pokazuje Ciebie i Twoją markę</p>
-            <p className="text-sm font-semibold mt-2">Prowadząca: Aleksandra Michałowska</p>
-            <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
-              <li>Budowanie spójnego obrazu w rolce – estetyka, przekaz i autentyczność</li>
-              <li>Warsztat: Twoja marka w rolce – jak pokazać siebie w social media</li>
-              <li>Wsparcie zespołu przy tworzeniu rolki na żywo podczas finału (live assistance)</li>
-              <li><strong>Power hacks:</strong> techniczne wskazówki i triki</li>
-            </ul>
-          </div>
-
-          <div className="border-l-2 border-primary pl-4">
-            <h4 className="font-heading font-bold text-lg">14:30 – 16:00 | BLOK VI: RELAX & RUCH</h4>
-            <p className="text-sm italic mt-1">Stretching & Pilates z psami = total reset</p>
-            <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
-              <li>Rozgrzewka i ćwiczenia oddechowe</li>
-              <li>Pilates z psami na macie</li>
-              <li>Elementy zabawy i integracji</li>
-            </ul>
-            <p className="text-sm font-semibold mt-2">Praktyczne narzędzia:</p>
-            <ul className="mt-1 space-y-1 text-sm list-disc ml-4">
-              <li>ćwiczenia w domu z pupilem</li>
-              <li>inspiracje do social media content</li>
-              <li>relaks, endorfiny, chwile radości</li>
-            </ul>
-            <p className="text-sm italic mt-2">„Serotonin boost z futrzanym twistem"</p>
-          </div>
-
-          <div className="border-l-2 border-primary pl-4">
-            <h4 className="font-heading font-bold text-lg">16:00 – 16:30 | FINAŁ I ZAKOŃCZENIE</h4>
-            <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
-              <li>Podsumowanie dnia, networking końcowy</li>
-              <li>Zdjęcia przy ściance i przy Źródle Podlaskiej Mocy</li>
-              <li>Niespodzianki i upominki: karty zniżkowe, vouchery, lokalne produkty</li>
-            </ul>
-          </div>
-        </div>
-
-        <p className="text-sm italic text-muted-foreground">Zastrzegamy sobie możliwość zmian w programie wydarzenia.</p>
-
-        <div className="bg-card border border-border rounded-sm p-5 mt-6">
-          <p className="text-sm font-semibold text-primary mb-2">Ważne: komfort ma znaczenie.</p>
-          <p className="text-sm text-muted-foreground">
-            W trakcie wydarzenia najlepiej sprawdzi się strój wygodny i praktyczny, dopasowany do części warsztatowej oraz aktywności w ruchu. Polecamy swobodne stylizacje, takie jak legginsy, luźniejsze zestawy casualowe oraz komfortowe obuwie. To czas, w którym liczy się pełna swoboda – tak, aby nic nie ograniczało Twojego udziału w wydarzeniu.
-          </p>
-        </div>
-
-        <div className="pt-8 border-t border-border">
-          <div className="bg-primary/5 border border-primary/30 rounded-sm p-6">
-            <div className="flex items-baseline justify-between flex-wrap gap-2 mb-3">
-              <h3 className="font-heading text-brand-h3 font-bold text-primary">Bilet: „Słowiańska Moc"</h3>
-              <span className="font-heading text-2xl font-bold text-foreground whitespace-nowrap">250 zł</span>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Pakiet podstawowy i przepustka do „Kręgu Women Up!", łączącego nowoczesną merytorykę biznesową z lokalną tożsamością regionu. Bilet na wydarzenie LEVEL UP: Kobieta – Power Girl w Podlaskiej Odsłonie (26.07.2026).
-            </p>
-          </div>
-
-          <p className="text-sm font-medium mt-6 mb-4">Oto szczegółowy opis tego, co obejmuje ten bilet:</p>
-
-          <div className="space-y-6">
-            <div className="border-l-2 border-primary pl-4">
-              <h4 className="font-heading font-bold text-lg">1. Pełny dostęp do programu merytorycznego</h4>
-              <p className="text-sm text-muted-foreground mt-1">Bilet gwarantuje udział we wszystkich blokach tematycznych zaplanowanych na ten dzień:</p>
-              <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
-                <li><strong>Blok I (Wizerunek):</strong> Warsztaty makijażu „effortless glow" oraz budowanie garderoby kapsułowej budującej autorytet.</li>
-                <li><strong>Blok II (Psychologia):</strong> Wykład Natalii Maj o budowaniu pewności siebie przez działanie i odzyskiwaniu spokoju pod presją.</li>
-                <li><strong>Blok III (Biznes):</strong> Panel dyskusyjny z lokalnymi liderkami (m.in. Dianą Chwaszczewską i Katarzyną Rokicką) o przekuwaniu pomysłów w działanie.</li>
-                <li><strong>Blok IV (Social Media):</strong> Warsztat tworzenia autentycznych rolek z pomocą zespołu (live assistance).</li>
-                <li><strong>Blok VI (Relaks):</strong> Sesja Pilatesu z psami oraz ćwiczenia oddechowe („Serotonin boost").</li>
-              </ul>
-            </div>
-
-            <div className="border-l-2 border-primary pl-4">
-              <h4 className="font-heading font-bold text-lg">2. Wyżywienie i catering</h4>
-              <p className="text-sm text-muted-foreground mt-1">W ramach biletu uczestniczka otrzymuje pełną opiekę cateringową opartą na lokalnych produktach:</p>
-              <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
-                <li><strong>Przerwy kawowe:</strong> Zdrowe przekąski, shoty mocy oraz naturalne smaki Podlasia.</li>
-                <li><strong>Lunch:</strong> Posiłek typu „fit & bio", wspierający energię do działania.</li>
-              </ul>
-            </div>
-
-            <div className="border-l-2 border-primary pl-4">
-              <h4 className="font-heading font-bold text-lg">3. „Power Box" i materiały edukacyjne</h4>
-              <p className="text-sm text-muted-foreground mt-1">Każda posiadaczka biletu otrzymuje pudełko z upominkami, które jest fizyczną formą „Złotej Teczki" stowarzyszenia:</p>
-              <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
-                <li><strong>Podarunki:</strong> Produkty od lokalnych partnerów i marek wspierających inicjatywę.</li>
-                <li><strong>Power Hacks:</strong> Praktyczne checklisty, techniczne wskazówki i narzędzia biznesowe gotowe do wdrożenia.</li>
-              </ul>
-            </div>
-
-            <div className="border-l-2 border-primary pl-4">
-              <h4 className="font-heading font-bold text-lg">4. Wartości dodane (Manifest Women Up!)</h4>
-              <p className="text-sm text-muted-foreground mt-1">Zakup biletu to coś więcej niż udział w konferencji – to realizacja „Obietnicy Kręgu":</p>
-              <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
-                <li><strong>Solidarność zamiast rywalizacji:</strong> Wejście do społeczności, w której kobiety podają sobie rękę w drodze na szczyt.</li>
-                <li><strong>Autentyczność:</strong> Możliwość „ściągnięcia maski idealnej kobiety" w bezpiecznej przystani i zrobienia pamiątkowych zdjęć przy „Źródle Podlaskiej Mocy".</li>
-                <li><strong>Wsparcie społeczne:</strong> Część inicjatywy wiąże się ze wsparciem akcji #RatujPSA (możliwość udziału w zajęciach z własnym psem).</li>
-                <li><strong>Informacja organizacyjna:</strong> Po zakupie biletu uczestniczka proszona jest o wypełnienie formularza rejestracyjnego, aby dopasować networking oraz potrzeby dietetyczne do jej oczekiwań. Zalecany jest wygodny strój (np. legginsy, casual), ponieważ w programie kluczowe miejsce zajmuje komfort i ruch.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="mt-8">
-            <h4 className="font-heading font-bold text-lg mb-1">Jak kupić bilet?</h4>
-            <p className="text-sm text-muted-foreground">Zakup biletu na wydarzenie LEVEL UP: Kobieta odbywa się w dwóch krokach:</p>
-            <div className="mt-4 space-y-4">
-              <div className="border-l-2 border-primary pl-4">
-                <p className="text-sm font-medium text-foreground">Krok 1</p>
-                <p className="text-sm text-muted-foreground mt-1">Wypełnij formularz zgłoszeniowy dostępny na stronie wydarzenia.</p>
-                <Button asChild className="mt-3 uppercase tracking-brand-wide text-xs font-semibold">
-                  <Link to="/rejestracja-level-up">Wypełnij formularz zgłoszeniowy</Link>
-                </Button>
-              </div>
-              <div className="border-l-2 border-primary pl-4">
-                <p className="text-sm font-medium text-foreground">Krok 2</p>
-                <p className="text-sm text-muted-foreground mt-1">Opłać udział przelewem tradycyjnym na rachunek wskazany po zapisaniu formularza oraz w wiadomości e-mail przesłanej po zgłoszeniu.</p>
-              </div>
-            </div>
-            <div className="mt-4 flex flex-wrap gap-x-8 gap-y-1 text-sm">
-              <p><strong className="text-foreground">Koszt udziału:</strong> <span className="text-muted-foreground">250,00 zł</span></p>
-              <p><strong className="text-foreground">Termin płatności:</strong> <span className="text-muted-foreground">do 23.07.2026 r.</span></p>
-            </div>
-          </div>
-
-          <div className="bg-card border border-border rounded-sm p-5 mt-6">
-            <p className="text-sm font-medium text-foreground mb-1">Ważne</p>
-            <p className="text-sm text-muted-foreground">
-              Przesłanie formularza zgłoszeniowego nie jest równoznaczne z potwierdzeniem miejsca na wydarzeniu. Miejsce zostaje potwierdzone po zaksięgowaniu pełnej opłaty za udział.
-            </p>
-            <p className="text-sm text-muted-foreground mt-2">
-              W razie pytań skontaktuj się z nami:{" "}
-              <a href="mailto:womenup.inicjatywaspoleczna@gmail.com" className="text-primary hover:underline">womenup.inicjatywaspoleczna@gmail.com</a>
-            </p>
-          </div>
-        </div>
-      </div>
-    ),
-  },
   {
     slug: "podlasie-experience",
     icon: Bike,

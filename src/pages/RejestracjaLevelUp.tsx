@@ -44,7 +44,6 @@ const initialForm = {
   pilates: "",
   promiseCircle: false,
   acceptRegulamin: false,
-  imageConsent: false,
   website: "", // honeypot — must stay empty
 };
 
@@ -313,13 +312,6 @@ const RejestracjaLevelUp = () => {
                   i{" "}
                   <Link to="/polityka-prywatnosci" target="_blank" className="text-primary underline">Politykę Prywatności</Link>{" "}
                   stowarzyszenia Women Up! *
-                </Label>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <Checkbox id="image" checked={form.imageConsent} onCheckedChange={(v) => setForm({ ...form, imageConsent: v === true })} className="mt-0.5" />
-                <Label htmlFor="image" className="font-normal cursor-pointer leading-snug">
-                  Wyrażam zgodę na wykorzystanie wizerunku (zdjęcia i rolki przy „Źródle Podlaskiej Mocy").
                 </Label>
               </div>
             </fieldset>

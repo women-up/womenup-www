@@ -127,7 +127,6 @@ interface RegistrationPayload {
   pilates?: string;
   promiseCircle?: boolean;
   acceptRegulamin?: boolean;
-  imageConsent?: boolean;
   website?: string; // honeypot
   elapsedMs?: number;
   turnstileToken?: string;
@@ -306,7 +305,6 @@ export default async function handler(request: Request): Promise<Response> {
       pilatesLabel,
       p.promiseCircle ? "Tak" : "Nie",
       p.acceptRegulamin ? "Tak" : "Nie",
-      p.imageConsent ? "Tak" : "Nie",
     ]);
   } catch (err) {
     console.error("Google Sheets append failed:", err);
@@ -326,7 +324,6 @@ export default async function handler(request: Request): Promise<Response> {
     <h3>Zgody</h3>
     ${row("Obietnica Kręgu", p.promiseCircle ? "Tak" : "Nie")}
     ${row("Regulamin i Polityka Prywatności", p.acceptRegulamin ? "Zaakceptowano" : "Nie")}
-    ${row("Zgoda na wizerunek", p.imageConsent ? "Tak" : "Nie")}
   `;
 
   try {

@@ -84,7 +84,7 @@ export const allInitiatives: Initiative[] = [
             <h4 className="font-heading font-bold text-lg">12:45 – 13:30 | BLOK III: BIZNES – PLAN LOTU</h4>
             <p className="text-sm italic mt-1">Od pomysłu do działania z lokalną mocą</p>
             <ul className="mt-2 space-y-1 text-sm list-disc ml-4">
-              <li>Rozmowa na kanapie – studium przypadków lokalnych liderek biznesu: Diana Chwaszczewska, Katarzyna Rokicka, Dorota Lange</li>
+              <li>Rozmowa na kanapie – studium przypadków lokalnych liderek biznesu: Kinga Lesisz, Diana Chwaszczewska, Katarzyna Rokicka, Dorota Lange</li>
               <li><strong>Power hacks:</strong> praktyczne tipy od ekspertów i lokalnych bizneswoman</li>
             </ul>
             <p className="text-sm italic mt-2">„Biznes to Twoja wolność ubrana w działanie."</p>

@@ -98,9 +98,89 @@ function buildConfirmationText(name: string): string {
   ].join("\n");
 }
 
+// --- „Kawa z ekspertem" — Spotkanie 1: Sztuka bycia zrozumianym (26.08.2026) ---
+
+function buildKawaConfirmationHtml(name: string): string {
+  const safeName = escapeHtml(name);
+  return `
+    <div style="font-family: Arial, Helvetica, sans-serif; color: #222; line-height: 1.6; max-width: 560px;">
+      <p>Cześć! / Dzień dobry,</p>
+      <p>Dziękujemy za przesłanie formularza zgłoszeniowego na pierwsze spotkanie z cyklu
+      <strong>„Kawa z ekspertem: Sztuka bycia zrozumianym”</strong> organizowane w ramach inicjatywy społecznej WomenUP!</p>
+      <p>Cieszymy się, że do nas dołączasz. Poniżej znajdziesz podsumowanie spotkania oraz dane do przelewu
+      niezbędne do dokończenia rejestracji.</p>
+      <h3 style="margin: 24px 0 8px;">Szczegóły spotkania</h3>
+      <table cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+        <tr><td style="padding: 2px 12px 2px 0;"><strong>Wydarzenie:</strong></td><td>Spotkanie 1. Kawa z ekspertem: Sztuka bycia zrozumianym</td></tr>
+        <tr><td style="padding: 2px 12px 2px 0;"><strong>Prowadzący:</strong></td><td>Piotr Szekowski</td></tr>
+        <tr><td style="padding: 2px 12px 2px 0;"><strong>Data:</strong></td><td>26 sierpnia 2026 r., godz. 9:00</td></tr>
+        <tr><td style="padding: 2px 12px 2px 0;"><strong>Miejsce:</strong></td><td>Hotel Mercure Białystok</td></tr>
+      </table>
+      <h3 style="margin: 24px 0 8px;">Dane do przelewu</h3>
+      <table cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+        <tr><td style="padding: 2px 12px 2px 0;"><strong>Odbiorca:</strong></td><td>Prestige Event House sp. z o.o.</td></tr>
+        <tr><td style="padding: 2px 12px 2px 0;"><strong>Bank:</strong></td><td>PKO Bank Polski</td></tr>
+        <tr><td style="padding: 2px 12px 2px 0;"><strong>Numer rachunku:</strong></td><td>88 1020 1332 0000 1102 1689 1500</td></tr>
+        <tr><td style="padding: 2px 12px 2px 0;"><strong>Kwota:</strong></td><td>300,00 zł</td></tr>
+        <tr><td style="padding: 2px 12px 2px 0;"><strong>Tytuł przelewu:</strong></td><td>KAWA Z EKSPERTEM – ${safeName}</td></tr>
+        <tr><td style="padding: 2px 12px 2px 0;"><strong>Termin płatności:</strong></td><td>do 23.08.2026 r.</td></tr>
+      </table>
+      <p style="margin-top: 24px;"><strong>Ważne:</strong> Ze względu na kameralny, warsztatowy charakter spotkania
+      i limit miejsc (max. 20 osób), przesłanie formularza nie oznacza automatycznego zarezerwowania miejsca.
+      Potwierdzenie udziału prześlemy osobnym mailem po zaksięgowaniu wpłaty.</p>
+      <p>W razie pytań zapraszamy do kontaktu:<br />
+      <a href="mailto:womenup.inicjatywaspoleczna@gmail.com">womenup.inicjatywaspoleczna@gmail.com</a></p>
+      <p>Do zobaczenia przy kawie!<br />Zespół WomenUP!</p>
+    </div>
+  `;
+}
+
+function buildKawaConfirmationText(name: string): string {
+  return [
+    "Cześć! / Dzień dobry,",
+    "",
+    "Dziękujemy za przesłanie formularza zgłoszeniowego na pierwsze spotkanie z cyklu",
+    "„Kawa z ekspertem: Sztuka bycia zrozumianym” organizowane w ramach inicjatywy społecznej WomenUP!",
+    "",
+    "Cieszymy się, że do nas dołączasz. Poniżej znajdziesz podsumowanie spotkania oraz dane do przelewu",
+    "niezbędne do dokończenia rejestracji.",
+    "",
+    "Szczegóły spotkania",
+    "",
+    "Wydarzenie: Spotkanie 1. Kawa z ekspertem: Sztuka bycia zrozumianym",
+    "Prowadzący: Piotr Szekowski",
+    "Data: 26 sierpnia 2026 r., godz. 9:00",
+    "Miejsce: Hotel Mercure Białystok",
+    "",
+    "Dane do przelewu",
+    "",
+    "Odbiorca: Prestige Event House sp. z o.o.",
+    "Bank: PKO Bank Polski",
+    "Numer rachunku: 88 1020 1332 0000 1102 1689 1500",
+    "Kwota: 300,00 zł",
+    `Tytuł przelewu: KAWA Z EKSPERTEM – ${name}`,
+    "Termin płatności: do 23.08.2026 r.",
+    "",
+    "Ważne: Ze względu na kameralny, warsztatowy charakter spotkania i limit miejsc (max. 20 osób),",
+    "przesłanie formularza nie oznacza automatycznego zarezerwowania miejsca. Potwierdzenie udziału",
+    "prześlemy osobnym mailem po zaksięgowaniu wpłaty.",
+    "",
+    "W razie pytań zapraszamy do kontaktu: womenup.inicjatywaspoleczna@gmail.com",
+    "",
+    "Do zobaczenia przy kawie!",
+    "Zespół WomenUP!",
+  ].join("\n");
+}
+
 // Wysyła potwierdzenie do Uczestniczki. Nie blokuje rejestracji — błąd jest
 // logowany (np. gdy domena nadawcy nie jest jeszcze zweryfikowana w Resend).
-async function sendConfirmationEmail(apiKey: string, to: string, name: string): Promise<void> {
+async function sendConfirmationEmail(
+  apiKey: string,
+  to: string,
+  subject: string,
+  html: string,
+  text: string,
+): Promise<void> {
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
@@ -108,15 +188,17 @@ async function sendConfirmationEmail(apiKey: string, to: string, name: string): 
       from: FROM_EMAIL,
       to: [to],
       reply_to: TO_EMAIL,
-      subject: "LEVEL UP: Kobieta – potwierdzenie zgłoszenia i dane do przelewu",
-      html: buildConfirmationHtml(name),
-      text: buildConfirmationText(name),
+      subject,
+      html,
+      text,
     }),
   });
   if (!res.ok) throw new Error(`Resend confirmation error: ${await res.text()}`);
 }
 
 interface RegistrationPayload {
+  /** Rozróżnia wydarzenie; brak wartości = LEVEL UP: Kobieta (domyślne). */
+  event?: string;
   name?: string;
   phone?: string;
   email?: string;
@@ -199,10 +281,9 @@ async function getGoogleAccessToken(clientEmail: string, privateKeyPem: string):
 
 // Dopisuje wiersz do arkusza. Nie rzuca dalej — błąd jest logowany, ale nie
 // blokuje rejestracji (e-mail pozostaje głównym kanałem zapisu).
-async function appendToSheet(row: string[]): Promise<void> {
+async function appendToSheet(row: string[], sheetId: string | undefined): Promise<void> {
   const clientEmail = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
   const privateKey = (process.env.GOOGLE_PRIVATE_KEY || "").replace(/\\n/g, "\n");
-  const sheetId = process.env.GOOGLE_SHEET_ID;
   if (!clientEmail || !privateKey || !sheetId) return; // nie skonfigurowano
 
   const token = await getGoogleAccessToken(clientEmail, privateKey);
@@ -277,8 +358,68 @@ export default async function handler(request: Request): Promise<Response> {
   if (!name || !phone || !email) {
     return Response.json({ error: "Brak wymaganych pól" }, { status: 400 });
   }
-  if (!p.promiseCircle || !p.acceptRegulamin) {
+
+  const isKawa = p.event === "kawa-z-ekspertem";
+
+  if (!p.acceptRegulamin || (!isKawa && !p.promiseCircle)) {
     return Response.json({ error: "Wymagane zgody nie zostały zaznaczone" }, { status: 400 });
+  }
+
+  // --- „Kawa z ekspertem" — krótszy formularz, własne potwierdzenie i cennik ---
+  if (isKawa) {
+    // Trwała lista: osobny arkusz (opcjonalny). Kolumny: Data | Imię i nazwisko | Telefon | E-mail | Regulamin
+    try {
+      await appendToSheet(
+        [new Date().toISOString(), name, phone, email, "Zaakceptowano"],
+        process.env.GOOGLE_SHEET_ID_KAWA,
+      );
+    } catch (err) {
+      console.error("Google Sheets append failed:", err);
+    }
+
+    const kawaHtml = `
+      <h2>Nowe zgłoszenie — Kawa z ekspertem: Sztuka bycia zrozumianym (26.08.2026)</h2>
+      ${row("Imię i nazwisko", name)}
+      ${row("Telefon", phone)}
+      ${row("E-mail", email)}
+      ${row("Regulamin i Polityka Prywatności", "Zaakceptowano")}
+    `;
+
+    try {
+      const res = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
+        body: JSON.stringify({
+          from: FROM_EMAIL,
+          to: [TO_EMAIL],
+          reply_to: email,
+          subject: `[Kawa z ekspertem] ${name}`,
+          html: kawaHtml,
+        }),
+      });
+
+      if (!res.ok) {
+        console.error("Resend error:", await res.text());
+        return Response.json({ error: "Nie udało się wysłać zgłoszenia" }, { status: 502 });
+      }
+
+      try {
+        await sendConfirmationEmail(
+          apiKey,
+          email,
+          "Dziękujemy za zgłoszenie! | Kawa z ekspertem: Sztuka bycia zrozumianym (26 sierpnia)",
+          buildKawaConfirmationHtml(name),
+          buildKawaConfirmationText(name),
+        );
+      } catch (err) {
+        console.error("Confirmation email failed:", err);
+      }
+
+      return Response.json({ success: true });
+    } catch (err) {
+      console.error("Registration handler error:", err);
+      return Response.json({ error: "Wystąpił błąd serwera" }, { status: 500 });
+    }
   }
 
   const careerLabel =
@@ -294,18 +435,21 @@ export default async function handler(request: Request): Promise<Response> {
   // Kolejność kolumn: Data | Imię i nazwisko | Telefon | E-mail | Droga zawodowa |
   // Moduły | Wsparcie rolka | Pilates | Obietnica Kręgu | Regulamin | Wizerunek
   try {
-    await appendToSheet([
-      new Date().toISOString(),
-      name,
-      phone,
-      email,
-      careerLabel,
-      modulesLabel,
-      socialLabel,
-      pilatesLabel,
-      p.promiseCircle ? "Tak" : "Nie",
-      p.acceptRegulamin ? "Tak" : "Nie",
-    ]);
+    await appendToSheet(
+      [
+        new Date().toISOString(),
+        name,
+        phone,
+        email,
+        careerLabel,
+        modulesLabel,
+        socialLabel,
+        pilatesLabel,
+        p.promiseCircle ? "Tak" : "Nie",
+        p.acceptRegulamin ? "Tak" : "Nie",
+      ],
+      process.env.GOOGLE_SHEET_ID,
+    );
   } catch (err) {
     console.error("Google Sheets append failed:", err);
   }
@@ -350,7 +494,13 @@ export default async function handler(request: Request): Promise<Response> {
 
     // Potwierdzenie do Uczestniczki z danymi do przelewu (nie blokuje rejestracji).
     try {
-      await sendConfirmationEmail(apiKey, email, name);
+      await sendConfirmationEmail(
+        apiKey,
+        email,
+        "LEVEL UP: Kobieta – potwierdzenie zgłoszenia i dane do przelewu",
+        buildConfirmationHtml(name),
+        buildConfirmationText(name),
+      );
     } catch (err) {
       console.error("Confirmation email failed:", err);
     }

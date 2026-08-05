@@ -18,6 +18,194 @@ export interface Initiative {
 
 export const allInitiatives: Initiative[] = [
   {
+    slug: "kawa-z-ekspertem",
+    icon: Coffee,
+    title: "Kawa z ekspertem",
+    subtitle: "Spotkanie 1: Sztuka bycia zrozumianym",
+    date: "26 sierpnia 2026, godz. 9:00",
+    desc: "Prowadzący: Piotr Szekowski. O komunikacji i wystąpieniach publicznych, które budują porozumienie. Czy zdarzyło Ci się czuć, że mimo dobrych intencji Twoje słowa nie trafiają do odbiorcy tak, jak byś tego chciała? A może przed ważnym wystąpieniem trema przejmuje nad Tobą kontrolę, a mówienie o własnych sukcesach przychodzi Ci z trudnością? Inicjatywa społeczna WomenUP! zaprasza na pierwsze, kameralne spotkanie z nowego cyklu „Kawa z ekspertem”. To wyjątkowa przestrzeń na zdobycie praktycznej wiedzy, wymianę doświadczeń i rozwój osobisty w inspirującej atmosferze.",
+    status: "Aktywne",
+    registrationOpen: true,
+    coordinator: { name: "Izabella Sobiech", email: "izabellasobiech@gmail.com", phone: "692 407 009", photo: "/assets/team/izabella.jpeg" },
+    detail: (
+      <div className="space-y-8">
+        <div>
+          <h3 className="font-heading text-2xl font-bold text-primary mb-2">
+            Kawa z ekspertem: Sztuka bycia zrozumianym
+          </h3>
+          <p className="italic text-muted-foreground">
+            O komunikacji i wystąpieniach publicznych, które budują porozumienie
+          </p>
+        </div>
+
+        <div className="bg-primary/5 border border-primary/30 rounded-sm p-6">
+          <dl className="space-y-2 text-sm">
+            <div className="flex flex-col sm:flex-row sm:gap-2">
+              <dt className="font-medium text-foreground sm:w-44 shrink-0">Data:</dt>
+              <dd className="text-muted-foreground">26 sierpnia 2026 r., godz. 9:00</dd>
+            </div>
+            <div className="flex flex-col sm:flex-row sm:gap-2">
+              <dt className="font-medium text-foreground sm:w-44 shrink-0">Miejsce:</dt>
+              <dd className="text-muted-foreground">Hotel Mercure Białystok</dd>
+            </div>
+            <div className="flex flex-col sm:flex-row sm:gap-2">
+              <dt className="font-medium text-foreground sm:w-44 shrink-0">Prowadzący:</dt>
+              <dd className="text-muted-foreground">Piotr Szekowski</dd>
+            </div>
+            <div className="flex flex-col sm:flex-row sm:gap-2">
+              <dt className="font-medium text-foreground sm:w-44 shrink-0">Bilet:</dt>
+              <dd className="text-muted-foreground">300 zł</dd>
+            </div>
+            <div className="flex flex-col sm:flex-row sm:gap-2">
+              <dt className="font-medium text-foreground sm:w-44 shrink-0">Kameralna grupa:</dt>
+              <dd className="text-muted-foreground">Limit miejsc wynosi tylko 20 osób</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div className="bg-card border border-border rounded-sm p-5">
+          <p className="text-sm font-medium text-foreground mb-1">Uwaga</p>
+          <p className="text-sm text-muted-foreground">
+            Zależy nam na warsztatowym charakterze spotkania, przestrzeni na zadawanie pytań i dyskusję przy kawie, dlatego liczba miejsc jest ściśle ograniczona. Decyduje kolejność zgłoszeń.
+          </p>
+        </div>
+
+        <div>
+          <h4 className="font-heading text-xl font-bold text-primary mb-2">Czego dowiesz się podczas spotkania?</h4>
+          <p className="text-sm text-muted-foreground">
+            W trakcie warsztatu przejdziemy od teorii do praktycznych narzędzi, które od razu wdrożysz w swoim życiu zawodowym i prywatnym.
+          </p>
+          <ul className="mt-3 space-y-2 text-sm list-disc ml-4">
+            <li><strong>Dlaczego się nie rozumiemy?</strong> – Przeanalizujemy najczęstsze pułapki oraz nawyki komunikacyjne, które utrudniają relacje.</li>
+            <li><strong>Relacja zamiast recytacji</strong> – Dowiesz się, czym naprawdę jest wystąpienie publiczne i jak budować autentyczną więź ze słuchaczami.</li>
+            <li><strong>Psychologia w służbie komunikacji</strong> – Odkryjesz, jak typy osobowości wpływają na sposób mówienia i otrzymasz narzędzia dopasowane do różnych rozmówców.</li>
+            <li><strong>Zarządzanie uwagą</strong> – Przekonasz się, dlaczego uwaga jest ważniejsza niż same słowa i jak skutecznie utrzymywać koncentrację odbiorców.</li>
+            <li><strong>Dialog zamiast monologu</strong> – Poznasz sposoby na angażowanie ludzi, które zdejmują z Ciebie presję i ułatwiają każdy „performance".</li>
+            <li><strong>Oswojenie tremy</strong> – Zrozumiesz, skąd naprawdę bierze się stres przed wystąpieniami i jak odzyskać nad nim pełną kontrolę.</li>
+            <li><strong>Sztuka autentycznej autoprezentacji</strong> – Nauczysz się mówić o sobie swobodnie: bez przerysowania, bez fałszywej skromności i bez umniejszania swoim osiągnięciom.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="font-heading text-xl font-bold text-primary mb-2">O Prowadzącym</h4>
+          <div className="space-y-3 text-sm text-muted-foreground">
+            <p>
+              <strong className="text-foreground">Piotr Szekowski</strong> – aktor, trener komunikacji i wystąpień publicznych oraz wykładowca akademicki.
+            </p>
+            <p>
+              Absolwent Wydziału Aktorskiego AST w Krakowie, od 2013 roku aktor Teatru Dramatycznego im. Aleksandra Węgierki w Białymstoku. Od kilkunastu lat prowadzi szkolenia z komunikacji, wystąpień publicznych i kompetencji interpersonalnych dla firm, instytucji oraz organizacji międzynarodowych.
+            </p>
+            <p>
+              Wykłada na studiach podyplomowych MBA Politechniki Białostockiej i Uniwersytetu WSB Merito we Wrocławiu oraz prowadzi zajęcia na kierunku Psychologia w Zarządzaniu na PB. Współpracuje ze Szkołą Biznesu Laba, gdzie prowadzi autorski kurs „Mów tak, by słuchali" oraz rozwija trenerów jako mentor lektorów. Jest certyfikowanym trenerem modelu DISK® Persolog oraz Speaker Guide konferencji TEDx. Przygotowuje doktorat na Politechnice Białostockiej, badając wpływ międzynarodowych festiwali teatralnych na budowanie marki miast.
+            </p>
+          </div>
+        </div>
+
+        <div className="text-center">
+          <Button asChild className="uppercase tracking-brand-wide text-xs font-semibold px-8 py-3 h-auto">
+            <Link to="/rejestracja-kawa-z-ekspertem">Zarezerwuj swoje miejsce</Link>
+          </Button>
+        </div>
+
+        <div>
+          <h4 className="font-heading text-xl font-bold text-primary mb-1">Jak kupić bilet?</h4>
+          <p className="text-sm text-muted-foreground">Zakup biletu na Warsztaty odbywa się w dwóch krokach:</p>
+          <div className="mt-4 space-y-4">
+            <div className="border-l-2 border-primary pl-4">
+              <p className="text-sm font-medium text-foreground">Krok 1</p>
+              <p className="text-sm text-muted-foreground mt-1">Wypełnij formularz zgłoszeniowy dostępny na stronie wydarzenia.</p>
+              <Button asChild className="mt-3 uppercase tracking-brand-wide text-xs font-semibold">
+                <Link to="/rejestracja-kawa-z-ekspertem">Wypełnij formularz zgłoszeniowy</Link>
+              </Button>
+            </div>
+            <div className="border-l-2 border-primary pl-4">
+              <p className="text-sm font-medium text-foreground">Krok 2</p>
+              <p className="text-sm text-muted-foreground mt-1">Opłać udział przelewem tradycyjnym na rachunek wskazany po zapisaniu formularza oraz w wiadomości e-mail przesłanej po zgłoszeniu.</p>
+            </div>
+          </div>
+          <div className="mt-4 flex flex-wrap gap-x-8 gap-y-1 text-sm">
+            <p><strong className="text-foreground">Koszt udziału:</strong> <span className="text-muted-foreground">300,00 zł</span></p>
+            <p><strong className="text-foreground">Termin płatności:</strong> <span className="text-muted-foreground">do 23.08.2026 r.</span></p>
+          </div>
+        </div>
+
+        <div className="bg-card border border-border rounded-sm p-5">
+          <p className="text-sm font-medium text-foreground mb-1">Ważne</p>
+          <p className="text-sm text-muted-foreground">
+            Przesłanie formularza zgłoszeniowego nie jest równoznaczne z potwierdzeniem miejsca na wydarzeniu. Miejsce zostaje potwierdzone po zaksięgowaniu pełnej opłaty za udział.
+          </p>
+          <p className="text-sm text-muted-foreground mt-2">
+            W razie pytań skontaktuj się z nami:{" "}
+            <a href="mailto:womenup.inicjatywaspoleczna@gmail.com" className="text-primary hover:underline">womenup.inicjatywaspoleczna@gmail.com</a>
+          </p>
+        </div>
+
+        <div className="pt-8 border-t border-border space-y-6">
+          <div>
+            <h3 className="font-heading text-2xl font-bold text-primary mb-2">
+              Cykl: Kawa z Ekspertem. Blisko. Konkretnie. Kobieco.
+            </h3>
+            <p className="italic text-muted-foreground">
+              Kameralne poranki z wiedzą, która zmienia codzienność. Filiżanka kawy, kameralne grono i bezcenny czas na Twoje pytania.
+            </p>
+            <p className="text-sm font-medium text-foreground mt-4">Planowane tematy kolejnych spotkań:</p>
+          </div>
+
+          <div className="space-y-6">
+            <div className="bg-card border border-border rounded-sm p-5">
+              <h4 className="font-heading font-bold text-lg text-primary">Cyfrowy Ślad Ekspertki</h4>
+              <p className="italic mt-1">„Marka osobista z duszą. Jak budować pozycję na LinkedIn i w sieci, pozostając sobą."</p>
+              <ul className="mt-3 space-y-1 text-sm">
+                <li><strong>O czym rozmawiamy:</strong> Jak odczarować „sprzedażowy" wizerunek LinkedIna? Jak pisać o swoich sukcesach bez poczucia chwalipięctwa i jak sprawić, by algorytmy pracowały na Twoje nazwisko.</li>
+                <li><strong>Dla kogo:</strong> Dla kobiet chcących awansować, zmienić branżę lub rozwinąć własny biznes.</li>
+              </ul>
+            </div>
+
+            <div className="bg-card border border-border rounded-sm p-5">
+              <h4 className="font-heading font-bold text-lg text-primary">Intymna Check-lista</h4>
+              <p className="italic mt-1">„Ginekologiczna instrukcja obsługi – usłysz sygnały swojego ciała."</p>
+              <ul className="mt-3 space-y-1 text-sm">
+                <li><strong>Ekspert:</strong> Ginekolog-endokrynolog.</li>
+                <li><strong>O czym rozmawiamy:</strong> Jak czytać wyniki cytologii (i dlaczego to nie wyrok?), o co pytać w gabinecie, by czuć się zaopiekowaną oraz dlaczego samobadanie piersi to najważniejszy „rytuał miłości", jaki możesz sobie podarować.</li>
+                <li><strong>Dla kogo:</strong> Dla każdej kobiety, która chce przestać bać się wizyt u lekarza.</li>
+              </ul>
+            </div>
+
+            <div className="bg-card border border-border rounded-sm p-5">
+              <h4 className="font-heading font-bold text-lg text-primary">Finanse po Białostocku</h4>
+              <p className="italic mt-1">„Czy pieniądze mają płeć? Jak mądrze zarządzać swoim 'posagiem'."</p>
+              <ul className="mt-3 space-y-1 text-sm">
+                <li><strong>Ekspert:</strong> Doradczyni finansowa / Ekspertka inwestycyjna.</li>
+                <li><strong>O czym rozmawiamy:</strong> O budowaniu niezależności finansowej w realiach regionu podlaskiego. Dlaczego „własne konto" to fundament wolności i jak skutecznie negocjować stawkę rynkową.</li>
+                <li><strong>Dla kogo:</strong> Dla kobiet, które chcą przejąć stery nad domowym lub firmowym budżetem.</li>
+              </ul>
+            </div>
+
+            <div className="bg-card border border-border rounded-sm p-5">
+              <h4 className="font-heading font-bold text-lg text-primary">Prawo w Spódnicy</h4>
+              <p className="italic mt-1">„Słowiańska gospodyni czy partnerka biznesowa? Twoje bezpieczeństwo w związku i firmie."</p>
+              <ul className="mt-3 space-y-1 text-sm">
+                <li><strong>Ekspert:</strong> Adwokatka.</li>
+                <li><strong>O czym rozmawiamy:</strong> Intercyza, dziedziczenie i zabezpieczenie dzieci – bez prawniczego żargonu. Jak czytać umowy B2B i kontrakty, by „w razie burzy" stać na twardym gruncie.</li>
+                <li><strong>Dla kogo:</strong> Dla mężatek, partnerek i przedsiębiorczyń.</li>
+              </ul>
+            </div>
+
+            <div className="bg-card border border-border rounded-sm p-5">
+              <h4 className="font-heading font-bold text-lg text-primary">Labirynt Ról</h4>
+              <p className="italic mt-1">„Córka, Matka, Liderka – jak nie zgubić siebie w oczekiwaniach innych?"</p>
+              <ul className="mt-3 space-y-1 text-sm">
+                <li><strong>Ekspert:</strong> Psychoterapeutka.</li>
+                <li><strong>O czym rozmawiamy:</strong> O presji tradycji i nowoczesności. Jak odróżnić cudze „musisz" od własnego „chcę" oraz jak stawiać granice rodzinie i współpracownikom, nie tracąc bliskości.</li>
+                <li><strong>Dla kogo:</strong> Dla kobiet, które czują, że niosą na barkach zbyt wiele światów naraz.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    ),
+  },
+  {
     slug: "level-up-kobieta",
     icon: Flame,
     title: "LEVEL UP: Kobieta",
@@ -285,77 +473,6 @@ export const allInitiatives: Initiative[] = [
               <h4 className="font-heading font-bold text-lg">15:45 – 16:30 | Finał i Losowanie Nagród</h4>
               <p className="mt-2">Podsumowanie, networking końcowy i upominki od partnerów (tzw. Goodie Bags z voucherami na badania czy warsztaty).</p>
             </div>
-          </div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    slug: "kawa-z-ekspertem",
-    icon: Coffee,
-    title: "Kawa z ekspertem",
-    desc: "Kameralne spotkania z ekspertami przy filiżance kawy (do 25 osób).",
-    status: "Aktywne",
-    coordinator: { name: "Izabella Sobiech", email: "izabellasobiech@gmail.com", phone: "692 407 009", photo: "/assets/team/izabella.jpeg" },
-    detail: (
-      <div className="space-y-8">
-        <div>
-          <h3 className="font-heading text-2xl font-bold text-primary mb-2">
-            Cykl: Kawa z Ekspertem. Blisko. Konkretnie. Kobieco.
-          </h3>
-          <p className="italic text-muted-foreground">
-            Kameralne poranki z wiedzą, która zmienia codzienność. Tylko 25 miejsc, filiżanka kawy i bezcenny czas na Twoje pytania.
-          </p>
-        </div>
-
-        <div className="space-y-6">
-          <div className="bg-card border border-border rounded-sm p-5">
-            <h4 className="font-heading font-bold text-lg text-primary">Spotkanie 1: Cyfrowy Ślad Ekspertki</h4>
-            <p className="italic mt-1">„Marka osobista z duszą. Jak budować pozycję na LinkedIn i w sieci, pozostając sobą."</p>
-            <ul className="mt-3 space-y-1 text-sm">
-              <li><strong>O czym rozmawiamy:</strong> Jak odczarować „sprzedażowy" wizerunek LinkedIna? Jak pisać o swoich sukcesach bez poczucia chwalipięctwa i jak sprawić, by algorytmy pracowały na Twoje nazwisko.</li>
-              <li><strong>Dla kogo:</strong> Dla kobiet chcących awansować, zmienić branżę lub rozwinąć własny biznes.</li>
-            </ul>
-          </div>
-
-          <div className="bg-card border border-border rounded-sm p-5">
-            <h4 className="font-heading font-bold text-lg text-primary">Spotkanie 2: Intymna Check-lista</h4>
-            <p className="italic mt-1">„Ginekologiczna instrukcja obsługi – usłysz sygnały swojego ciała."</p>
-            <ul className="mt-3 space-y-1 text-sm">
-              <li><strong>Ekspert:</strong> Ginekolog-endokrynolog.</li>
-              <li><strong>O czym rozmawiamy:</strong> Jak czytać wyniki cytologii (i dlaczego to nie wyrok?), o co pytać w gabinecie, by czuć się zaopiekowaną oraz dlaczego samobadanie piersi to najważniejszy „rytuał miłości", jaki możesz sobie podarować.</li>
-              <li><strong>Dla kogo:</strong> Dla każdej kobiety, która chce przestać bać się wizyt u lekarza.</li>
-            </ul>
-          </div>
-
-          <div className="bg-card border border-border rounded-sm p-5">
-            <h4 className="font-heading font-bold text-lg text-primary">Spotkanie 3: Finanse po Białostocku</h4>
-            <p className="italic mt-1">„Czy pieniądze mają płeć? Jak mądrze zarządzać swoim 'posagiem'."</p>
-            <ul className="mt-3 space-y-1 text-sm">
-              <li><strong>Ekspert:</strong> Doradczyni finansowa / Ekspertka inwestycyjna.</li>
-              <li><strong>O czym rozmawiamy:</strong> O budowaniu niezależności finansowej w realiach regionu podlaskiego. Dlaczego „własne konto" to fundament wolności i jak skutecznie negocjować stawkę rynkową.</li>
-              <li><strong>Dla kogo:</strong> Dla kobiet, które chcą przejąć stery nad domowym lub firmowym budżetem.</li>
-            </ul>
-          </div>
-
-          <div className="bg-card border border-border rounded-sm p-5">
-            <h4 className="font-heading font-bold text-lg text-primary">Spotkanie 4: Prawo w Spódnicy</h4>
-            <p className="italic mt-1">„Słowiańska gospodyni czy partnerka biznesowa? Twoje bezpieczeństwo w związku i firmie."</p>
-            <ul className="mt-3 space-y-1 text-sm">
-              <li><strong>Ekspert:</strong> Adwokatka.</li>
-              <li><strong>O czym rozmawiamy:</strong> Intercyza, dziedziczenie i zabezpieczenie dzieci – bez prawniczego żargonu. Jak czytać umowy B2B i kontrakty, by „w razie burzy" stać na twardym gruncie.</li>
-              <li><strong>Dla kogo:</strong> Dla mężatek, partnerek i przedsiębiorczyń.</li>
-            </ul>
-          </div>
-
-          <div className="bg-card border border-border rounded-sm p-5">
-            <h4 className="font-heading font-bold text-lg text-primary">Spotkanie 5: Labirynt Ról</h4>
-            <p className="italic mt-1">„Córka, Matka, Liderka – jak nie zgubić siebie w oczekiwaniach innych?"</p>
-            <ul className="mt-3 space-y-1 text-sm">
-              <li><strong>Ekspert:</strong> Psychoterapeutka.</li>
-              <li><strong>O czym rozmawiamy:</strong> O presji tradycji i nowoczesności. Jak odróżnić cudze „musisz" od własnego „chcę" oraz jak stawiać granice rodzinie i współpracownikom, nie tracąc bliskości.</li>
-              <li><strong>Dla kogo:</strong> Dla kobiet, które czują, że niosą na barkach zbyt wiele światów naraz.</li>
-            </ul>
           </div>
         </div>
       </div>

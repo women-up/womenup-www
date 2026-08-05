@@ -10,6 +10,7 @@ import Aktualnosci from "./pages/Aktualnosci";
 import Kontakt from "./pages/Kontakt";
 import Dolacz from "./pages/Dolacz";
 import RejestracjaLevelUp from "./pages/RejestracjaLevelUp";
+import RejestracjaKawaZEkspertem from "./pages/RejestracjaKawaZEkspertem";
 import DesignSystem from "./pages/DesignSystem";
 import Partnerzy from "./pages/Partnerzy";
 import PolitykaPrywatnosci from "./pages/PolitykaPrywatnosci";
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/kontakt" element={<Kontakt />} />
           <Route path="/dolacz" element={<Dolacz />} />
           <Route path="/rejestracja-level-up" element={<RejestracjaLevelUp />} />
+          <Route path="/rejestracja-kawa-z-ekspertem" element={<RejestracjaKawaZEkspertem />} />
           <Route path="/polityka-prywatnosci" element={<PolitykaPrywatnosci />} />
           <Route path="/regulamin" element={<Regulamin />} />
           <Route path="/regulamin-level-up" element={<RegulaminLevelUp />} />

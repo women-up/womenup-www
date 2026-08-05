@@ -223,8 +223,7 @@ const RejestracjaKawaZEkspertem = () => {
                 <Checkbox id="regulamin" checked={form.acceptRegulamin} onCheckedChange={(v) => setForm({ ...form, acceptRegulamin: v === true })} className="mt-0.5" />
                 <Label htmlFor="regulamin" className="font-normal cursor-pointer leading-snug">
                   Akceptuję{" "}
-                  <Link to="/regulamin" target="_blank" className="text-primary underline">Regulamin strony internetowej i wydarzeń Women Up! Inicjatywa Społeczna</Link>,{" "}
-                  <Link to="/regulamin-level-up" target="_blank" className="text-primary underline">Regulamin Konferencji „LEVEL UP: Kobieta"</Link>{" "}
+                  <Link to="/regulamin" target="_blank" className="text-primary underline">Regulamin strony internetowej i wydarzeń Women Up! Inicjatywa Społeczna</Link>{" "}
                   i{" "}
                   <Link to="/polityka-prywatnosci" target="_blank" className="text-primary underline">Politykę Prywatności</Link>{" "}
                   stowarzyszenia Women Up! *
